@@ -19,6 +19,8 @@ import tods2 from './src/assets/Tods2.webp'
 import versace1 from './src/assets/Versace1.webp'
 import versace2 from './src/assets/Versace2.webp'
 
+
+
 export interface product{
 
     id:number,
