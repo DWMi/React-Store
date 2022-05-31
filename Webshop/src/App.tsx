@@ -1,13 +1,20 @@
 import { useState } from 'react'
 import logo from './logo.svg'
 import './App.css'
+import Header from './components/Header'
+import Footer from './components/Footer'
+import LandingPage from './components/LandingPage'
 
 function App() {
   
 
   return (
     <div className="App">
-      <h1>Webshop</h1>
+
+        <Header />
+        <LandingPage />
+        <Footer />
+
     </div>
   )
 }
