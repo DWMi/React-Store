@@ -1,23 +1,23 @@
-import dunHillOne from './src/assets/Dunhill1.webp'
-import dunHillTwo from './src/assets/Dunhill2.webp'
-import tomFordOne from './src/assets/Tomford1.webp'
-import tomFordTwo from './src/assets/Tomford2.webp'
-import dunHillClearOne from './src/assets/DunhillClear1.webp'
-import dunHillClearTwo from './src/assets/DunhillClear2.webp'
-import AMCQOne from './src/assets/AlexanderMcQueen1.webp'
-import AMCQTwo from './src/assets/AlexanderMcQueen2.webp'
-import montBlancOne from './src/assets/MontBlanc1.webp'
-import montBlancTwo from './src/assets/MontBlanc2.webp'
-import gucciOne from './src/assets/Gucci1.webp'
-import gucciTwo from './src/assets/Gucci2.webp'
-import pradaOne from './src/assets/prada1.webp'
-import pradaTwo from './src/assets/prada2.webp'
-import DbOne from './src/assets/Dolcegabbana1.webp'
-import DbTwo from './src/assets/Dolcegabbana2.webp'
-import todsOne from './src/assets/Tods1.webp'
-import todsTwo from './src/assets/Tods2.webp'
-import versaceOne from './src/assets/Versace1.webp'
-import versaceTwo from './src/assets/Versace2.webp'
+import dunHillOne from '../assets/Dunhill1.webp'
+import dunHillTwo from '../assets/Dunhill2.webp'
+import tomFordOne from '../assets/Tomford1.webp'
+import tomFordTwo from '../assets/Tomford2.webp'
+import salvatoreOne from '../assets/salvatore1.webp'
+import salvatoreTwo from '../assets/salvatore2.webp'
+import AMCQOne from '../assets/AlexanderMcQueen1.webp'
+import AMCQTwo from '../assets/AlexanderMcQueen2.webp'
+import montBlancOne from '../assets/MontBlanc1.webp'
+import montBlancTwo from '../assets/MontBlanc2.webp'
+import gucciOne from '../assets/Gucci1.webp'
+import gucciTwo from '../assets/Gucci2.webp'
+import pradaOne from '../assets/Prada1.webp'
+import pradaTwo from '../assets/Prada2.webp'
+import DbOne from '../assets/Dolcegabbana1.webp'
+import DbTwo from '../assets/Dolcegabbana2.webp'
+import todsOne from '../assets/Tods1.webp'
+import todsTwo from '../assets/Tods2.webp'
+import versaceOne from '../assets/Versace1.webp'
+import versaceTwo from '../assets/Versace2.webp'
 
 
 
@@ -39,54 +39,55 @@ const productList: Product[] =[
     
     {
         id:1,
-        productTitle:'Dunhill Sunglasses',
+        productTitle:'Salvatore Sunglasses',
         productDescription:`Glasögonform: Rektangulär 
         Material: Metall 
         Toningsgrad: Mörka (kategori 3)
         UV-skydd: Ja`,
         productImg: {
-            img1: dunHillOne,
-            img2: dunHillTwo,
+            img1:salvatoreOne,
+            img2:salvatoreTwo,
         },
         productPrice:4715
     },
     {
         id:2,
+        productTitle:'Dunhill Sunglasses',
+        productDescription:`Glasögonform: Retro fyrkant
+        Material: Metall
+        Mönster: Färggradient
+        Toningsgrad: Medium (kategori 2)
+        UV-skydd: Ja
+        Glasögonfodral: Påse med dragsko, hårt`,
+        productImg: {
+            img1:dunHillOne,
+            img2:dunHillTwo,
+        },
+        productPrice:3045
+    },
+    {
+        id:3,
         productTitle:'Tom Ford Sunglasses',
         productDescription:`Glasögonform: Pilot (droppformad)
-        Material:Delvis metall
-        Toningsgrad: Mörka (kategori 3)
+        Mönster: Enfärgat
+        Toningsgrad: Medium (kategori 2)
         UV-skydd: Ja
         Glasögonfodral: Hårt`,
         productImg: {
             img1:tomFordOne,
             img2:tomFordTwo,
         },
-        productPrice:4299
-    },
-    {
-        id:3,
-        productTitle:'Dunhill Clear Sunglasses',
-        productDescription:`Glasögonform: Retro fyrkant
-        Material:Acetat
-        Mönster: Melerat
-        Toningsgrad: Klara eller väldigt ljusa (kategori 0)
-        UV-skydd: Ja`,
-        productImg: {
-            img1:dunHillClearOne,
-            img2:dunHillClearTwo,
-        },
-        productPrice:4265
+        productPrice:3195
     },
     {
         id:4,
         productTitle:'Alexander McQueen Sunglasses',
-        productDescription:`Glasögonform: Rund
-        Material:Delvis metall
+        productDescription:`Glasögonform: Monoglas
+        Material: Acetat
         Mönster: Enfärgat
         Toningsgrad: Mörka (kategori 3)
         UV-skydd: Ja
-        Glasögonfodral: Påse med dragsko, hårt`,
+        Glasögonfodral: Hårt`,
         productImg: {
             img1:AMCQOne,
             img2:AMCQTwo,
