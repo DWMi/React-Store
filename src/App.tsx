@@ -1,20 +1,21 @@
-import { useState } from 'react'
+import React, { useState, FC } from 'react'
 import logo from './logo.svg'
 import './App.css'
-import Header from './components/Header'
 import Footer from './components/Footer'
+import { BrowserRouter } from 'react-router-dom'
+import Layout from './components/Layout'
 import LandingPage from './components/LandingPage'
-import SingleProduct from './components/SingleProduct'
-function App() {
+
+const App: FC = () => {
   
 
   return (
     <div className="App">
 
-        <Header />
-        <SingleProduct />
-        <Footer />
-
+      <BrowserRouter>
+        <Layout />
+      </BrowserRouter>
+      
     </div>
   )
 }
