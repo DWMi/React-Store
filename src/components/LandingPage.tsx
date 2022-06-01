@@ -10,7 +10,6 @@ export const LandingPage: FC = () => {
 
     <div style={landingStyle} id="landingPage">
 
-
         <h1> Content </h1>
 
     </div>
