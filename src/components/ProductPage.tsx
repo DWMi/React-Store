@@ -9,9 +9,9 @@ export const ProductPage: FC = () => {
 
   return (
 
-    <div style={containerStyle} id="productPage">
-
+    <div style={pageStyle} id="productPage">
       
+      <div style={containerStyle}>
 
            {
                 productList.map((product) => (
@@ -20,16 +20,24 @@ export const ProductPage: FC = () => {
                 ))
             }
 
-
+      </div>
     </div>
 
   );
 }
 
 export default ProductPage;
+const pageStyle: CSSProperties = {
+  width: '100%',
+  display: 'flex',
+  justifyContent: "center",
+  padding: '40px'
+ 
+}
 
 const containerStyle: CSSProperties = {
   display: 'flex',
+  width: '90%',
   flexBasis: '33,333%',
   flexWrap: 'wrap',
   gap: '20px',
