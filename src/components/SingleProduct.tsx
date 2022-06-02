@@ -1,5 +1,6 @@
 
 import React, { CSSProperties, FC, useState } from "react";
+import { useParams } from "react-router-dom";
 import productList, {Product} from "../data/productList";
 import { flexDeadCenter, flexColumn, flexRow, marginLR, button, HW100 } from "../style/common";
 
@@ -12,7 +13,11 @@ export const SingleProduct: FC<Props> = (props) => {
 
   const addToCart = () => setItemsNumber(1)
 
-  
+  const { productId } = useParams()
+
+    const foundProduct = productList.find((product) => Number(productId) == product.id)
+
+    console.log(foundProduct)
 
   const clickOne = (value: string) => {
     const mainPic = document.querySelector('.mainPic') as HTMLImageElement
@@ -33,13 +38,14 @@ export const SingleProduct: FC<Props> = (props) => {
 
   return (
 
+
     <div style={{height:'100vh'}}>
       <div style={{height:'100%', ...marginLR, ...flexRow,justifyContent:'space-between',display:'flex', alignItems:'center'}} id="singleProductContainer">
         <div className="imgCon" style={{alignItems:'flex-start', marginRight:'80px' , justifyContent:'center' ,...flexColumn, ...imgConStyle}}>
-          <img className="mainPic" style={{...flexDeadCenter, ...imgStyle}} src={productList[0].productImg.img1} alt="" />
+          <img className="mainPic" style={{...flexDeadCenter, ...imgStyle}} src={foundProduct.productImg.img1} alt="" />
           <div className="miniImgCon" style={{...miniImgConStyles ,...flexRow, justifySelf:'flex-start'}}>
-            <img className="miniPic1" style={{...miniImgStyles}} src={productList[0].productImg.img1}alt="" onClick={() => clickOne('img1')} />
-            <img className="miniPic2" style={{...miniImgStyles}} src={productList[0].productImg.img2} alt="" onClick={() => clickOne('img2')} />
+            <img className="miniPic1" style={{...miniImgStyles}} src={foundProduct?.productImg.img1}alt="" onClick={() => clickOne('img1')} />
+            <img className="miniPic2" style={{...miniImgStyles}} src={foundProduct.productImg.img2} alt="" onClick={() => clickOne('img2')} />
           </div>
         </div>
         <div className="sideInfo" style={{height:'100%',width:'50%', ...flexColumn}}>
@@ -50,7 +56,6 @@ export const SingleProduct: FC<Props> = (props) => {
                   <h2 style={{display:'flex', textAlign:'start'}} className="prodPrice">{productList[0].productPrice + ';-' }</h2>
                 </div>
                 <div style={{...flexRow, alignItems:'center', padding:'10px'}}>
-
 
                   <div style={{margin:'0px 5% 0px 5%'}}>
                     <button style={amountStyle} onClick={() => setItemsNumber(prevState => prevState <= 1 ? prevState : prevState - 1)}>-</button>
