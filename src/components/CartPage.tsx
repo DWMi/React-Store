@@ -1,7 +1,6 @@
 import React, { CSSProperties, FC } from "react";
 
 
-
 const CartPage: FC = () => {
 
 
