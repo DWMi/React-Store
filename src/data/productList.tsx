@@ -25,7 +25,13 @@ export interface Product{
 
     id:number,
     productTitle:string,
-    productDescription:string,
+    productDescription:{
+        form:string,
+        material?:string,
+        toneGrade:string,
+        uvPro:string,
+        case?:string
+    },
     productImg:{
         img1:string,
         img2:string
@@ -40,10 +46,12 @@ const productList: Product[] =[
     {
         id:1,
         productTitle:'Salvatore Sunglasses',
-        productDescription:`Glasögonform: Rektangulär 
-        Material: Metall 
-        Toningsgrad: Mörka (kategori 3)
-        UV-skydd: Ja`,
+        productDescription:{
+            form:' Glasögonform: Rektangulär', 
+            material:'Material: Metall' ,
+            toneGrade:'Toningsgrad: Mörka (kategori 3)',
+            uvPro:'UV-skydd: Ja',
+        },
         productImg: {
             img1:salvatoreOne,
             img2:salvatoreTwo,
@@ -53,12 +61,13 @@ const productList: Product[] =[
     {
         id:2,
         productTitle:'Dunhill Sunglasses',
-        productDescription:`Glasögonform: Retro fyrkant
-        Material: Metall
-        Mönster: Färggradient
-        Toningsgrad: Medium (kategori 2)
-        UV-skydd: Ja
-        Glasögonfodral: Påse med dragsko, hårt`,
+        productDescription:{
+            form:' Glasögonform: Retro fyrkant', 
+            material:'Material: Metall' ,
+            toneGrade:'Toningsgrad:Medium (kategori 2)',
+            uvPro:'UV-skydd: Ja',
+            case:' Glasögonfodral: Påse med dragsko, hårt',
+        },
         productImg: {
             img1:dunHillOne,
             img2:dunHillTwo,
@@ -68,11 +77,12 @@ const productList: Product[] =[
     {
         id:3,
         productTitle:'Tom Ford Sunglasses',
-        productDescription:`Glasögonform: Pilot (droppformad)
-        Mönster: Enfärgat
-        Toningsgrad: Medium (kategori 2)
-        UV-skydd: Ja
-        Glasögonfodral: Hårt`,
+        productDescription:{
+            form:'Glasögonform: Pilot (droppformad)', 
+            toneGrade:'Toningsgrad:Medium (kategori 2)',
+            uvPro:'UV-skydd: Ja',
+            case:'Glasögonfodral: hårt',
+        },
         productImg: {
             img1:tomFordOne,
             img2:tomFordTwo,
@@ -82,12 +92,13 @@ const productList: Product[] =[
     {
         id:4,
         productTitle:'Alexander McQueen Sunglasses',
-        productDescription:`Glasögonform: Monoglas
-        Material: Acetat
-        Mönster: Enfärgat
-        Toningsgrad: Mörka (kategori 3)
-        UV-skydd: Ja
-        Glasögonfodral: Hårt`,
+        productDescription:{
+            form:'Glasögonform: Monoglas', 
+            material:'Material: Acetat',
+            toneGrade:'Toningsgrad: Mörka (kategori 3)',
+            uvPro:'UV-skydd: Ja',
+            case:'Glasögonfodral: Hårt',
+        },
         productImg: {
             img1:AMCQOne,
             img2:AMCQTwo,
@@ -97,12 +108,14 @@ const productList: Product[] =[
     {
         id:5,
         productTitle:'Mont Blanc Sunglasses',
-        productDescription:`Glasögonform: Pilot (droppformad)
-        Material: Delvis metall
-        Mönster: Enfärgat
-        Toningsgrad: Mörka (kategori 3)
-        UV-skydd: Ja
-        Glasögonfodral: Hårt`,
+        productDescription:{
+            form:'Glasögonform: Pilot (droppformad)', 
+            material:'Material: Delvis metall',
+            toneGrade:'Toningsgrad: Mörka (kategori 3)',
+            uvPro:'UV-skydd: Ja',
+            case:'Glasögonfodral: Hårt',
+        },
+
         productImg: {
             img1:montBlancOne,
             img2:montBlancTwo,
@@ -112,10 +125,12 @@ const productList: Product[] =[
     {
         id:6,
         productTitle:'Gucci Sunglasses',
-        productDescription:`Glasögonform: Rektangulär
-        Toningsgrad: Mörka (kategori 3)
-        UV-skydd: Ja
-        Glasögonfodral: Påse med dragsko, hårt`,
+        productDescription:{
+            form:'Glasögonform: Rektangulär', 
+            toneGrade:'Toningsgrad: Mörka (kategori 3)',
+            uvPro:'UV-skydd: Ja',
+            case:'Glasögonfodral: Påse med dragsko, hårt',
+        },
         productImg: {
             img1:gucciOne,
             img2:gucciTwo,
@@ -125,10 +140,12 @@ const productList: Product[] =[
     {
         id:7,
         productTitle:'Prada Sunglasses',
-        productDescription:`Glasögonform: Rektangulär
-        Toningsgrad: Medium (kategori 2)
-        UV-skydd: Ja
-        Glasögonfodral: Hårt`,
+        productDescription:{
+            form:'Glasögonform: Rektangulär', 
+            toneGrade:'Toningsgrad: Medium (kategori 2)',
+            uvPro:'UV-skydd: Ja',
+            case:'Glasögonfodral: Hårt',
+        },
         productImg: {
             img1:pradaOne,
             img2:pradaTwo,
@@ -138,12 +155,13 @@ const productList: Product[] =[
     {
         id:8,
         productTitle:'Dolce&Gabbana Sunglasses',
-        productDescription:`Glasögonform: Pilot (droppformad)
-        Material: Acetat
-        Mönster: Enfärgat
-        Toningsgrad: Mörka (kategori 3)
-        UV-skydd: Ja
-        Glasögonfodral: Hårt`,
+        productDescription:{
+            form:'Glasögonform: Pilot (droppformad)', 
+            material:'Material: Acetat',
+            toneGrade:'Toningsgrad: Mörka (kategori 3)',
+            uvPro:'UV-skydd: Ja',
+            case:'Glasögonfodral: Hårt',
+        },        
         productImg: {
             img1:DbOne,
             img2:DbTwo,
@@ -153,10 +171,12 @@ const productList: Product[] =[
     {
         id:9,
         productTitle:"Tods's Sunglasses",
-        productDescription:`Glasögonform: Pilot (droppformad)
-        Material: Delvis metall
-        Toningsgrad: Medium (kategori 2)
-        UV-skydd: Ja`,
+        productDescription:{
+            form:'Glasögonform: Pilot (droppformad)', 
+            material:'Material: Delvis metall',
+            toneGrade:'Toningsgrad: Medium (kategori 2)',
+            uvPro:'UV-skydd: Ja',
+        },        
         productImg: {
             img1:todsOne,
             img2:todsTwo,
@@ -166,10 +186,12 @@ const productList: Product[] =[
     {
         id:10,
         productTitle:'Versace Sunglasses',
-        productDescription:`Glasögonform: Pilot (droppformad)
-        Toningsgrad: Mörka (kategori 3)
-        UV-skydd: Ja
-        Glasögonfodral: Hårt`,
+        productDescription:{
+            form:'Glasögonform: Pilot (droppformad)', 
+            toneGrade:'Toningsgrad: Mörka (kategori 3)',
+            uvPro:'UV-skydd: Ja',
+            case:'Glasögonfodral: Hårt',
+        },        
         productImg: {
             img1:versaceOne,
             img2:versaceTwo,
