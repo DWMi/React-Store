@@ -1,10 +1,8 @@
 import React, { useState, FC } from 'react'
-import logo from './logo.svg'
 import './App.css'
-import Footer from './components/Footer'
 import { BrowserRouter } from 'react-router-dom'
 import Layout from './components/Layout'
-import LandingPage from './components/LandingPage'
+
 
 const App: FC = () => {
   
@@ -15,7 +13,7 @@ const App: FC = () => {
       <BrowserRouter>
         <Layout />
       </BrowserRouter>
-      
+
     </div>
   )
 }

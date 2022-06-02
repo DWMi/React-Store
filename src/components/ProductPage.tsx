@@ -20,6 +20,7 @@ export const ProductPage: FC = () => {
                 ))
             }
 
+      <h1> Products </h1> {/* product cards here */}
 
     </div>
 
@@ -40,3 +41,4 @@ const containerStyle: CSSProperties = {
 
 
 //normal style here
+

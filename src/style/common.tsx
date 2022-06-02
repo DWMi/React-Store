@@ -16,8 +16,7 @@ export const flexColumn : CSSProperties = {
     flexDirection:'column'
 }
 
-
-export const flexRow: CSSProperties ={
+export const flexCenterRow: CSSProperties = {
 
     display:'flex',
     flexDirection:'row'
