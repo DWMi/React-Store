@@ -44,14 +44,14 @@ export const ProductCard: FC<Props> = (props) => {
           {props.product.productTitle}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          {props.product.productDescription}
+         {props.product.productDescription.toneGrade}
         </Typography>
         <Typography variant="h6" color="text.primary">
           {props.product.productPrice},00 kr
         </Typography>
       </CardContent>
       <CardActions>
-        <Button  variant="outlined" size="small">Läs mer</Button>
+        <Link to={`/${props.product.id}`}><Button  variant="outlined" size="small">Läs mer</Button></Link>
       </CardActions>
     </Card>
 
