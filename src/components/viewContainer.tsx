@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 import CartPage from './CartPage'
 import LandingPage from './LandingPage'
 import ProductPage from './ProductPage'
+import SingleProduct from './SingleProduct'
 
 
 

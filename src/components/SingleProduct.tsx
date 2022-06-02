@@ -15,10 +15,9 @@ export const SingleProduct: FC<Props> = (props) => {
 
   return (
     <div style={landingStyle} id="singleProduct">
-
-<img src={productList[6].productImg.img1} alt="" />
-        {/* <img src={props.products.productImg,img1} alt="" /> */}
-
+      
+      <h1>HEEEJ</h1>
+    
     </div>
 
   );

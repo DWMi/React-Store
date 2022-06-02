@@ -1,4 +1,6 @@
 import React, { CSSProperties, FC } from "react";
+import productList from "../data/productList";
+import ProductCard from "./ProductCard";
 
 
 
@@ -7,10 +9,17 @@ export const ProductPage: FC = () => {
 
   return (
 
-    <div id="productPage">
+    <div style={containerStyle} id="productPage">
 
+      
 
-        <h1> Products </h1> {/* product cards here */}
+           {
+                productList.map((product) => (
+                  
+                        <ProductCard product = {product} />
+                ))
+            }
+
 
     </div>
 
@@ -19,7 +28,14 @@ export const ProductPage: FC = () => {
 
 export default ProductPage;
 
-
+const containerStyle: CSSProperties = {
+  display: 'flex',
+  flexBasis: '33,333%',
+  flexWrap: 'wrap',
+  gap: '20px',
+  justifyContent: 'center',
+  marginTop: '30px',
+}
 
 
 
