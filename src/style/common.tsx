@@ -1,6 +1,8 @@
+import { height } from "@mui/system";
 import { CSSProperties } from "react";
 
-export const flexCenter: CSSProperties = {
+
+export const flexDeadCenter: CSSProperties = {
 
     display:'flex',
     justifyContent:'center',
@@ -8,18 +10,40 @@ export const flexCenter: CSSProperties = {
 
 }
 
-export const flexCenterColumn : CSSProperties = {
+export const flexColumn : CSSProperties = {
 
     display:'flex',
-    justifyContent:'center',
-    alignItems:'center',
     flexDirection:'column'
 }
 
-export const flexCenterRow: CSSProperties ={
+
+export const flexRow: CSSProperties ={
 
     display:'flex',
-    justifyContent:'center',
-    alignItems:'center',
     flexDirection:'row'
+}
+
+export const marginLR: CSSProperties ={
+
+    marginLeft:'100px',
+    marginRight:'100px'
+}
+export const button: CSSProperties ={
+    backgroundColor:'#9393f9',
+    border:'none',
+    color:'white',
+    fontWeight:'bold',
+    cursor:'pointer',
+    padding:'10px',
+    height:'80%',
+    width:'20%',
+    alignItems:'center',
+    justifyContent:'center',
+    fontSize:'15px'
+}
+
+export const HW100: CSSProperties ={
+
+    height:'100%',
+    width:'100%'
 }
