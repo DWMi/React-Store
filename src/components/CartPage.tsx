@@ -1,5 +1,6 @@
 import React, { CSSProperties, FC } from "react";
-
+import { Button } from '@mui/material'
+import { Link } from "react-router-dom";
 
 const CartPage: FC = () => {
 
@@ -9,6 +10,11 @@ const CartPage: FC = () => {
     <div style={CartPageStyle} id="cartPage">
 
       <h1> Cart Page </h1> {/* product cards here */}
+
+      <div style={CheckOutButton}>
+      <Button variant="contained" color="success"><Link to={"/CheckOutPage"}>Check Out</Link></Button>
+      </div>
+
     </div>
 
   );
@@ -28,3 +34,8 @@ export const CartPageStyle: CSSProperties = {
     justifyContent: 'center',
     height: '100vh'
     }
+
+
+export const CheckOutButton: CSSProperties = {
+
+}
