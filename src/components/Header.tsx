@@ -1,15 +1,26 @@
-import React, { CSSProperties, FC } from "react";
+import React, { CSSProperties, useState, useEffect, FC } from "react";
 import '../index.css'
 import { FiShoppingBag } from 'react-icons/Fi'
 import { Link } from "react-router-dom";
 import { IconButton, FormGroup, FormControlLabel, Switch, Box, Menu, MenuItem } from '@mui/material'
 import AccountCircle from '@mui/icons-material/AccountCircle';
+import { Props } from "../data/cartAmount";
+
+const Header: FC<Props> = ({ setItemsNumber, itemsNumber }) => {
+  const [cartNumber, setCartNumber] = useState<string>('')
+  const [auth, setAuth] = useState(false);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
 
-const Header: FC = () => {
-
-  const [auth, setAuth] = React.useState(false);
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  useEffect(() => {
+    if(localStorage.getItem('productsInCart')) {
+      setCartNumber(JSON.parse(localStorage.getItem('productsInCart') || '').amount.toString())
+    }
+     
+    
+    
+  }, [itemsNumber])
+  
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setAuth(event.target.checked);
@@ -91,6 +102,7 @@ const Header: FC = () => {
             <h1>
               <Link to={"/CartPage"} style={HeadNav}><FiShoppingBag /></Link>
             </h1>
+            <span style={{color: 'white'}}>{cartNumber}</span>
           </div>
 
       </div>
