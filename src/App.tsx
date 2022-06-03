@@ -13,7 +13,7 @@ const App: FC = () => {
     <div className="App">
 
       <BrowserRouter>
-        <Layout />
+        <Layout/>
       </BrowserRouter>
       
     </div>
