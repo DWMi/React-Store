@@ -1,8 +1,8 @@
 import React, { CSSProperties, FC } from "react";
 import '../index.css'
 import { FiShoppingBag } from 'react-icons/Fi'
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { Typography, IconButton, FormGroup, FormControlLabel, Switch, Box, Menu, Toolbar, AppBar, MenuItem } from '@mui/material'
+import { Link } from "react-router-dom";
+import { IconButton, FormGroup, FormControlLabel, Switch, Box, Menu, MenuItem } from '@mui/material'
 import AccountCircle from '@mui/icons-material/AccountCircle';
 
 
@@ -14,6 +14,7 @@ const Header: FC = () => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setAuth(event.target.checked);
   };
+
   const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
@@ -129,11 +130,11 @@ export const display: CSSProperties = {
   }
 
   export const AdminIcon: CSSProperties = {
-    color: 'white'
-    
+    color: 'white',
+    marginRight: '20px',
   }
 
   export const MainContainer: CSSProperties = {
-    display: 'flex'
-    
+    display: 'flex',
+    justifyContent: 'space-between'
   }
