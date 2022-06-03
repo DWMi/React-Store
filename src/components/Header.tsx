@@ -1,14 +1,20 @@
 import React, { CSSProperties, FC } from "react";
 import '../index.css'
 import { FiShoppingBag } from 'react-icons/Fi'
+
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Typography, IconButton, FormGroup, FormControlLabel, Switch, Box, Menu, Toolbar, AppBar, MenuItem } from '@mui/material'
 /* import AccountCircle from '@mui/icons-material/AccountCircle'; */
 
+import { Link } from "react-router-dom";
+import { IconButton, FormGroup, FormControlLabel, Switch, Box, Menu, MenuItem } from '@mui/material'
+import AccountCircle from '@mui/icons-material/AccountCircle';
+
+
 
 const Header: FC = () => {
 
-  const [auth, setAuth] = React.useState(true);
+  const [auth, setAuth] = React.useState(false);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -46,7 +52,7 @@ const Header: FC = () => {
                 size="large"
                 aria-label="account of current user"
                 aria-controls="menu-appbar"
-                aria-haspopup="true"
+                aria-haspopup="false"
                 onClick={handleMenu}
                 color="inherit"
               >
@@ -68,8 +74,7 @@ const Header: FC = () => {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={handleClose}><Link to={"/AdminPage"}>My account</Link></MenuItem>
               </Menu>
       </div>
       )}
@@ -132,11 +137,16 @@ export const display: CSSProperties = {
   }
 
   export const AdminIcon: CSSProperties = {
-    color: 'white'
+    color: 'white',
+    marginRight: '20px'
   }
 
   export const MainContainer: CSSProperties = {
     display: 'flex',
+
    
     
+
+    justifyContent: 'space-between'
+
   }
