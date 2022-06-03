@@ -1,5 +1,6 @@
 import { FC } from 'react'
 import { Route, Routes } from 'react-router-dom'
+import AdminPage from './AdminPage'
 import CartPage from './CartPage'
 import LandingPage from './LandingPage'
 import ProductPage from './ProductPage'
@@ -15,6 +16,7 @@ const ViewContainer: FC = () => {
 
         <Routes>
             <Route path="/" element={ <LandingPage /> }/>
+            <Route path="/AdminPage" element={ <AdminPage /> }/>
             <Route path="/ProductPage" element={ <ProductPage /> }/>
             <Route path="/CartPage" element={ <CartPage /> }/>
             <Route path="/:productId" element={ <SingleProduct /> }/>
