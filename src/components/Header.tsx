@@ -1,7 +1,8 @@
 import React, { CSSProperties, useState, useEffect, FC } from "react";
 import '../index.css'
 import { FiShoppingBag } from 'react-icons/Fi'
-import { Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Typography, IconButton, FormGroup, FormControlLabel, Switch, Box, Menu, Toolbar, AppBar, MenuItem } from '@mui/material'
 import { IconButton, FormGroup, FormControlLabel, Switch, Box, Menu, MenuItem } from '@mui/material'
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import { Props } from "../data/cartAmount";
@@ -16,7 +17,6 @@ const Header: FC<Props> = ({ setItemsNumber, itemsNumber }) => {
     if(localStorage.getItem('productsInCart')) {
       setCartNumber(JSON.parse(localStorage.getItem('productsInCart') || '').amount.toString())
     }
-     
     
     
   }, [itemsNumber])
@@ -34,7 +34,7 @@ const Header: FC<Props> = ({ setItemsNumber, itemsNumber }) => {
   };
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1}}>
       <div className="MainContainer" style={MainContainer}>
       <div className="AdminSwitch">
         <FormGroup style={LogSwitch}>
@@ -124,6 +124,7 @@ export const display: CSSProperties = {
   flexDirection: 'row',
   justifyContent: 'space-around',
   background: 'black',
+  height:'50px', 
   }
 
 
@@ -131,7 +132,8 @@ export const display: CSSProperties = {
     textDecoration: 'none',
     cursor: 'pointer',
     color: 'white',
-    fontFamily: 'Fira Sans'
+    fontFamily: 'Fira Sans',
+    
   }
 
   export const LogSwitch: CSSProperties = {
@@ -146,6 +148,7 @@ export const display: CSSProperties = {
   }
 
   export const MainContainer: CSSProperties = {
-    display: 'flex',
+    display: 'flex',  
     justifyContent: 'space-between'
+
   }

@@ -43,7 +43,7 @@ export const ProductCard: FC<Props> = (props) => {
           {props.product.productTitle}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-         {props.product.productDescription.toneGrade}
+          {props.product.productDescription.toneGrade}
         </Typography>
         <Typography variant="h6" color="text.primary">
           {props.product.productPrice},00 kr
