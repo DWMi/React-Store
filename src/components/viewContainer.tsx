@@ -21,7 +21,7 @@ const ViewContainer: FC = () => {
             <Route path="/ProductPage" element={ <ProductPage /> }/>
             <Route path="/CartPage" element={ <CartPage /> }/>
             <Route path="/CheckOutPage" element={ <CheckOutPage /> }/>
-            <Route path="/:productId" element={ <SingleProduct /> }/>
+            <Route path="/:productSlug" element={ <SingleProduct /> }/>
         </Routes>
 
         

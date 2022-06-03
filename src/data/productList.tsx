@@ -24,6 +24,7 @@ import versaceTwo from '../assets/Versace2.webp'
 export interface Product{
 
     id:number,
+    slug:string,
     productTitle:string,
     productDescription:{
         form:string,
@@ -45,6 +46,7 @@ const productList: Product[] =[
     
     {
         id:1,
+        slug:'salvatore-sunglasses-1',
         productTitle:'Salvatore Sunglasses',
         productDescription:{
             form:' Glasögonform: Rektangulär', 
@@ -60,6 +62,7 @@ const productList: Product[] =[
     },
     {
         id:2,
+        slug:'dunhill-sunglasses-2',
         productTitle:'Dunhill Sunglasses',
         productDescription:{
             form:' Glasögonform: Retro fyrkant', 
@@ -76,6 +79,7 @@ const productList: Product[] =[
     },
     {
         id:3,
+        slug:'tomford-sunglasses-3',
         productTitle:'Tom Ford Sunglasses',
         productDescription:{
             form:'Glasögonform: Pilot (droppformad)', 
@@ -91,6 +95,7 @@ const productList: Product[] =[
     },
     {
         id:4,
+        slug:'alexander-sunglasses-4',
         productTitle:'Alexander McQueen Sunglasses',
         productDescription:{
             form:'Glasögonform: Monoglas', 
@@ -107,6 +112,7 @@ const productList: Product[] =[
     },
     {
         id:5,
+        slug:'montblanc-sunglasses-5',
         productTitle:'Mont Blanc Sunglasses',
         productDescription:{
             form:'Glasögonform: Pilot (droppformad)', 
@@ -124,6 +130,7 @@ const productList: Product[] =[
     },
     {
         id:6,
+        slug:'gucci-sunglasses-6',
         productTitle:'Gucci Sunglasses',
         productDescription:{
             form:'Glasögonform: Rektangulär', 
@@ -139,6 +146,7 @@ const productList: Product[] =[
     },
     {
         id:7,
+        slug:'prada-sunglasses-7',
         productTitle:'Prada Sunglasses',
         productDescription:{
             form:'Glasögonform: Rektangulär', 
@@ -154,6 +162,7 @@ const productList: Product[] =[
     },
     {
         id:8,
+        slug:'dolcegabbana-sunglasses-8',
         productTitle:'Dolce&Gabbana Sunglasses',
         productDescription:{
             form:'Glasögonform: Pilot (droppformad)', 
@@ -170,6 +179,7 @@ const productList: Product[] =[
     },
     {
         id:9,
+        slug:'tods-sunglasses-9',
         productTitle:"Tods's Sunglasses",
         productDescription:{
             form:'Glasögonform: Pilot (droppformad)', 
@@ -185,6 +195,7 @@ const productList: Product[] =[
     },
     {
         id:10,
+        slug:'versace-sunglasses-10',
         productTitle:'Versace Sunglasses',
         productDescription:{
             form:'Glasögonform: Pilot (droppformad)', 

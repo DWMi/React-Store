@@ -50,7 +50,7 @@ export const ProductCard: FC<Props> = (props) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Link to={`/${props.product.id}`}><Button  variant="outlined" size="small">Läs mer</Button></Link>
+        <Link to={`/${props.product.slug}`}><Button  variant="outlined" size="small">Läs mer</Button></Link>
       </CardActions>
     </Card>
 

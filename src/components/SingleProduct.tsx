@@ -1,28 +1,36 @@
 
-import React, { CSSProperties, FC, useState } from "react";
+import React, { CSSProperties, FC, useEffect, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import productList, {Product} from "../data/productList";
 import { flexDeadCenter, flexColumn, flexRow, marginLR, button, HW100 } from "../style/common";
 
 
 
+
 export interface Props {}
 
 export const SingleProduct: FC<Props> = (props) => {
-    const [itemsNumber, setItemsNumber] = useState(1)
-
-  const addToCart = () => setItemsNumber(1)
-
-  const { productId } = useParams()
+  const [itemsNumber, setItemsNumber] = useState(1)
+  const [product, setProduct] = useState([]);
   
-  const foundProduct = productList.find((product) => Number(productId) == product.id)
+  const { productSlug } = useParams()
+  
+  const foundProduct = productList.find((product) => (productSlug) == product.slug)
   
   if(!foundProduct) {
     return <Navigate to="/" />
   }
-  
 
-    console.log(foundProduct)
+useEffect(() => {
+          localStorage.setItem('productsInCart', JSON.stringify(product));
+        }, [product]);
+
+  
+  
+  const addToCart = () => { 
+    setItemsNumber(1)
+
+  }
 
   const clickOne = (value: string) => {
     const mainPic = document.querySelector('.mainPic') as HTMLImageElement
