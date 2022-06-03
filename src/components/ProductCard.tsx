@@ -31,7 +31,7 @@ export const ProductCard: FC<Props> = (props) => {
 
     </div> */
 
-    <Card sx={{ maxWidth: 320 }}>
+    <Card className="productCard" sx={{ maxWidth: 320 }}>
       <CardMedia
         component="img"
         height="300"

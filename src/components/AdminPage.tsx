@@ -1,3 +1,12 @@
+
+import React from 'react'
+
+export default function AdminPage() {
+  return (
+    <div>AdminPage</div>
+  )
+}
+
 import React, { CSSProperties, FC } from "react";
 
 
@@ -28,3 +37,4 @@ export const AdminPageStyle: CSSProperties = {
     justifyContent: 'center',
     height: '100vh'
     }
+
