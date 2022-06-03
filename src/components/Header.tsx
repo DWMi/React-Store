@@ -68,8 +68,7 @@ const Header: FC = () => {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={handleClose}><Link to={"/AdminPage"}>My account</Link></MenuItem>
               </Menu>
       </div>
       )}
@@ -131,6 +130,7 @@ export const display: CSSProperties = {
 
   export const AdminIcon: CSSProperties = {
     color: 'white'
+    
   }
 
   export const MainContainer: CSSProperties = {
