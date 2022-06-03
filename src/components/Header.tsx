@@ -1,12 +1,8 @@
 import React, { CSSProperties, FC } from "react";
 import '../index.css'
 import { FiShoppingBag } from 'react-icons/Fi'
-
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Typography, IconButton, FormGroup, FormControlLabel, Switch, Box, Menu, Toolbar, AppBar, MenuItem } from '@mui/material'
-/* import AccountCircle from '@mui/icons-material/AccountCircle'; */
-
-import { Link } from "react-router-dom";
 import { IconButton, FormGroup, FormControlLabel, Switch, Box, Menu, MenuItem } from '@mui/material'
 import AccountCircle from '@mui/icons-material/AccountCircle';
 
@@ -56,7 +52,7 @@ const Header: FC = () => {
                 onClick={handleMenu}
                 color="inherit"
               >
-               {/*  <AccountCircle /> */}
+                <AccountCircle />
               </IconButton>
 
               <Menu
@@ -142,11 +138,7 @@ export const display: CSSProperties = {
   }
 
   export const MainContainer: CSSProperties = {
-    display: 'flex',
-
-   
-    
-
+    display: 'flex',  
     justifyContent: 'space-between'
 
   }
