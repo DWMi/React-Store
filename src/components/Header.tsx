@@ -3,7 +3,7 @@ import '../index.css'
 import { FiShoppingBag } from 'react-icons/Fi'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Typography, IconButton, FormGroup, FormControlLabel, Switch, Box, Menu, Toolbar, AppBar, MenuItem } from '@mui/material'
-import AccountCircle from '@mui/icons-material/AccountCircle';
+/* import AccountCircle from '@mui/icons-material/AccountCircle'; */
 
 
 const Header: FC = () => {
@@ -23,7 +23,7 @@ const Header: FC = () => {
   };
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1}}>
       <div className="MainContainer" style={MainContainer}>
       <div className="AdminSwitch">
         <FormGroup style={LogSwitch}>
@@ -50,7 +50,7 @@ const Header: FC = () => {
                 onClick={handleMenu}
                 color="inherit"
               >
-                <AccountCircle />
+               {/*  <AccountCircle /> */}
               </IconButton>
 
               <Menu
@@ -113,6 +113,7 @@ export const display: CSSProperties = {
   flexDirection: 'row',
   justifyContent: 'space-around',
   background: 'black',
+  height:'50px', 
   }
 
 
@@ -120,7 +121,8 @@ export const display: CSSProperties = {
     textDecoration: 'none',
     cursor: 'pointer',
     color: 'white',
-    fontFamily: 'Fira Sans'
+    fontFamily: 'Fira Sans',
+    
   }
 
   export const LogSwitch: CSSProperties = {
@@ -134,6 +136,7 @@ export const display: CSSProperties = {
   }
 
   export const MainContainer: CSSProperties = {
-    display: 'flex'
+    display: 'flex',
+   
     
   }
