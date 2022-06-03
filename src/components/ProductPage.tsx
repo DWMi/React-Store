@@ -35,7 +35,7 @@ const pageStyle: CSSProperties = {
  
 }
 
-const containerStyle: CSSProperties = {
+export const containerStyle: CSSProperties = {
   display: 'flex',
   width: '90%',
   flexBasis: '33,333%',
