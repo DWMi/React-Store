@@ -3,7 +3,7 @@ import React, { CSSProperties, FC, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import productList, {Product} from "../data/productList";
 import { flexDeadCenter, flexColumn, flexRow, marginLR, button, HW100 } from "../style/common";
-import { Props } from "../data/cartAmount";
+import { Props } from "../data/cartAmount"
 
 
 
@@ -23,12 +23,15 @@ export const SingleProduct: FC<Props> = ({ itemsNumber, setItemsNumber}) => {
   }
 
 
-
   const addToCart = () => { 
-    setItemsNumber(0)
-    foundProduct['amount'] = foundProduct['amount'] + itemsNumber
-    localStorage.setItem('productsInCart', JSON.stringify(foundProduct));
+    let productNum;
+    if(localStorage.getItem('productsInCart')) {
+      productNum = JSON.parse(localStorage.getItem('productsInCart') || '')
+    }
     
+    foundProduct['amount'] = productNum ? (productNum.amount + itemsNumber) :(0 + itemsNumber)
+    localStorage.setItem('productsInCart', JSON.stringify(foundProduct));
+    setItemsNumber(0)
   } 
 
   const clickOne = (value: string) => {

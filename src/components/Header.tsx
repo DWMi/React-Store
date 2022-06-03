@@ -3,22 +3,18 @@ import '../index.css'
 import { FiShoppingBag } from 'react-icons/Fi'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Typography, IconButton, FormGroup, FormControlLabel, Switch, Box, Menu, Toolbar, AppBar, MenuItem } from '@mui/material'
-import { IconButton, FormGroup, FormControlLabel, Switch, Box, Menu, MenuItem } from '@mui/material'
 import AccountCircle from '@mui/icons-material/AccountCircle';
-import { Props } from "../data/cartAmount";
+import { Props } from "../data/cartAmount"
 
 const Header: FC<Props> = ({ setItemsNumber, itemsNumber }) => {
-  const [cartNumber, setCartNumber] = useState<string>('')
+  const [cartNumber, setCartNumber] = useState<number>()
   const [auth, setAuth] = useState(false);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
 
   useEffect(() => {
-    if(localStorage.getItem('productsInCart')) {
-      setCartNumber(JSON.parse(localStorage.getItem('productsInCart') || '').amount.toString())
-    }
-    
-    
+    localStorage.getItem('productsInCart') &&
+      setCartNumber(JSON.parse(localStorage.getItem('productsInCart') || '').amount)
   }, [itemsNumber])
   
 
