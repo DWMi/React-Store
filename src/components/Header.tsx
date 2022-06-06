@@ -1,21 +1,22 @@
-import React, { CSSProperties, FC } from "react";
+import React, { CSSProperties, useState, useEffect, FC } from "react";
 import '../index.css'
 import { FiShoppingBag } from 'react-icons/Fi'
-
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Typography, IconButton, FormGroup, FormControlLabel, Switch, Box, Menu, Toolbar, AppBar, MenuItem } from '@mui/material'
-/* import AccountCircle from '@mui/icons-material/AccountCircle'; */
-
-import { Link } from "react-router-dom";
-import { IconButton, FormGroup, FormControlLabel, Switch, Box, Menu, MenuItem } from '@mui/material'
 import AccountCircle from '@mui/icons-material/AccountCircle';
+import { Props } from "../data/cartAmount"
+
+const Header: FC<Props> = ({ setItemsNumber, itemsNumber }) => {
+  const [cartNumber, setCartNumber] = useState<number>()
+  const [auth, setAuth] = useState(false);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
 
-
-const Header: FC = () => {
-
-  const [auth, setAuth] = React.useState(false);
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  useEffect(() => {
+    localStorage.getItem('productsInCart') &&
+      setCartNumber(JSON.parse(localStorage.getItem('productsInCart') || '').amount)
+  }, [itemsNumber])
+  
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setAuth(event.target.checked);
@@ -56,7 +57,7 @@ const Header: FC = () => {
                 onClick={handleMenu}
                 color="inherit"
               >
-               {/*  <AccountCircle /> */}
+                <AccountCircle />
               </IconButton>
 
               <Menu
@@ -97,6 +98,7 @@ const Header: FC = () => {
             <h1>
               <Link to={"/CartPage"} style={HeadNav}><FiShoppingBag /></Link>
             </h1>
+            <span style={{color: 'white'}}>{cartNumber}</span>
           </div>
 
       </div>
@@ -142,11 +144,7 @@ export const display: CSSProperties = {
   }
 
   export const MainContainer: CSSProperties = {
-    display: 'flex',
-
-   
-    
-
+    display: 'flex',  
     justifyContent: 'space-between'
 
   }

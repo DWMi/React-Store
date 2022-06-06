@@ -10,15 +10,14 @@ export const ProductPage: FC = () => {
   return (
 
     <div style={pageStyle} id="productPage">
-      
       <div style={containerStyle}>
 
-           {
-                productList.map((product) => (
-                  
-                        <ProductCard product = {product} />
-                ))
-            }
+          {
+            productList.map((product) => (
+              
+              <ProductCard key={product.id} product = {product} />
+            ))
+          }
 
       </div>
     </div>

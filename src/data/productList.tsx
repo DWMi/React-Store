@@ -24,6 +24,7 @@ import versaceTwo from '../assets/Versace2.webp'
 export interface Product{
 
     id:number,
+    slug:string,
     productTitle:string,
     productDescription:{
         form:string,
@@ -37,6 +38,7 @@ export interface Product{
         img2:string
     },
     productPrice:number,
+    amount:number
         
 
 }
@@ -45,6 +47,7 @@ const productList: Product[] =[
     
     {
         id:1,
+        slug:'salvatore-sunglasses-1',
         productTitle:'Salvatore Sunglasses',
         productDescription:{
             form:' Glasögonform: Rektangulär', 
@@ -56,10 +59,12 @@ const productList: Product[] =[
             img1:salvatoreOne,
             img2:salvatoreTwo,
         },
-        productPrice:4715
+        productPrice:4715,
+        amount:0
     },
     {
         id:2,
+        slug:'dunhill-sunglasses-2',
         productTitle:'Dunhill Sunglasses',
         productDescription:{
             form:' Glasögonform: Retro fyrkant', 
@@ -72,10 +77,12 @@ const productList: Product[] =[
             img1:dunHillOne,
             img2:dunHillTwo,
         },
-        productPrice:3045
+        productPrice:3045,
+        amount:0
     },
     {
         id:3,
+        slug:'tomford-sunglasses-3',
         productTitle:'Tom Ford Sunglasses',
         productDescription:{
             form:'Glasögonform: Pilot (droppformad)', 
@@ -87,10 +94,12 @@ const productList: Product[] =[
             img1:tomFordOne,
             img2:tomFordTwo,
         },
-        productPrice:3195
+        productPrice:3195,
+        amount:0
     },
     {
         id:4,
+        slug:'alexander-sunglasses-4',
         productTitle:'Alexander McQueen Sunglasses',
         productDescription:{
             form:'Glasögonform: Monoglas', 
@@ -103,10 +112,12 @@ const productList: Product[] =[
             img1:AMCQOne,
             img2:AMCQTwo,
         },
-        productPrice:3815
+        productPrice:3815,
+        amount:0
     },
     {
         id:5,
+        slug:'montblanc-sunglasses-5',
         productTitle:'Mont Blanc Sunglasses',
         productDescription:{
             form:'Glasögonform: Pilot (droppformad)', 
@@ -120,10 +131,12 @@ const productList: Product[] =[
             img1:montBlancOne,
             img2:montBlancTwo,
         },
-        productPrice:3815
+        productPrice:3815,
+        amount:0
     },
     {
         id:6,
+        slug:'gucci-sunglasses-6',
         productTitle:'Gucci Sunglasses',
         productDescription:{
             form:'Glasögonform: Rektangulär', 
@@ -135,10 +148,12 @@ const productList: Product[] =[
             img1:gucciOne,
             img2:gucciTwo,
         },
-        productPrice:3595
+        productPrice:3595,
+        amount:0
     },
     {
         id:7,
+        slug:'prada-sunglasses-7',
         productTitle:'Prada Sunglasses',
         productDescription:{
             form:'Glasögonform: Rektangulär', 
@@ -150,10 +165,12 @@ const productList: Product[] =[
             img1:pradaOne,
             img2:pradaTwo,
         },
-        productPrice:3435
+        productPrice:3435,
+        amount:0
     },
     {
         id:8,
+        slug:'dolcegabbana-sunglasses-8',
         productTitle:'Dolce&Gabbana Sunglasses',
         productDescription:{
             form:'Glasögonform: Pilot (droppformad)', 
@@ -166,10 +183,12 @@ const productList: Product[] =[
             img1:DbOne,
             img2:DbTwo,
         },
-        productPrice:3195
+        productPrice:3195,
+        amount:0
     },
     {
         id:9,
+        slug:'tods-sunglasses-9',
         productTitle:"Tods's Sunglasses",
         productDescription:{
             form:'Glasögonform: Pilot (droppformad)', 
@@ -181,10 +200,12 @@ const productList: Product[] =[
             img1:todsOne,
             img2:todsTwo,
         },
-        productPrice:3145
+        productPrice:3145,
+        amount:0
     },
     {
         id:10,
+        slug:'versace-sunglasses-10',
         productTitle:'Versace Sunglasses',
         productDescription:{
             form:'Glasögonform: Pilot (droppformad)', 
@@ -196,7 +217,8 @@ const productList: Product[] =[
             img1:versaceOne,
             img2:versaceTwo,
         },
-        productPrice:2865
+        productPrice:2865,
+        amount:0
     },
 ]
 
