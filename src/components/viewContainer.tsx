@@ -6,12 +6,11 @@ import CheckOutPage from './CheckoutPage'
 import LandingPage from './LandingPage'
 import ProductPage from './ProductPage'
 import SingleProduct from './SingleProduct'
+import { Props } from '../data/cartAmount'
 
 
 
-
-
-const ViewContainer: FC = () => {
+const ViewContainer: FC<Props> = ({itemsNumber, setItemsNumber}) => {
     return (
         <>
 
@@ -21,7 +20,7 @@ const ViewContainer: FC = () => {
             <Route path="/ProductPage" element={ <ProductPage /> }/>
             <Route path="/CartPage" element={ <CartPage /> }/>
             <Route path="/CheckOutPage" element={ <CheckOutPage /> }/>
-            <Route path="/:productSlug" element={ <SingleProduct /> }/>
+            <Route path="/:productSlug" element={ <SingleProduct itemsNumber={itemsNumber} setItemsNumber={setItemsNumber} /> }/>
         </Routes>
 
         

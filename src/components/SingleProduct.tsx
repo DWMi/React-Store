@@ -1,19 +1,20 @@
 
-import React, { CSSProperties, FC, useEffect, useState } from "react";
+import React, { CSSProperties, FC, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import productList, {Product} from "../data/productList";
 import { flexDeadCenter, flexColumn, flexRow, marginLR, button, HW100 } from "../style/common";
+import { Props } from "../data/cartAmount"
 
 
 
 
-export interface Props {}
 
-export const SingleProduct: FC<Props> = (props) => {
-  const [itemsNumber, setItemsNumber] = useState(1)
-  const [product, setProduct] = useState([]);
+export const SingleProduct: FC<Props> = ({ itemsNumber, setItemsNumber}) => {
   
   const { productSlug } = useParams()
+
+
+  
   
   const foundProduct = productList.find((product) => (productSlug) == product.slug)
   
@@ -21,16 +22,17 @@ export const SingleProduct: FC<Props> = (props) => {
     return <Navigate to="/" />
   }
 
-useEffect(() => {
-          localStorage.setItem('productsInCart', JSON.stringify(product));
-        }, [product]);
 
-  
-  
   const addToCart = () => { 
-    setItemsNumber(1)
-
-  }
+    let productNum;
+    if(localStorage.getItem('productsInCart')) {
+      productNum = JSON.parse(localStorage.getItem('productsInCart') || '')
+    }
+    
+    foundProduct['amount'] = productNum ? (productNum.amount + itemsNumber) :(0 + itemsNumber)
+    localStorage.setItem('productsInCart', JSON.stringify(foundProduct));
+    setItemsNumber(0)
+  } 
 
   const clickOne = (value: string) => {
     const mainPic = document.querySelector('.mainPic') as HTMLImageElement
