@@ -17,7 +17,7 @@ export const LandingPage: FC = () => {
   return (
     <div style={landingStyle} id="landingPage">
       <BannerLanding />
-       <div
+      <div
         style={{
           display: "flex",
           flexDirection: "row",
@@ -28,11 +28,11 @@ export const LandingPage: FC = () => {
         
         }}
       > 
-      <Carousel enableTilt={true} className={'slider'} enableMouseSwipe={true} enableSwipe={true} breakPoints={breakPoints}>
-        {productList.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </Carousel>
+        <Carousel enableTilt={true} className={'slider'} enableMouseSwipe={true} enableSwipe={true} breakPoints={breakPoints}>
+          {productList.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </Carousel>
       </div>
     </div>
   );

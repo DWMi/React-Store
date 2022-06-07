@@ -31,8 +31,8 @@ export const ProductCard: FC<Props> = (props) => {
 
     </div> */
 
-    <Card className="productCard" sx={{ maxWidth: 320 }}>
-      <CardMedia
+    <Card className="productCard" sx={{ width: 320 }}>
+      <CardMedia 
         component="img"
         height="300"
         image={props.product.productImg.img1}
@@ -43,7 +43,7 @@ export const ProductCard: FC<Props> = (props) => {
           {props.product.productTitle}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-         {props.product.productDescription.toneGrade}
+          {props.product.productDescription.toneGrade}
         </Typography>
         <Typography variant="h6" color="text.primary">
           {props.product.productPrice},00 kr
