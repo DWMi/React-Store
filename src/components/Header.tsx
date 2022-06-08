@@ -1,4 +1,4 @@
-import React, { CSSProperties, useState, useEffect, FC } from "react";
+import React, { CSSProperties, useState, useEffect, FC, useContext } from "react";
 import '../index.css'
 import { FiShoppingBag } from 'react-icons/Fi'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
@@ -7,11 +7,14 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import { Props } from "../data/cartAmount"
 import { flexDeadCenter } from "../style/common";
 import { height } from "@mui/system";
+import { CartContext } from "./cartContext";
 
 const Header: FC<Props> = ({ setItemsNumber, itemsNumber }) => {
   const [cartNumber, setCartNumber] = useState<number>()
   const [auth, setAuth] = useState(false);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+
+  const {cartItems} = useContext(CartContext)
 
 
   useEffect(() => {
@@ -98,7 +101,8 @@ const Header: FC<Props> = ({ setItemsNumber, itemsNumber }) => {
 
           <div style={{position:'relative',display:'flex'}} className="cartIcon">
             <div >
-              <span style={{...counter}}>{cartNumber}</span>
+              
+              <span style={{...counter}}>{cartItems.length}</span>
             </div>
             <h1>
               <Link to={"/CartPage"} style={HeadNav}><FiShoppingBag /></Link>
@@ -161,8 +165,8 @@ export const display: CSSProperties = {
     top:'-5px',
     right:'-8px',
     color:'white',
+    padding: '2px 8px',
     backgroundColor:'#E51616',
-    padding:'2px 8px',
     borderRadius:'50%',
     fontSize:'12px',
     fontWeight:'bold',

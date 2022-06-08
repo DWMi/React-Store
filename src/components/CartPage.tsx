@@ -12,10 +12,12 @@ import Paper from '@mui/material/Paper';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import '../index.css'
 import { Props } from "../data/cartAmount"
+import { Link } from "react-router-dom";
 import { CartContext } from "./cartContext";
 
 
-  const {cartItems} = useContext(CartContext)
+
+  
 
 
 function ccyFormat(num: number) {
@@ -26,15 +28,9 @@ function priceRow(qty: number, unit: number) {
   return qty * unit;
 }
 
-          {
-            cartItems.map((item) => (
-              
-              <h1>{item.productTitle}</h1>
-              
-            ))
-          }
+        
 
-      <div style={CheckOutButton}>
+      <div>
       <Button variant="contained" color="success"><Link to={"/CheckOutPage"}>Check Out</Link></Button>
       </div>
 
@@ -70,8 +66,14 @@ export const CartPage: FC<Props> = () => {
   if(imageCart.id === 1) {
   let pictureCart = (document.querySelector('cartPic') as HTMLImageElement);
   pictureCart.src = imageCart.productImg.img2;
-
   const [numberOfItems, setNumberOfItems] = React.useState('');
+  
+  const {cartItems} = useContext(CartContext)
+
+  cartItems.map((item: Product) => {
+    item.productTitle
+  })
+
 
   const handleChange = (event: SelectChangeEvent) => {
     setNumberOfItems(event.target.value);

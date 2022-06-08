@@ -46,4 +46,4 @@ export const landingStyle: CSSProperties = {
   display: "flex",
   flexDirection: "column",
   
-};
+}
