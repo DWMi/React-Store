@@ -1,5 +1,5 @@
 import React, { CSSProperties, FC } from "react";
-// import Carousel from "react-elastic-carousel";
+import Carousel from "react-elastic-carousel";
 import productList, { Product } from "../data/productList";
 import BannerLanding from "./landing components/bannerLanding";
 import ProductCard from "./ProductCard";

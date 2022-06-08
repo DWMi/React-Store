@@ -37,13 +37,12 @@ const textStyleBanner: CSSProperties = {
   display: 'flex',
   justifyContent: 'center',
   zIndex: '10',
-  alignItems: 'center',
+  alignItems: 'flex-end',
   position: 'absolute',
   fontSize: '100px',
   textAlign: 'center',
   width: '100%',
-  height:'100%',
-
+  height:'60vh',
   color: 'white',
 
 }

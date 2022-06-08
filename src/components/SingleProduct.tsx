@@ -65,12 +65,12 @@ export const SingleProduct: FC<Props> = ({ itemsNumber, setItemsNumber}) => {
         </div>
         <div className="sideInfo" style={{height:'100%',width:'50%', ...flexColumn}}>
           <div className="sideInfoCon" style={{...HW100, ...flexColumn}}>
-            <div style={{height:'100%', ...flexColumn, gap:'30px',justifyContent:'center'}} className="infoCon">
+            <div style={{height:'100%', ...flexColumn, gap:'30px',...flexDeadCenter}} className="infoCon">
                 <div style={{margin:'20px 0px 20px 0px', padding:'10px'}}>
                   <h1 style={{display:'flex', textAlign:'start'}} className="prodTitle">{foundProduct.productTitle}</h1>
-                  <h2 style={{display:'flex', textAlign:'start'}} className="prodPrice">{foundProduct.productPrice + ';-' }</h2>
+                  <h2 style={{display:'flex', textAlign:'start', margin:'20px'}} className="prodPrice">{foundProduct.productPrice + ';-' }</h2>
                 </div>
-                <div style={{...flexRow, alignItems:'center', padding:'10px'}}>
+                <div style={{...flexRow,...flexDeadCenter,width:'100%', padding:'10px'}}>
                   <div style={{margin:'0px 5% 0px 5%'}}>
                     <button style={amountStyle} onClick={() => setItemsNumber(prevState => prevState <= 1 ? prevState : prevState - 1)}>-</button>
                     <span style={{border:'1px solid black', padding:'5px 10px 5px 10px'}}>{itemsNumber}</span>
