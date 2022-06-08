@@ -28,3 +28,4 @@ export const AdminPageStyle: CSSProperties = {
     justifyContent: 'center',
     height: '100vh'
     }
+

@@ -1,15 +1,24 @@
-import React, { CSSProperties, FC } from "react";
+import React, { CSSProperties, useState, useEffect, FC } from "react";
 import '../index.css'
 import { FiShoppingBag } from 'react-icons/Fi'
-import { Link } from "react-router-dom";
-import { IconButton, FormGroup, FormControlLabel, Switch, Box, Menu, MenuItem } from '@mui/material'
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Typography, IconButton, FormGroup, FormControlLabel, Switch, Box, Menu, Toolbar, AppBar, MenuItem } from '@mui/material'
 import AccountCircle from '@mui/icons-material/AccountCircle';
+import { Props } from "../data/cartAmount"
+import { flexDeadCenter } from "../style/common";
+import { height } from "@mui/system";
+
+const Header: FC<Props> = ({ setItemsNumber, itemsNumber }) => {
+  const [cartNumber, setCartNumber] = useState<number>()
+  const [auth, setAuth] = useState(false);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
 
-const Header: FC = () => {
-
-  const [auth, setAuth] = React.useState(false);
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  useEffect(() => {
+    localStorage.getItem('productsInCart') &&
+      setCartNumber(JSON.parse(localStorage.getItem('productsInCart') || '').amount)
+  }, [itemsNumber])
+  
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setAuth(event.target.checked);
@@ -23,7 +32,7 @@ const Header: FC = () => {
   };
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1}}>
       <div className="MainContainer" style={MainContainer}>
       <div className="AdminSwitch">
         <FormGroup style={LogSwitch}>
@@ -41,7 +50,7 @@ const Header: FC = () => {
       </div>
 
       {auth && (
-        <div className="AdminIcon">
+        <div style={{...flexDeadCenter, width:'50px', height:'100%' }} className="AdminIcon">
           <IconButton style={AdminIcon}
                 size="large"
                 aria-label="account of current user"
@@ -87,10 +96,14 @@ const Header: FC = () => {
               </h1>
             </div>
 
-          <div className="cartIcon">
+          <div style={{position:'relative',display:'flex'}} className="cartIcon">
+            <div >
+              <span style={{...counter}}>{cartNumber}</span>
+            </div>
             <h1>
               <Link to={"/CartPage"} style={HeadNav}><FiShoppingBag /></Link>
             </h1>
+            
           </div>
 
       </div>
@@ -112,6 +125,7 @@ export const display: CSSProperties = {
   flexDirection: 'row',
   justifyContent: 'space-around',
   background: 'black',
+  padding:'20px'
   }
 
 
@@ -119,7 +133,8 @@ export const display: CSSProperties = {
     textDecoration: 'none',
     cursor: 'pointer',
     color: 'white',
-    fontFamily: 'Fira Sans'
+    fontFamily: 'Fira Sans',
+    
   }
 
   export const LogSwitch: CSSProperties = {
@@ -130,10 +145,26 @@ export const display: CSSProperties = {
 
   export const AdminIcon: CSSProperties = {
     color: 'white',
-    marginRight: '20px'
+    margin: '0px',
+    padding:'0px',
   }
 
   export const MainContainer: CSSProperties = {
-    display: 'flex',
-    justifyContent: 'space-between'
+    display: 'flex',  
+    justifyContent: 'space-between',
+    height:'50px'
+
+  }
+
+  const counter: CSSProperties = {
+    position:'absolute',
+    top:'-5px',
+    right:'-8px',
+    color:'white',
+    backgroundColor:'#E51616',
+    padding:'2px 8px',
+    borderRadius:'50%',
+    fontSize:'12px',
+    fontWeight:'bold',
+
   }

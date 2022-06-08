@@ -9,17 +9,17 @@ import modelFour from '/src/assets/model4.webp'
   return (
     <div style={{ zIndex:'-1', width:'100%',}}>
 
-    <div style={{...flexRow,  height:'60vh', width: '100vw'}}>
+    <div style={{...flexRow,  height:'60vh'}}>
 
             <img style={bannerStyleImg} src={modelTwo}alt="" />
             <img style={bannerStyleImg} src={modelThree} alt="" />
             <img style={bannerStyleImg} src={modelFour} alt="" />
 
+      <div style={textStyleBanner}>
+      <h1 style={{textShadow: '10px 10px 20px black'}}>Optical</h1>
+          </div>
       
     </div>
-    <div style={textStyleBanner}>
-          <h1 style={{textShadow: '10px 10px 20px black'}}>Optical</h1>
-        </div>
     </div>
   )
 }
@@ -37,10 +37,12 @@ const textStyleBanner: CSSProperties = {
   display: 'flex',
   justifyContent: 'center',
   zIndex: '10',
-  alignContent: 'center',
-  position: 'relative',
+  alignItems: 'flex-end',
+  position: 'absolute',
   fontSize: '100px',
-  top: -200,
+  textAlign: 'center',
+  width: '100%',
+  height:'60vh',
   color: 'white',
 
 }

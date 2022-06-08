@@ -1,28 +1,38 @@
 
-import React, { CSSProperties, FC, useState } from "react";
+import React, { CSSProperties, FC, useEffect, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import productList, {Product} from "../data/productList";
 import { flexDeadCenter, flexColumn, flexRow, marginLR, button, HW100 } from "../style/common";
+import { Props } from "../data/cartAmount"
+import { useContext } from "react";
+import { CartContext } from "./cartContext";
+import { ExitToAppSharp } from "@mui/icons-material";
 
 
 
-export interface Props {}
 
-export const SingleProduct: FC<Props> = (props) => {
-    const [itemsNumber, setItemsNumber] = useState(1)
-
-  const addToCart = () => setItemsNumber(1)
-
-  const { productId } = useParams()
+export const SingleProduct: FC<Props> = ({ itemsNumber, setItemsNumber}) => {
   
-  const foundProduct = productList.find((product) => Number(productId) == product.id)
+  const { productSlug } = useParams()
+
+
+  
+  
+  const foundProduct = productList.find((product) => (productSlug) == product.slug)
   
   if(!foundProduct) {
     return <Navigate to="/" />
   }
-  
 
-    console.log(foundProduct)
+
+  const {addToCart} = useContext(CartContext)
+  const {removeFromCart} = useContext(CartContext)
+  const {cartItems} = useContext(CartContext)
+  const {cartQty} = useContext(CartContext)
+  
+  console.log(cartQty)
+  console.log(cartItems)
+
 
   const clickOne = (value: string) => {
     const mainPic = document.querySelector('.mainPic') as HTMLImageElement
@@ -55,19 +65,19 @@ export const SingleProduct: FC<Props> = (props) => {
         </div>
         <div className="sideInfo" style={{height:'100%',width:'50%', ...flexColumn}}>
           <div className="sideInfoCon" style={{...HW100, ...flexColumn}}>
-            <div style={{height:'100%', ...flexColumn, gap:'30px',justifyContent:'center'}} className="infoCon">
+            <div style={{height:'100%', ...flexColumn, gap:'30px',...flexDeadCenter}} className="infoCon">
                 <div style={{margin:'20px 0px 20px 0px', padding:'10px'}}>
                   <h1 style={{display:'flex', textAlign:'start'}} className="prodTitle">{foundProduct.productTitle}</h1>
-                  <h2 style={{display:'flex', textAlign:'start'}} className="prodPrice">{foundProduct.productPrice + ';-' }</h2>
+                  <h2 style={{display:'flex', textAlign:'start', margin:'20px'}} className="prodPrice">{foundProduct.productPrice + ';-' }</h2>
                 </div>
-                <div style={{...flexRow, alignItems:'center', padding:'10px'}}>
+                <div style={{...flexRow,...flexDeadCenter,width:'100%', padding:'10px'}}>
                   <div style={{margin:'0px 5% 0px 5%'}}>
-                    <button style={amountStyle} onClick={() => setItemsNumber(prevState => prevState <= 1 ? prevState : prevState - 1)}>-</button>
-                    <span style={{border:'1px solid black', padding:'5px 10px 5px 10px'}}>{itemsNumber}</span>
-                    <button style={amountStyle} onClick={() => setItemsNumber(prevState => prevState + 1)}>+</button>
+                    <button style={amountStyle} onClick={() => removeFromCart(foundProduct)}>-</button>
+                    <span style={{border:'1px solid black', padding:'5px 10px 5px 10px'}}>{cartQty}</span>
+                    <button style={amountStyle} onClick={() => addToCart(foundProduct)}>+</button>
                   </div>
 
-                  <button onClick={addToCart} style={{display:'flex',justifySelf:'flex-start', ...button}} className="addToCart">Add to Cart</button>
+                  <button onClick={() => addToCart(foundProduct)} style={{display:'flex',justifySelf:'flex-start', ...button}} className="addToCart">Add to Cart</button>
                 </div>
 
                 
