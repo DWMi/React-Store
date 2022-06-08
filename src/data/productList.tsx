@@ -38,7 +38,7 @@ export interface Product{
         img2:string
     },
     productPrice:number,
-    amount:number
+    
         
 
 }
@@ -59,8 +59,7 @@ const productList: Product[] =[
             img1:salvatoreOne,
             img2:salvatoreTwo,
         },
-        productPrice:4715,
-        amount:0
+        productPrice:4715
     },
     {
         id:2,
@@ -77,8 +76,7 @@ const productList: Product[] =[
             img1:dunHillOne,
             img2:dunHillTwo,
         },
-        productPrice:3045,
-        amount:0
+        productPrice:3045
     },
     {
         id:3,
@@ -94,8 +92,7 @@ const productList: Product[] =[
             img1:tomFordOne,
             img2:tomFordTwo,
         },
-        productPrice:3195,
-        amount:0
+        productPrice:3195
     },
     {
         id:4,
@@ -112,8 +109,7 @@ const productList: Product[] =[
             img1:AMCQOne,
             img2:AMCQTwo,
         },
-        productPrice:3815,
-        amount:0
+        productPrice:3815
     },
     {
         id:5,
@@ -131,8 +127,7 @@ const productList: Product[] =[
             img1:montBlancOne,
             img2:montBlancTwo,
         },
-        productPrice:3815,
-        amount:0
+        productPrice:3815
     },
     {
         id:6,
@@ -148,8 +143,7 @@ const productList: Product[] =[
             img1:gucciOne,
             img2:gucciTwo,
         },
-        productPrice:3595,
-        amount:0
+        productPrice:3595
     },
     {
         id:7,
@@ -165,8 +159,7 @@ const productList: Product[] =[
             img1:pradaOne,
             img2:pradaTwo,
         },
-        productPrice:3435,
-        amount:0
+        productPrice:3435
     },
     {
         id:8,
@@ -183,8 +176,7 @@ const productList: Product[] =[
             img1:DbOne,
             img2:DbTwo,
         },
-        productPrice:3195,
-        amount:0
+        productPrice:3195
     },
     {
         id:9,
@@ -200,8 +192,7 @@ const productList: Product[] =[
             img1:todsOne,
             img2:todsTwo,
         },
-        productPrice:3145,
-        amount:0
+        productPrice:3145
     },
     {
         id:10,
@@ -217,8 +208,7 @@ const productList: Product[] =[
             img1:versaceOne,
             img2:versaceTwo,
         },
-        productPrice:2865,
-        amount:0
+        productPrice:2865
     },
 ]
 
