@@ -1,6 +1,6 @@
-import React, { CSSProperties, FC } from "react";
+
+import React, { CSSProperties, FC, useContext } from "react";
 import { Box, Button, FormControl, InputLabel, MenuItem, Select, SelectChangeEvent, TextField, Typography } from '@mui/material'
-import { Link, } from "react-router-dom";
 import productList, {Product} from "../data/productList";
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -12,8 +12,10 @@ import Paper from '@mui/material/Paper';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import '../index.css'
 import { Props } from "../data/cartAmount"
+import { CartContext } from "./cartContext";
 
 
+  const {cartItems} = useContext(CartContext)
 
 
 function ccyFormat(num: number) {
@@ -24,10 +26,23 @@ function priceRow(qty: number, unit: number) {
   return qty * unit;
 }
 
+          {
+            cartItems.map((item) => (
+              
+              <h1>{item.productTitle}</h1>
+              
+            ))
+          }
+
+      <div style={CheckOutButton}>
+      <Button variant="contained" color="success"><Link to={"/CheckOutPage"}>Check Out</Link></Button>
+      </div>
+
 function createRow(desc: string, qty: number, unit: number) {
   const price = priceRow(qty, unit);
   return { desc, qty, unit, price };
 }
+
 
 interface Row {
   desc: string;

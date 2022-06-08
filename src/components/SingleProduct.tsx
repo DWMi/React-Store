@@ -1,10 +1,12 @@
 
-import React, { CSSProperties, FC, useState } from "react";
+import React, { CSSProperties, FC, useEffect, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import productList, {Product} from "../data/productList";
 import { flexDeadCenter, flexColumn, flexRow, marginLR, button, HW100 } from "../style/common";
 import { Props } from "../data/cartAmount"
-
+import { useContext } from "react";
+import { CartContext } from "./cartContext";
+import { ExitToAppSharp } from "@mui/icons-material";
 
 
 
@@ -23,16 +25,14 @@ export const SingleProduct: FC<Props> = ({ itemsNumber, setItemsNumber}) => {
   }
 
 
-  const addToCart = () => { 
-    let productNum;
-    if(localStorage.getItem('productsInCart')) {
-      productNum = JSON.parse(localStorage.getItem('productsInCart') || '')
-    }
-    
-    foundProduct['amount'] = productNum ? (productNum.amount + itemsNumber) :(0 + itemsNumber)
-    localStorage.setItem('productsInCart', JSON.stringify(foundProduct));
-    setItemsNumber(0)
-  } 
+  const {addToCart} = useContext(CartContext)
+  const {removeFromCart} = useContext(CartContext)
+  const {cartItems} = useContext(CartContext)
+  const {cartQty} = useContext(CartContext)
+  
+  console.log(cartQty)
+  console.log(cartItems)
+
 
   const clickOne = (value: string) => {
     const mainPic = document.querySelector('.mainPic') as HTMLImageElement
@@ -72,12 +72,12 @@ export const SingleProduct: FC<Props> = ({ itemsNumber, setItemsNumber}) => {
                 </div>
                 <div style={{...flexRow,...flexDeadCenter,width:'100%', padding:'10px'}}>
                   <div style={{margin:'0px 5% 0px 5%'}}>
-                    <button style={amountStyle} onClick={() => setItemsNumber(prevState => prevState <= 1 ? prevState : prevState - 1)}>-</button>
-                    <span style={{border:'1px solid black', padding:'5px 10px 5px 10px'}}>{itemsNumber}</span>
-                    <button style={amountStyle} onClick={() => setItemsNumber(prevState => prevState + 1)}>+</button>
+                    <button style={amountStyle} onClick={() => removeFromCart(foundProduct)}>-</button>
+                    <span style={{border:'1px solid black', padding:'5px 10px 5px 10px'}}>{cartQty}</span>
+                    <button style={amountStyle} onClick={() => addToCart(foundProduct)}>+</button>
                   </div>
 
-                  <button onClick={addToCart} style={{display:'flex',justifySelf:'flex-start', ...button}} className="addToCart">Add to Cart</button>
+                  <button onClick={() => addToCart(foundProduct)} style={{display:'flex',justifySelf:'flex-start', ...button}} className="addToCart">Add to Cart</button>
                 </div>
 
                 
