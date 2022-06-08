@@ -1,5 +1,5 @@
 import React, { CSSProperties, FC } from "react";
-// import Carousel from "react-elastic-carousel";
+import Carousel from "react-elastic-carousel";
 import productList, { Product } from "../data/productList";
 import BannerLanding from "./landing components/bannerLanding";
 import ProductCard from "./ProductCard";
@@ -17,7 +17,7 @@ export const LandingPage: FC = () => {
   return (
     <div style={landingStyle} id="landingPage">
       <BannerLanding />
-       <div
+      <div
         style={{
           display: "flex",
           flexDirection: "row",
@@ -28,11 +28,11 @@ export const LandingPage: FC = () => {
         
         }}
       > 
-        {/* <Carousel enableTilt={true} className={'slider'} enableMouseSwipe={true} enableSwipe={true} breakPoints={breakPoints}>
+        <Carousel enableTilt={true} className={'slider'} enableMouseSwipe={true} enableSwipe={true} breakPoints={breakPoints}>
           {productList.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
-        </Carousel> */}
+        </Carousel>
       </div>
     </div>
   );
