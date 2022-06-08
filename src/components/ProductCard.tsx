@@ -49,8 +49,8 @@ export const ProductCard: FC<Props> = (props) => {
           {props.product.productPrice},00 kr
         </Typography>
       </CardContent>
-      <CardActions>
-        <Link to={`/${props.product.slug}`}><Button  variant="outlined" size="small">Läs mer</Button></Link>
+      <CardActions className="seeMoreBtn">
+        <Link style={{textDecoration:'none'}} to={`/${props.product.slug}`}><Button  variant="outlined" size="small">See more</Button></Link>
       </CardActions>
     </Card>
 

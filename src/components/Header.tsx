@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Typography, IconButton, FormGroup, FormControlLabel, Switch, Box, Menu, Toolbar, AppBar, MenuItem } from '@mui/material'
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import { Props } from "../data/cartAmount"
+import { flexDeadCenter } from "../style/common";
+import { height } from "@mui/system";
 
 const Header: FC<Props> = ({ setItemsNumber, itemsNumber }) => {
   const [cartNumber, setCartNumber] = useState<number>()
@@ -48,7 +50,7 @@ const Header: FC<Props> = ({ setItemsNumber, itemsNumber }) => {
       </div>
 
       {auth && (
-        <div className="AdminIcon">
+        <div style={{...flexDeadCenter, width:'50px', height:'100%' }} className="AdminIcon">
           <IconButton style={AdminIcon}
                 size="large"
                 aria-label="account of current user"
@@ -94,11 +96,14 @@ const Header: FC<Props> = ({ setItemsNumber, itemsNumber }) => {
               </h1>
             </div>
 
-          <div className="cartIcon">
+          <div style={{position:'relative',display:'flex'}} className="cartIcon">
+            <div >
+              <span style={{...counter}}>{cartNumber}</span>
+            </div>
             <h1>
               <Link to={"/CartPage"} style={HeadNav}><FiShoppingBag /></Link>
             </h1>
-            <span style={{color: 'white'}}>{cartNumber}</span>
+            
           </div>
 
       </div>
@@ -120,7 +125,7 @@ export const display: CSSProperties = {
   flexDirection: 'row',
   justifyContent: 'space-around',
   background: 'black',
-  height:'50px', 
+  padding:'20px'
   }
 
 
@@ -140,11 +145,26 @@ export const display: CSSProperties = {
 
   export const AdminIcon: CSSProperties = {
     color: 'white',
-    marginRight: '20px'
+    margin: '0px',
+    padding:'0px',
   }
 
   export const MainContainer: CSSProperties = {
     display: 'flex',  
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    height:'50px'
+
+  }
+
+  const counter: CSSProperties = {
+    position:'absolute',
+    top:'-5px',
+    right:'-8px',
+    color:'white',
+    backgroundColor:'#E51616',
+    padding:'2px 8px',
+    borderRadius:'50%',
+    fontSize:'12px',
+    fontWeight:'bold',
 
   }
