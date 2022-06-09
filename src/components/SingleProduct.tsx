@@ -11,29 +11,30 @@ import { ExitToAppSharp } from "@mui/icons-material";
 
 
 
-export const SingleProduct: FC<Props> = ({ itemsNumber, setItemsNumber}) => {
+export const SingleProduct: FC<Props> = () => {
   
   const { productSlug } = useParams()
 
-
-  
-  
   const foundProduct = productList.find((product) => (productSlug) == product.slug)
   
   if(!foundProduct) {
     return <Navigate to="/" />
   }
-
-
+  
+  
   const {addToCart} = useContext(CartContext)
   const {removeFromCart} = useContext(CartContext)
   const {cartItems} = useContext(CartContext)
-  const {cartQty} = useContext(CartContext)
+  const {itemsNumber} = useContext(CartContext)
+  const {setItemsNumber} = useContext(CartContext)
+
+  useEffect(() => {
+    setItemsNumber(1)
+  }, [])
   
-  console.log(cartQty)
-  console.log(cartItems)
+  const showProductQty = cartItems.find((item: Product) => item.id === foundProduct.id);
 
-
+  
   const clickOne = (value: string) => {
     const mainPic = document.querySelector('.mainPic') as HTMLImageElement
     const miniPic1 = document.querySelector('.miniPic1') as HTMLImageElement
@@ -53,7 +54,7 @@ export const SingleProduct: FC<Props> = ({ itemsNumber, setItemsNumber}) => {
 
   return (
 
-
+    
     <div style={{height:'100vh'}}>
       <div style={{height:'100%', ...marginLR, ...flexRow,justifyContent:'space-between',display:'flex', alignItems:'center'}} id="singleProductContainer">
         <div className="imgCon" style={{alignItems:'flex-start', marginRight:'80px' , justifyContent:'center' ,...flexColumn, ...imgConStyle}}>
@@ -72,9 +73,9 @@ export const SingleProduct: FC<Props> = ({ itemsNumber, setItemsNumber}) => {
                 </div>
                 <div style={{...flexRow,...flexDeadCenter,width:'100%', padding:'10px'}}>
                   <div style={{margin:'0px 5% 0px 5%'}}>
-                    <button style={amountStyle} onClick={() => removeFromCart(foundProduct)}>-</button>
-                    <span style={{border:'1px solid black', padding:'5px 10px 5px 10px'}}>{cartQty}</span>
-                    <button style={amountStyle} onClick={() => addToCart(foundProduct)}>+</button>
+                  <button style={amountStyle} onClick={() => setItemsNumber(prevState => prevState <= 1 ? prevState : prevState - 1)}>-</button>
+                    <span style={{border:'1px solid black', padding:'5px 10px 5px 10px'}}>{itemsNumber}</span>
+                    <button style={amountStyle} onClick={() => setItemsNumber(prevState => prevState + 1)}>+</button>
                   </div>
 
                   <button onClick={() => addToCart(foundProduct)} style={{display:'flex',justifySelf:'flex-start', ...button}} className="addToCart">Add to Cart</button>

@@ -14,7 +14,7 @@ const Header: FC<Props> = ({ setItemsNumber, itemsNumber }) => {
   const [auth, setAuth] = useState(false);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
-  const {cartItems} = useContext(CartContext)
+  const {cartQty} = useContext(CartContext)
 
 
   useEffect(() => {
@@ -102,7 +102,8 @@ const Header: FC<Props> = ({ setItemsNumber, itemsNumber }) => {
           <div style={{position:'relative',display:'flex'}} className="cartIcon">
             <div >
               
-              <span style={{...counter}}>{cartItems.length}</span>
+              <span style={{...counter}}>{cartQty}</span>
+              
             </div>
             <h1>
               <Link to={"/CartPage"} style={HeadNav}><FiShoppingBag /></Link>
