@@ -1,6 +1,6 @@
-import React, { CSSProperties, FC } from "react";
+
+import React, { CSSProperties, FC, useContext } from "react";
 import { Box, Button, FormControl, InputLabel, MenuItem, Select, SelectChangeEvent, TextField, Typography } from '@mui/material'
-import { Link, } from "react-router-dom";
 import productList, {Product} from "../data/productList";
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -12,8 +12,12 @@ import Paper from '@mui/material/Paper';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import '../index.css'
 import { Props } from "../data/cartAmount"
+import { Link } from "react-router-dom";
+import { CartContext } from "./cartContext";
 
 
+
+  
 
 
 function ccyFormat(num: number) {
@@ -24,10 +28,17 @@ function priceRow(qty: number, unit: number) {
   return qty * unit;
 }
 
+        
+
+      <div>
+      <Button variant="contained" color="success"><Link to={"/CheckOutPage"}>Check Out</Link></Button>
+      </div>
+
 function createRow(desc: string, qty: number, unit: number) {
   const price = priceRow(qty, unit);
   return { desc, qty, unit, price };
 }
+
 
 interface Row {
   desc: string;
@@ -55,8 +66,14 @@ export const CartPage: FC<Props> = () => {
   if(imageCart.id === 1) {
   let pictureCart = (document.querySelector('cartPic') as HTMLImageElement);
   pictureCart.src = imageCart.productImg.img2;
-
   const [numberOfItems, setNumberOfItems] = React.useState('');
+  
+  const {cartItems} = useContext(CartContext)
+
+  cartItems.map((item: Product) => {
+    item.productTitle
+  })
+
 
   const handleChange = (event: SelectChangeEvent) => {
     setNumberOfItems(event.target.value);

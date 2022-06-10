@@ -1,6 +1,6 @@
 import React, { CSSProperties, FC } from "react";
-import Carousel from "react-elastic-carousel";
 import productList, { Product } from "../data/productList";
+import Carousel from "react-elastic-carousel";
 import BannerLanding from "./landing components/bannerLanding";
 import ProductCard from "./ProductCard";
 
