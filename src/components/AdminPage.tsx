@@ -1,4 +1,5 @@
 import React, { CSSProperties, FC } from "react";
+import AdminComponent from "./admin bar components/AdminBar";
 
 
 const AdminPage: FC = () => {
@@ -8,7 +9,11 @@ const AdminPage: FC = () => {
 
     <div style={AdminPageStyle} id="AdminPage">
 
-      <h1> Admin Page </h1> {/* product cards here */}
+
+
+    <AdminComponent/>
+
+
     </div>
 
   );
@@ -24,8 +29,8 @@ export default AdminPage;
 
 export const AdminPageStyle: CSSProperties = {
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection: 'row',
     justifyContent: 'center',
-    height: '100vh'
+    minHeight: '100vh'
     }
 

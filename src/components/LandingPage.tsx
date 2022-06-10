@@ -20,14 +20,16 @@ export const LandingPage: FC = () => {
       <div
         style={{
           display: "flex",
-          flexDirection: "row",
+          flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          margin: '20px 20px'
+          margin: '20px 20px',
 
         
         }}
-      > 
+      > <div className="textContainer" style={{margin:'20px 20px'}}>
+        <h2>Our best selling products</h2>
+      </div>
         <Carousel enableTilt={true} className={'slider'} enableMouseSwipe={true} enableSwipe={true} breakPoints={breakPoints}>
           {productList.map((product) => (
             <ProductCard key={product.id} product={product} />
@@ -45,5 +47,5 @@ export default LandingPage;
 export const landingStyle: CSSProperties = {
   display: "flex",
   flexDirection: "column",
-  
-}
+  paddingTop:'130px'
+};

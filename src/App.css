@@ -1,3 +1,11 @@
+
+
+
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
+
 .App {
   text-align: center;
 }
@@ -42,22 +50,75 @@ button {
 }
 
 .eAyARa{
-  background-color: #282c34;
-}
-.eWjCzc{
-  background-color: #61dafb;
+  background-color: #282c34!important;
+  color: white!important;
 }
 
-.productCard{
-  transition: 0.3s ease-in-out;
+.eAyARa:disabled{
+  background-color: #282c34!important;
+  opacity: 0.5;
+  color: white!important;
+}
+
+.krmNah{
+  background-color: #9c9c9c!important;
+  box-shadow: 0 0 1px 3px rgb(87, 87, 87)!important;
+}
+
+.krmNah:hover {
+  box-shadow: 0 0 1px 3px #3770a5!important;
+}
+
+.jhmYzC:hover{
+  box-shadow: 0 0 1px 3px #3770a5!important;
+}
+
+
+.eWjCzc{
+  background-color: #242424!important;
+  color: white!important;
+}
+
+.eWjCzc:hover{
+  background-color: #3770a5!important;
+  color: white!important;
+}
+
+.productCard img{
   display:flex;
   flex-direction: column;
   justify-content: space-between;
+  transition: ease all .5s;
+  -moz-transition: all .5s;
+  -webkit-transition: all .5s;
+  -o-transition: all .5s;
+  -ms-transition: all .5s;
 }
-.productCard:hover{
-  opacity: 0.7;
-  color: red;
-  transition: 0.3s;
+
+.productCard:hover img{
+  opacity: 0.8;
+  transition: ease all .5s;
+  transform: scale(1.05); 
+  -wekbit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+}
+
+.productCard div{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: ease all .5s;
+  -moz-transition: all .5s;
+  -webkit-transition: all .5s;
+  -o-transition: all .5s;
+  -ms-transition: all .5s;
+}
+
+.productCard:hover div{
+  transition: ease all .5s;
+  transform: scale(1.05); 
+  -wekbit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
 }
 
 .seeMoreBtn{
@@ -65,4 +126,35 @@ button {
   justify-content: center;
   align-items: flex-end;
   text-decoration: none;
+}
+
+.slider{
+  height: 900px;
+  margin-top: 20px;
+  margin-top: 80px;
+}
+
+.rec-swipable{
+  height: 750px;
+}
+
+.rec-slider-container{
+  justify-content: space-around;
+}
+
+.logo:hover, .menu:hover, .cartIcon:hover{
+  opacity: 0.7;
+  color: red;
+  transition: 0.3s;
+}
+
+.css-1wztarg-MuiButtonBase-root-MuiButton-root:hover{
+  background-color: #272727!important;
+  color: white!important;
+  border: none!important;
+}
+
+.productCrdBtn{
+  color: #ff0000!important;
+  font-weight: bold;
 }

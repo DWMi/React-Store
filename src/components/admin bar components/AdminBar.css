@@ -1,0 +1,42 @@
+.adminBarContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 200px;
+}
+
+.adminBar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+.product{
+    margin: 10px 10px;
+    padding: 10px 10px;
+}
+
+.productContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.productCardAdmin{
+    border: solid 1px black;
+    margin: 10px 10px
+}
+
+.adminProductImg{
+    width: 100%;
+    object-fit: fill;
+}
+
+.buttonsContainer{
+    display: flex;
+    justify-content: center;
+    margin: 10px 10px;
+    gap: 10px;
+}
