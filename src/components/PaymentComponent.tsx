@@ -2,32 +2,35 @@ import React, {FC,useEffect,useState} from 'react'
 import  { Card,FormControl, FormControlLabel, FormLabel,Radio, RadioGroup, Box, Button, CardContent, Grid, TextField} from "@mui/material";
 import { flexDeadCenter,flexColumn, flexRow, } from "../style/common";
 import { radioDivStyle } from './FormComponent';
-import { PlaceOrderProps } from '../data/PlaceOrderProps'
 
-const PaymentComponent:FC<Props> =({placeOrder, setPlaceOrder})=>{
+
+interface Props {
+    payment: string,
+    setPayment: React.Dispatch<React.SetStateAction<string>>,
+    placeOrder?: boolean,
+    setPlaceOrder: React.Dispatch<React.SetStateAction<boolean>>
+}
+const PaymentComponent:FC<Props> =({placeOrder, setPlaceOrder, payment, setPayment})=>{
     
         function ValidateEmail(email: string) 
         {
             if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)){
-            
-
                 return true
             }else{
-                
-                setPlaceOrder(false)
                 return false
                 }   
         }
 
     const swishValidation =()=>{
         if(swishPayment.length < 10 || swishPayment.length >= 11 || !swishPayment.startsWith('07') ) {
-            setPlaceOrder(false)
             return false
+        } else {
+            return true
         }
-        return true
+        
     }
 
-    const [payment, setPayment] = useState('')
+
     const [swishPayment, setSwishPayment ]= useState('')
     const [cardFName, setCardFName] = useState('')
     const [cardNumber, setCardNumber] = useState('')
@@ -59,12 +62,12 @@ const PaymentComponent:FC<Props> =({placeOrder, setPlaceOrder})=>{
         setPlaceOrder(false) 
 
 
-    
-
     }    
     useEffect(()=>{
         if(payment === "Swish") {
-
+            if(swishPayment.length < 10 || swishPayment.length >= 11 || !swishPayment.startsWith('07') ) {
+                setPlaceOrder(false)
+            }
         } else if ( payment === "Card") {
             if(cardCvcCode.length < 3 || cardExpiryYear.length < 2 || cardExpiryMonth.length < 2 || cardFName.length < 6 || cardNumber.length < 20){
                 setPlaceOrder(false)
@@ -99,7 +102,7 @@ const PaymentComponent:FC<Props> =({placeOrder, setPlaceOrder})=>{
                                 name="radio-buttons-group"
                         >
                             <div style={radioDivStyle}>
-                                <FormControlLabel value='Swish' control={<Radio />} label="Swish" />
+                                <FormControlLabel  value='Swish' control={<Radio />} label="Swish" />
                             </div >
                             <div style={radioDivStyle}>
                                 <FormControlLabel  value='Card' control={<Radio />} label="Card" />

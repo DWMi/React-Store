@@ -4,12 +4,12 @@ import { FiShoppingBag } from 'react-icons/Fi'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Typography, IconButton, FormGroup, FormControlLabel, Switch, Box, Menu, Toolbar, AppBar, MenuItem } from '@mui/material'
 import AccountCircle from '@mui/icons-material/AccountCircle';
-import { Props } from "../data/cartAmount"
+import { ItemProps } from "../data/CartAmountProps"
 import { flexDeadCenter } from "../style/common";
 import { height } from "@mui/system";
 import { CartContext } from "./cartContext";
 
-const Header: FC<Props> = ({ setItemsNumber, itemsNumber }) => {
+const Header: FC<ItemProps> = ({ setItemsNumber, itemsNumber }) => {
   const [cartNumber, setCartNumber] = useState<number>()
   const [auth, setAuth] = useState(false);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -36,7 +36,7 @@ const Header: FC<Props> = ({ setItemsNumber, itemsNumber }) => {
 
   return (
     <Box sx={{ flexGrow: 1}}>
-      <div className="MainContainer" style={{...MainContainer, position:'fixed', width:'100%',zIndex:3}}>
+      <div className="MainContainer" style={{...MainContainer, position:'fixed', width:'100%'}}>
       <div className="AdminSwitch">
         <FormGroup style={LogSwitch}>
           <FormControlLabel
@@ -160,8 +160,8 @@ export const display: CSSProperties = {
   export const MainContainer: CSSProperties = {
     display: 'flex',  
     justifyContent: 'space-between',
-    height:'50px'
-
+    height:'50px',
+    zIndex:3
   }
 
   const counter: CSSProperties = {
