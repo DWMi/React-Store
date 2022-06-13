@@ -42,7 +42,7 @@ export interface Product{
         img2:string
     },
     productPrice:number,
-    
+    qty?: number
         
 
 }
