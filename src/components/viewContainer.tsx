@@ -6,11 +6,11 @@ import CheckOutPage from './CheckoutPage'
 import LandingPage from './LandingPage'
 import ProductPage from './ProductPage'
 import SingleProduct from './SingleProduct'
-import { Props } from '../data/cartAmount'
+import { ItemProps } from '../data/CartAmountProps'
 
 
 
-const ViewContainer: FC<Props> = ({itemsNumber, setItemsNumber}) => {
+const ViewContainer: FC<ItemProps> = ({itemsNumber, setItemsNumber}) => {
     return (
         <>
 
