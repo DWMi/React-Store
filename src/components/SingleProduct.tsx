@@ -23,8 +23,6 @@ export const SingleProduct: FC<Props> = () => {
   
   
   const {addToCart} = useContext(CartContext)
-  const {removeFromCart} = useContext(CartContext)
-  const {cartItems} = useContext(CartContext)
   const {itemsNumber} = useContext(CartContext)
   const {setItemsNumber} = useContext(CartContext)
 
@@ -32,8 +30,6 @@ export const SingleProduct: FC<Props> = () => {
     setItemsNumber(1)
   }, [])
   
-  const showProductQty = cartItems.find((item: Product) => item.id === foundProduct.id);
-
   
   const clickOne = (value: string) => {
     const mainPic = document.querySelector('.mainPic') as HTMLImageElement
