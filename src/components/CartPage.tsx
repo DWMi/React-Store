@@ -1,128 +1,181 @@
-
 import React, { CSSProperties, FC, useContext } from "react";
-import { Box, Button, FormControl, InputLabel, MenuItem, Select, SelectChangeEvent, TextField, Typography } from '@mui/material'
+import {
+  Box,
+  Button,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  SelectChangeEvent,
+  TextField,
+  Typography,
+} from "@mui/material";
 import productList, { Product } from "../data/productList";
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
-import '../index.css'
-import { Props } from "../data/cartAmount"
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import "../index.css";
+import { Props } from "../data/cartAmount";
 import { Link } from "react-router-dom";
 import { CartContext } from "./cartContext";
-import { CartProductCard } from "./CartProductCard"
+import { CartProductCard } from "./CartProductCard";
 import { CartTableRow } from "./CartTableRow";
+import { flexDeadCenter } from "../style/common";
 
 // Denna knapp ska användas ?
-<div>
-  <Button variant="contained" color="success"><Link to={"/CheckOutPage"}>Check Out</Link></Button>
-</div>
-
 
 export const CartPage: FC<Props> = () => {
-
-
-  const { cartItems } = useContext(CartContext)
+  const { cartItems } = useContext(CartContext);
 
   let totalPrice = 0;
 
-  cartItems.forEach(product => {
-    totalPrice += product.productPrice * product.qty
-  })
+  cartItems.forEach((product) => {
+    totalPrice += product.productPrice * product.qty;
+  });
 
   return (
-
     <Box style={CartPageStyle}>
-      {
-        (() => {
-          if (cartItems.length >= 1) {
-            return (
-              <Box style={CartPageStyle}>
-                <TableContainer component={Paper} style={ProductContainer}>
-                  <Table sx={{ minWidth: 200 }} aria-label="spanning table">
-                    <CartTableRow />
+      {(() => {
+        if (cartItems.length >= 1) {
+          return (
+            <Box style={CartPageStyle}>
+              <TableContainer component={Paper} style={ProductContainer}>
+                <Table sx={{ minWidth: 200 }} aria-label="spanning table">
+                  <CartTableRow />
 
-                    {
-                      cartItems.map((product: Product) => (
-                        <CartProductCard key={product.id} product={product} />
-                      ))
-                    }
-                    <TableRow>
-                      <TableCell rowSpan={3} />
-                      <TableCell align="right" colSpan={3} style={{ fontWeight: 'bold' }}>Total price:</TableCell>
-                      <TableCell style={{ fontWeight: 'bold' }}>{totalPrice},00 kr</TableCell>
-                    </TableRow>
-                  </Table>
-                </TableContainer>
-              </Box>
-            )
-          } else {
-            return (
-              <Box style={CartPageStyle}>
-                <h1>Cart is empty motherfucker sucker bitch</h1>
-              </Box>
-            )
-          }
+                  {cartItems.map((product: Product) => (
+                    <CartProductCard key={product.id} product={product} />
+                  ))}
+                  <TableRow>
+                    <TableCell rowSpan={3} />
+                    <TableCell
+                      align="right"
+                      colSpan={3}
+                      style={{ fontWeight: "bold" }}
+                    >
+                      Total price:
+                    </TableCell>
+                    <TableCell style={{ fontWeight: "bold" }}>
+                      {totalPrice},00 kr
+                    </TableCell>
+                  </TableRow>
+                </Table>
+              </TableContainer>
 
-        })()
-      }
+              <div style={{ ...flexDeadCenter, margin: "20px" }}>
+                      <Link
+                        style={{ textDecoration: "none" }}
+                        to={"/CheckoutPage"}
+                      >
+                        <Button
+                          style={{ fontWeight: "bold", padding: '20px 200px', fontSize: '30px' }}
+                          variant="contained"
+                          color="success"
+                        >
+                          CHECK OUT
+                        </Button>
+                      </Link>
+                    </div>
+            </Box>
+          );
+        } else {
+          return (
+            <TableContainer component={Paper} style={ProductContainer}>
+              <Table sx={{ minWidth: 200 }} aria-label="spanning table">
+                <CartTableRow />
+
+                <TableRow>
+                  <TableCell colSpan={6} align="center">
+                    <h1 style={{fontSize: '35px', marginTop: '10px'}}>Cart is empty</h1>
+                    <div style={{ ...flexDeadCenter, margin: "20px", padding: '20px 200px' }}>
+                      <Link
+                        style={{ textDecoration: "none" }}
+                        to={"/ProductPage"}
+                      >
+                        <Button
+                          style={{ fontWeight: "bold", padding: '20px 30px', fontSize: '20px' }}
+                          variant="contained"
+                          color="success"
+                        >
+                          Start Shopping
+                        </Button>
+                      </Link>
+                    </div>
+                  </TableCell>
+                </TableRow>
+
+                <TableRow>
+                  <TableCell rowSpan={3}></TableCell>
+                  <TableCell
+                    align="right"
+                    colSpan={3}
+                    style={{ fontWeight: "bold" }}
+                  >
+                    Total price:
+                  </TableCell>
+                  <TableCell style={{ fontWeight: "bold" }}>
+                    {totalPrice},00 kr
+                  </TableCell>
+                </TableRow>
+              </Table>
+            </TableContainer>
+          );
+        }
+      })()}
     </Box>
-
-
-  )
-}
+  );
+};
 
 export default CartPage;
-
 
 //normal style here
 
 export const CartPageStyle: CSSProperties = {
-  display: 'flex',
-  height: '100%',
-  flexDirection: 'column',
-  alignItems: 'center',
-  background: 'rgb(211, 212, 212)',
-}
+  display: "flex",
+  height: "100%",
+  flexDirection: "column",
+  alignItems: "center",
+  background: "rgb(211, 212, 212)",
+  paddingTop: "138px",
+  paddingBottom: "182px",
+};
 
 export const mainContainer: CSSProperties = {
-  display: 'flex',
-  justifyContent: 'center',
-
-}
+  display: "flex",
+  justifyContent: "center",
+};
 
 export const CheckOutButtonContainer: CSSProperties = {
-  paddingBottom: '30px',
-  display: 'flex',
-  justifyContent: 'center',
-}
+  paddingBottom: "30px",
+  display: "flex",
+  justifyContent: "center",
+};
 
 export const buttonStyle: CSSProperties = {
-  textDecoration: 'none',
-  color: 'white',
-  fontWeight: 'bold',
-}
+  textDecoration: "none",
+  color: "white",
+  fontWeight: "bold",
+};
 
 export const ProductContainer: CSSProperties = {
-  marginTop: '20px',
-  display: 'flex',
-  width: '70vw',
-  background: 'white',
-
-}
+  marginTop: "20px",
+  display: "flex",
+  width: "70vw",
+  background: "white",
+};
 
 export const productInfoDiv: CSSProperties = {
-  display: 'flex',
-  flexDirection: 'row'
-}
+  display: "flex",
+  flexDirection: "row",
+};
 
 export const infoContent: CSSProperties = {
-  display: 'flex',
-  flexDirection: 'column',
-  paddingLeft: '30px'
-}
-
+  display: "flex",
+  flexDirection: "column",
+  paddingLeft: "30px",
+};
