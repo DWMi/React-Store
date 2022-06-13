@@ -1,33 +1,17 @@
 import React, { CSSProperties, FC, useContext } from "react";
-import {
-  Box,
-  Button,
-  FormControl,
-  InputLabel,
-  MenuItem,
-  Select,
-  SelectChangeEvent,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Box, Button } from "@mui/material";
 import productList, { Product } from "../data/productList";
 import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
-import "../index.css";
 import { Props } from "../data/cartAmount";
 import { Link } from "react-router-dom";
 import { CartContext } from "./cartContext";
 import { CartProductCard } from "./CartProductCard";
 import { CartTableRow } from "./CartTableRow";
 import { flexDeadCenter } from "../style/common";
-
-// Denna knapp ska användas ?
 
 export const CartPage: FC<Props> = () => {
   const { cartItems } = useContext(CartContext);
@@ -68,19 +52,20 @@ export const CartPage: FC<Props> = () => {
               </TableContainer>
 
               <div style={{ ...flexDeadCenter, margin: "20px" }}>
-                      <Link
-                        style={{ textDecoration: "none" }}
-                        to={"/CheckoutPage"}
-                      >
-                        <Button
-                          style={{ fontWeight: "bold", padding: '20px 200px', fontSize: '30px' }}
-                          variant="contained"
-                          color="success"
-                        >
-                          CHECK OUT
-                        </Button>
-                      </Link>
-                    </div>
+                <Link style={{ textDecoration: "none" }} to={"/CheckoutPage"}>
+                  <Button
+                    style={{
+                      padding: "20px 100px",
+                      fontSize: "25px",
+                      borderRadius: "0",
+                    }}
+                    variant="contained"
+                    color="success"
+                  >
+                    GO TO CHECK OUT
+                  </Button>
+                </Link>
+              </div>
             </Box>
           );
         } else {
@@ -91,18 +76,31 @@ export const CartPage: FC<Props> = () => {
 
                 <TableRow>
                   <TableCell colSpan={6} align="center">
-                    <h1 style={{fontSize: '35px', marginTop: '10px'}}>Cart is empty</h1>
-                    <div style={{ ...flexDeadCenter, margin: "20px", padding: '20px 200px' }}>
+                    <h1 style={{ fontSize: "35px", marginTop: "10px" }}>
+                      Your cart is empty
+                    </h1>
+                    <div
+                      style={{
+                        ...flexDeadCenter,
+                        margin: "20px",
+                        padding: "20px 200px",
+                      }}
+                    >
                       <Link
                         style={{ textDecoration: "none" }}
                         to={"/ProductPage"}
                       >
                         <Button
-                          style={{ fontWeight: "bold", padding: '20px 30px', fontSize: '20px' }}
+                          style={{
+                            fontWeight: "bold",
+                            padding: "20px 70px",
+                            fontSize: "20px",
+                            borderRadius: "0",
+                          }}
                           variant="contained"
                           color="success"
                         >
-                          Start Shopping
+                          Shop Now!
                         </Button>
                       </Link>
                     </div>
@@ -145,37 +143,11 @@ export const CartPageStyle: CSSProperties = {
   paddingBottom: "182px",
 };
 
-export const mainContainer: CSSProperties = {
-  display: "flex",
-  justifyContent: "center",
-};
-
-export const CheckOutButtonContainer: CSSProperties = {
-  paddingBottom: "30px",
-  display: "flex",
-  justifyContent: "center",
-};
-
-export const buttonStyle: CSSProperties = {
-  textDecoration: "none",
-  color: "white",
-  fontWeight: "bold",
-};
-
 export const ProductContainer: CSSProperties = {
-  marginTop: "20px",
   display: "flex",
   width: "70vw",
   background: "white",
 };
 
-export const productInfoDiv: CSSProperties = {
-  display: "flex",
-  flexDirection: "row",
-};
 
-export const infoContent: CSSProperties = {
-  display: "flex",
-  flexDirection: "column",
-  paddingLeft: "30px",
-};
+

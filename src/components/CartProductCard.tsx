@@ -29,7 +29,7 @@ export const CartProductCard: FC<Props> = (props) => {
                 </TableCell>
                 <TableCell align="right"></TableCell>
                 <TableCell align="center">
-                    <div style={{ margin: '0px 5% 0px 5%' }}>
+                    <div style={{ margin: '0px 5% 0px 5%', minWidth: '89px' }}>
                         <button style={amountStyle} onClick={() => decreaseFromCart(props.product)}>-</button>
                         <span style={{ border: '1px solid black', padding: '5px 10px 5px 10px', color: 'black', fontWeight: 'bolder' }}>{props.product.qty}</span>
                         <button style={amountStyle} onClick={() => increaseToCart(props.product)}>+</button>
