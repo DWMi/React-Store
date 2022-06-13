@@ -6,14 +6,13 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import { Props } from "../data/cartAmount";
 import { Link } from "react-router-dom";
 import { CartContext } from "./cartContext";
 import { CartProductCard } from "./CartProductCard";
 import { CartTableRow } from "./CartTableRow";
 import { flexDeadCenter } from "../style/common";
 
-export const CartPage: FC<Props> = () => {
+export const CartPage: FC = () => {
   const { cartItems } = useContext(CartContext);
 
   let totalPrice = 0;

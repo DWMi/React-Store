@@ -17,8 +17,10 @@ const FormComponent: FC = () => {
     const [zipCode , setZipCode] = useState('') 
     const [street , setStreet] = useState('') 
     const [payStep, setPayStep] = useState(false)
-    const [radioValue, setRadioValue] = useState('PostMord')
+    const [radioValue, setRadioValue] = useState('200')
+    const [shipValue, setShipValue] = useState('PostMord')
     const [placeOrder, setPlaceOrder] = useState(false)
+    const [payment, setPayment] = useState('')
 
     function ValidateEmail(value:string) 
     {
@@ -33,8 +35,8 @@ const FormComponent: FC = () => {
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setRadioValue((event.target as HTMLInputElement).value);
+        setShipValue((event.target as HTMLInputElement).name)
     }
-
 
 
     const onNextStep =(e: React.MouseEvent<HTMLButtonElement, MouseEvent> | React.FormEvent<HTMLFormElement>)=>{
@@ -134,23 +136,22 @@ const FormComponent: FC = () => {
                         <RadioGroup
                         style={{...flexRow,padding:'20px',...flexDeadCenter}}
                                 aria-labelledby="demo-radio-buttons-group-label"
-                                defaultValue="PostMord"
-                                value={radioValue}
+                                defaultValue="200"
                                 onChange={handleChange}
                                 name="radio-buttons-group"
                         >
                             <div style={radioDivStyle}>
-                                <FormControlLabel value='200' control={<Radio />} label="PostMord" />
+                                <FormControlLabel value='200' control={<Radio />} label="PostMord" name="PostMord" />
                                 <p> Delivery time 24h </p>
                                 <p>200kr</p>
                             </div >
                             <div style={radioDivStyle}>
-                            <FormControlLabel  value='100' control={<Radio />} label="Instabox" />
+                            <FormControlLabel  value='100' control={<Radio />} label="Instabox" name="Instabox" />
                             <p> Delivery time 48h </p>
                                 <p>100kr</p>
                             </div>
                             <div style={radioDivStyle}>
-                            <FormControlLabel  value='0' control={<Radio />} label="Budbee" />
+                            <FormControlLabel  value='0' control={<Radio />} label="Budbee" name="Budbee" />
                             <p> Delivery time 72h </p>
                                 <p>Free Shipping</p>
                             </div>
@@ -164,14 +165,25 @@ const FormComponent: FC = () => {
             {
                 nextStep && payStep ? 
                 <div>
-                    <PaymentComponent placeOrder={placeOrder} setPlaceOrder={setPlaceOrder}/>
+                    <PaymentComponent payment={payment} setPayment={setPayment} placeOrder={placeOrder} setPlaceOrder={setPlaceOrder}/>
             
                 </div> : null
             }
             {
                 placeOrder ?  
                 <div>
-                <SummaryCheckoutComponent radioValue={radioValue} setNextStep={setNextStep} /> </div> : null
+                <SummaryCheckoutComponent 
+                    firstName={firstName}
+                    lastName={lastName}
+                    email={email}
+                    country={country}
+                    city={city}
+                    zipCode={zipCode}
+                    street={street}
+                    payment={payment}
+                    radioValue={radioValue} 
+                    shipValue={shipValue}
+                    setNextStep={setNextStep} /> </div> : null
             }
     </div>   
     </>
@@ -179,9 +191,6 @@ const FormComponent: FC = () => {
 }
 
 export default FormComponent;
-
-
-
 
 
 //normal style here

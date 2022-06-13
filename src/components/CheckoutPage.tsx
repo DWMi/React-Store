@@ -7,7 +7,7 @@ const CheckOutPage: FC = () => {
 
   return (
 
-      <div>
+      <div style={checkOutStyle}>
         <FormComponent /> 
       </div>
       
@@ -16,3 +16,12 @@ const CheckOutPage: FC = () => {
 }
 
 export default CheckOutPage;
+
+const checkOutStyle : CSSProperties ={
+
+  paddingTop:'182px'
+
+
+
+
+}

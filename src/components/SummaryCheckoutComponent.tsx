@@ -9,27 +9,36 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Box, Button } from '@mui/material'
 import Modal from './Modal'
+import OrderConfirmationComponent from "./orderConfirmationComponent";
 
 
 interface Item {
   id:string,
   productImg:{
-    img1:string
+    img1:string 
   },
   productTitle:string,
   qty:number,
   productPrice:number
 }
 interface Props  {
-
   NextStep?: boolean,
   setNextStep:React.Dispatch<React.SetStateAction<boolean>>,
   radioValue:string,
-  setRadioValue?: React.Dispatch<React.SetStateAction<string>> 
+  setRadioValue?: React.Dispatch<React.SetStateAction<string>>,
+  shipValue:string,
+  email: string,
+  firstName: string,
+  lastName: string,
+  city: string,
+  zipCode: string,
+  street: string,
+  payment: string,
+  country: string,
 }
 
 
-const SummaryCheckoutComponent:FC<Props> = ({radioValue, setNextStep}) =>{
+const SummaryCheckoutComponent:FC<Props> = ({radioValue,shipValue,setNextStep, firstName, lastName, email, country, zipCode, payment, city, street}) =>{
   const [cartItems, setCartItems ] = useState([])
   const [showModal, setShowModal] = useState(false)
 
@@ -43,12 +52,12 @@ const SummaryCheckoutComponent:FC<Props> = ({radioValue, setNextStep}) =>{
 
 
 const totalSummary = cartItems.reduce((total:number, currentValue: Item)=>{
-  return total + currentValue.productPrice
+  return total + currentValue.productPrice * currentValue.qty
 },0)
 
+console.log(totalSummary)
     return(
       <>
-
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 700 }} aria-label="spanning table">
             <TableHead>
@@ -77,10 +86,18 @@ const totalSummary = cartItems.reduce((total:number, currentValue: Item)=>{
                   ))}
                     <TableRow>
                       <TableCell style={{fontWeight:'bold'}} align="center" colSpan={3}>
-                        SubTotal
+                        SubTotal (excl. tax)
                       </TableCell>
                       <TableCell align="center" colSpan={4}>
-                        {totalSummary + ' kr'} 
+                        {totalSummary - (totalSummary * 0.25) + ' kr'} 
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell style={{fontWeight:'bold'}} align="center" colSpan={3}>
+                        Tax (25%)
+                      </TableCell>
+                      <TableCell align="center" colSpan={4}>
+                        {totalSummary * 0.25 + ' kr'} 
                       </TableCell>
                     </TableRow>
                     <TableRow>
@@ -100,6 +117,7 @@ const totalSummary = cartItems.reduce((total:number, currentValue: Item)=>{
                         {totalSummary + parseInt(radioValue)+' kr' }
                       </TableCell>
                     </TableRow>
+                    
             </TableBody>
           </Table>
           <Box style={{margin:'40px', textAlign:'center'}}>
@@ -108,7 +126,19 @@ const totalSummary = cartItems.reduce((total:number, currentValue: Item)=>{
         </TableContainer>
         {
         showModal ?
-        <Modal> * PLACE YOUR SHIT HERE * </Modal>
+          <Modal>
+            <OrderConfirmationComponent
+                    totalSummary={totalSummary} 
+                    firstName={firstName}
+                    lastName={lastName}
+                    email={email}
+                    country={country}
+                    city={city}
+                    zipCode={zipCode}
+                    street={street}
+                    payment={payment}
+                    shipValue={shipValue} /> 
+          </Modal>
           : null
         }
           </>
