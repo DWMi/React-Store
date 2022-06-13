@@ -1,4 +1,4 @@
-import React, { useState, FC } from 'react'
+import React, { useState, FC, SetStateAction } from 'react'
 import logo from './logo.svg'
 import './App.css'
 import Footer from './components/Footer'
@@ -13,7 +13,9 @@ const App: FC = () => {
     <div className="App">
 
       <BrowserRouter>
-        <Layout/>
+        <Layout itemsNumber={0} setItemsNumber={function (value: SetStateAction<number>): void {
+          throw new Error('Function not implemented.')
+        } }/>
       </BrowserRouter>
       
     </div>

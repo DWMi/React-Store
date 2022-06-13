@@ -12,12 +12,14 @@ export const ProductPage: FC = () => {
     <div style={pageStyle} id="productPage">
       <div style={containerStyle}>
 
+
           {
             productList.map((product) => (
               
               <ProductCard key={product.id}  product = {product} />
             ))
           }
+         
 
       </div>
     </div>
@@ -28,15 +30,18 @@ export const ProductPage: FC = () => {
 export default ProductPage;
 const pageStyle: CSSProperties = {
   width: '100%',
+  height:'100%',
   display: 'flex',
   justifyContent: "center",
-  padding: '40px'
+  padding: '40px',
+  paddingTop:'130px'
  
 }
 
 export const containerStyle: CSSProperties = {
   display: 'flex',
-  width: '90%',
+  width: '80%',
+  height:'100%',
   flexBasis: '33,333%',
   flexWrap: 'wrap',
   gap: '20px',
