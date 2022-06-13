@@ -1,0 +1,96 @@
+
+
+.background {
+
+    background-color: rgb(200, 200, 200);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    
+  }
+  
+  .container {
+    width: 350px;
+    height: 350px;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 25px;
+    position: absolute;
+    z-index: 2;
+  }
+  
+  .container .title {
+    display: inline-block;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .closeButton {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .closeButton button {
+
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+  }
+  
+  .container .body {
+    flex: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-size: 1.7rem;
+    text-align: center;
+  }
+
+
+  .body input{
+    width: 100%;
+  }
+
+  .container .input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 15px;
+  }
+  
+  .container .buttons {
+    flex: 20%;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .container .buttons button {
+    width: 120px;
+    height: 45px;
+    margin: 10px;
+    border: none;
+    background-color: cornflowerblue;
+    color: white;
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  #cancelBtn {
+    background-color: crimson;
+    width: 120px;
+  }
+
+  .xButton{
+    width: 50px;
+
+    border-radius: 50px;
+  }

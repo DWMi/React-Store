@@ -1,8 +1,11 @@
-import React, { CSSProperties, FC } from "react";
-import AdminComponent from "./admin bar components/AdminBar";
+import React, { CSSProperties, FC, useState } from "react";
+import AdminComponent from "./AdminComponent.tsx";
+import AdminEditModal from "./modal/AdminEditModal";
 
 
 const AdminPage: FC = () => {
+
+  const[openModal, setOpenModal] = useState(false)
 
 
   return (
@@ -10,8 +13,10 @@ const AdminPage: FC = () => {
     <div style={AdminPageStyle} id="AdminPage">
 
 
-
     <AdminComponent/>
+
+    
+    {openModal && <AdminEditModal closeModal={setOpenModal}/>}
 
 
     </div>
@@ -31,6 +36,6 @@ export const AdminPageStyle: CSSProperties = {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center',
-    minHeight: '100vh'
+    minHeight: '200vh'
     }
 

@@ -36,7 +36,7 @@ const Header: FC<Props> = ({ setItemsNumber, itemsNumber }) => {
 
   return (
     <Box sx={{ flexGrow: 1}}>
-      <div className="MainContainer" style={{...MainContainer, position:'fixed', width:'100%',zIndex:1}}>
+      <div className="MainContainer" style={{...MainContainer, position:'fixed', width:'100%',zIndex:3}}>
       <div className="AdminSwitch">
         <FormGroup style={LogSwitch}>
           <FormControlLabel
@@ -134,7 +134,7 @@ export const display: CSSProperties = {
   position:'fixed',
   width:'100%',
   top:'50px',
-  zIndex:1,
+  zIndex:3,
   }
 
 
