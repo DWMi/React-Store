@@ -45,6 +45,7 @@ export default Footer;
 
 //normal style here
 const FooterStyle:CSSProperties = {
+  bottom: 0,
   background:'black',
   color:'white',
   justifyContent:'space-between', 
