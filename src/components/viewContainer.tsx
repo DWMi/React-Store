@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { Route, Routes } from 'react-router-dom'
-import AdminPage from './AdminPage'
+import AdminPage from './admin page components/AdminPage'
 import CartPage from './CartPage'
 import CheckOutPage from './CheckoutPage'
 import LandingPage from './LandingPage'
