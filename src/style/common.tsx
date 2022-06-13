@@ -11,20 +11,17 @@ export const flexDeadCenter: CSSProperties = {
 }
 
 export const flexColumn : CSSProperties = {
-
     display:'flex',
     flexDirection:'column'
 }
 
 
 export const flexRow: CSSProperties ={
-
     display:'flex',
     flexDirection:'row'
 }
 
 export const marginLR: CSSProperties ={
-
     marginLeft:'100px',
     marginRight:'100px'
 }
@@ -43,7 +40,7 @@ export const button: CSSProperties ={
 }
 
 export const HW100: CSSProperties ={
-
     height:'100%',
     width:'100%'
 }
+

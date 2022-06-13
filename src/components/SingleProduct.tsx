@@ -3,7 +3,7 @@ import React, { CSSProperties, FC, useEffect, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import productList, {Product} from "../data/productList";
 import { flexDeadCenter, flexColumn, flexRow, marginLR, button, HW100 } from "../style/common";
-import { Props } from "../data/cartAmount"
+import { ItemProps } from '../data/CartAmountProps'
 import { useContext } from "react";
 import { CartContext } from "./cartContext";
 import { ExitToAppSharp } from "@mui/icons-material";
@@ -11,7 +11,7 @@ import { ExitToAppSharp } from "@mui/icons-material";
 
 
 
-export const SingleProduct: FC<Props> = () => {
+export const SingleProduct: FC<ItemProps> = () => {
   
   const { productSlug } = useParams()
 
@@ -23,8 +23,6 @@ export const SingleProduct: FC<Props> = () => {
   
   
   const {addToCart} = useContext(CartContext)
-  const {removeFromCart} = useContext(CartContext)
-  const {cartItems} = useContext(CartContext)
   const {itemsNumber} = useContext(CartContext)
   const {setItemsNumber} = useContext(CartContext)
 
@@ -32,8 +30,6 @@ export const SingleProduct: FC<Props> = () => {
     setItemsNumber(1)
   }, [])
   
-  const showProductQty = cartItems.find((item: Product) => item.id === foundProduct.id);
-
   
   const clickOne = (value: string) => {
     const mainPic = document.querySelector('.mainPic') as HTMLImageElement
