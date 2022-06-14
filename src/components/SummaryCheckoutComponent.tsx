@@ -40,17 +40,17 @@ interface Props  {
   
 
 const SummaryCheckoutComponent:FC<Props> = ({radioValue,shipValue,setNextStep, firstName, lastName, email, country, zipCode, payment, city, street}) =>{
-  const [cartItems, setCartItems ] = useState([])
+  const [cartItem, setCartItem ] = useState([])
   const [showModal, setShowModal] = useState(false)
 
     const {setCartQty} = useContext(CartContext)
-    // const { setCartItems } = useContext(CartContext);
+    const { setCartItems } = useContext(CartContext);
 
   useEffect(()=>{
     
     const cart = JSON.parse(localStorage.getItem('cart')|| '') 
     if(cart){
-      setCartItems(cart)
+      setCartItem(cart)
     }
   },[])
 
@@ -62,7 +62,7 @@ const SummaryCheckoutComponent:FC<Props> = ({radioValue,shipValue,setNextStep, f
 }
 
 
-const totalSummary = cartItems.reduce((total:number, currentValue: Item)=>{
+const totalSummary = cartItem.reduce((total:number, currentValue: Item)=>{
   return total + currentValue.productPrice * currentValue.qty
 },0)
 
@@ -87,7 +87,7 @@ const totalSummary = cartItems.reduce((total:number, currentValue: Item)=>{
               </TableRow>
             </TableHead>
             <TableBody>
-                  {cartItems.map((item:Item) => (
+                  {cartItem.map((item:Item) => (
                     <TableRow  key={item.id}>
                       <TableCell align="left" colSpan={1}><img style={{width: '100px'}} src={item.productImg.img1}/> </TableCell>
                       <TableCell align="left" colSpan={1}>{item.productTitle}</TableCell>
