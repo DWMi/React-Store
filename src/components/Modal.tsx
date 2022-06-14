@@ -1,5 +1,6 @@
 import React, {CSSProperties,FC, PropsWithChildren, useEffect} from 'react'
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom';
+
 
 
 interface Props {}
@@ -27,15 +28,3 @@ const Modal:FC<PropsWithChildren<Props>> = (props) =>{
 
 export default Modal
 
-
-
-const modalStyle: CSSProperties = {
-
-    position:'fixed',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    backgroundColor: '#FFF',
-    padding: '50px',
-    zIndex: 1000
-}

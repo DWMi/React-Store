@@ -51,7 +51,7 @@ const FormComponent: FC = () => {
     },[firstName, lastName, email, phone , country, city, zipCode, street, radioValue ])
     return (
         <>
-        <div style={{margin:'20px', display:'flex', justifyContent:'center', alignItems:'center',flexDirection:'column'}} >
+        <div style={{margin:'20px', gap:'50px', display:'flex', justifyContent:'center', alignItems:'center',flexDirection:'column'}} >
         <h1> Checkout </h1>
         
         <Card style={{...cardStyle , ...flexDeadCenter , ...flexColumn }} >

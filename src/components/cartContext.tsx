@@ -8,19 +8,20 @@ import { toast } from 'react-toastify';
 
 interface ValuesProvider {
   cartItems: []
-  cartQty: number
+  cartQty: number,
+  setCartQty: React.Dispatch<any>,
   itemsNumber: number,
   addToCart: (foundProduct: Product) => void
   removeFromCart: (foundProduct: Product) => void
   setItemsNumber: React.Dispatch<React.SetStateAction<number>>
   decreaseFromCart: (foundProduct: Product) => void
   increaseToCart: (foundProduct: Product) => void
+  setCartItems: React.Dispatch<any>
 }
 
 interface Props { }
 
 export const CartContext = React.createContext<ValuesProvider>({} as ValuesProvider)
-
 
 const CartProvider: FC<PropsWithChildren<Props>> = (props) => {
 
@@ -107,7 +108,7 @@ const CartProvider: FC<PropsWithChildren<Props>> = (props) => {
 
 
   return (
-    <CartContext.Provider value={{ itemsNumber, cartItems, cartQty, setItemsNumber, addToCart, removeFromCart, decreaseFromCart, increaseToCart }}>
+    <CartContext.Provider value={{ itemsNumber, cartItems, setCartItems, cartQty, setCartQty, setItemsNumber, addToCart, removeFromCart, decreaseFromCart, increaseToCart }}>
       {props.children}
     </CartContext.Provider>
   )
