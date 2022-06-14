@@ -23,15 +23,7 @@ interface Props {
 
 
 const OrderConfirmationComponent:FC<Props> = ({shipValue, firstName, lastName, email, country, zipCode, payment, city, street }) => {
-//     const { setCartItems } = useContext(CartContext);
-//     const {setCartQty} = useContext(CartContext)
 
-
-//     const clear =()=>{
-//         localStorage.clear()
-//         setCartItems([])
-//         setCartQty(0)
-//    }
 
     const card = (
         <React.Fragment>
