@@ -87,19 +87,19 @@ const Header: FC<ItemProps> = ({ setItemsNumber, itemsNumber }) => {
     </div>
         <div style={display} id="headerContainer">
 
-          <div className="logo">
+          <div style={{width:'33%',display:'flex', justifyContent:'flex-start'}} className="logo">
             <h1>
               <Link to={"/"} style={HeadNav}>Optical</Link>
             </h1>
           </div>
 
-            <div className="menu">
+            <div style={{width:'33%',}} className="menu">
               <h1>
                 <Link to={"/ProductPage"} style={HeadNav}>Products</Link>
               </h1>
             </div>
 
-          <div style={{position:'relative',display:'flex'}} className="cartIcon">
+          <div  style={{position:'relative',display:'flex', width:'33%', justifyContent:'flex-end' }} className="cartIcon">
             <div >
               
               <span style={{...counter}}>{cartQty}</span>
@@ -128,7 +128,7 @@ export default Header;
 export const display: CSSProperties = {
   display: 'flex',
   flexDirection: 'row',
-  justifyContent: 'space-around',
+  justifyContent: 'space-between',
   background: 'black',
   padding:'20px',
   position:'fixed',

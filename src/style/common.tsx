@@ -1,5 +1,6 @@
 import { height } from "@mui/system";
 import { CSSProperties } from "react";
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 
 export const flexDeadCenter: CSSProperties = {
@@ -43,4 +44,11 @@ export const HW100: CSSProperties ={
     height:'100%',
     width:'100%'
 }
+
+
+
+/* MEDIA QUERIES */
+
+
+
 

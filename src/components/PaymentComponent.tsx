@@ -129,6 +129,7 @@ const PaymentComponent:FC<Props> =({placeOrder, setPlaceOrder, payment, setPayme
                                                             variant="outlined"
                                                             type="number"
                                                             required
+                                                            name="Phone Number"
                                                             fullWidth />  
                                                         </Grid>    
                                                     </Grid>    
@@ -150,6 +151,7 @@ const PaymentComponent:FC<Props> =({placeOrder, setPlaceOrder, payment, setPayme
                                                             placeholder='Full name of Card Owner'
                                                             variant="outlined"
                                                             type="text"
+                                                            name="Full Name"
                                                             required
                                                             fullWidth />                                    
                                                         </Grid>    
@@ -161,6 +163,7 @@ const PaymentComponent:FC<Props> =({placeOrder, setPlaceOrder, payment, setPayme
                                                             placeholder='Card number'
                                                             variant="outlined"
                                                             type="number"
+                                                            name="Card Number"
                                                             required
                                                             fullWidth />  
                                                         </Grid>   
@@ -173,6 +176,7 @@ const PaymentComponent:FC<Props> =({placeOrder, setPlaceOrder, payment, setPayme
                                                                 placeholder='MM'
                                                                 variant="outlined"
                                                                 type="number"
+                                                                name="Month"
                                                                 required
                                                                 />  
                                                             </Grid>    
@@ -184,6 +188,7 @@ const PaymentComponent:FC<Props> =({placeOrder, setPlaceOrder, payment, setPayme
                                                                 placeholder='YY'
                                                                 variant="outlined"
                                                                 type="number"
+                                                                name="Year"
                                                                 required
                                                                 />  
                                                             </Grid>  
@@ -196,6 +201,7 @@ const PaymentComponent:FC<Props> =({placeOrder, setPlaceOrder, payment, setPayme
                                                                 placeholder='***'
                                                                 variant="outlined"
                                                                 type="number"
+                                                                name="CVC Number"
                                                                 required
                                                                 />  
                                                             </Grid>  
@@ -214,6 +220,7 @@ const PaymentComponent:FC<Props> =({placeOrder, setPlaceOrder, payment, setPayme
                                                 placeholder='Paypal Account'
                                                 variant="outlined"
                                                 type="email"
+                                                name="Email"
                                                 required
                                                 fullWidth
                                                 />  

@@ -6,17 +6,24 @@ import { ItemProps } from "../data/CartAmountProps"
 import CartProvider  from "./cartContext";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import DeviceProvider from "../style/deviceProvider";
 
 const Layout: FC<ItemProps> = () => {
     const [itemsNumber, setItemsNumber] = useState(0)
     return (
+
+
+
         <div className="layout">
+
+            <DeviceProvider>
                 <CartProvider>
                     <ToastContainer/>
                     <Header setItemsNumber={setItemsNumber} itemsNumber={itemsNumber} />
                     <ViewContainer itemsNumber={itemsNumber} setItemsNumber={setItemsNumber} />
                     <Footer />
                 </CartProvider>
+                </DeviceProvider>
                 
         </div>    
     )
