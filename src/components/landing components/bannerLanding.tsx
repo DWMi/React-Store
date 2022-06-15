@@ -9,7 +9,7 @@ import './banner.css'
   return (
 
 
-    <div className='imageContainer' style={{width:'100%', paddingTop:'138px'}}>
+    <div className='imageContainer' style={{width:'100%', paddingTop:'120px'}}>
 
             <img style={bannerStyleImg} src={opticalBanner}alt="" />
 

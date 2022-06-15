@@ -135,11 +135,12 @@ button {
   text-decoration: none;
 }
 
-/* .slider{
-  height: 900px;
+.slider{
+  height: 700px;
+  width: 100%;
   margin-top: 20px;
   margin-top: 80px;
-} */
+}
 
 .rec-swipable{
   height: 100%;
