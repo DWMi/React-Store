@@ -53,7 +53,7 @@ export const LandingPage: FC = () => {
       </div>
        
         <Carousel  enableTilt={true} className={'slider'} enableMouseSwipe={true} enableSwipe={true} breakPoints={breakPoints}>
-          {productList.map((product) => (
+          {productArr.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </Carousel>

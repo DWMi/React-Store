@@ -8,6 +8,8 @@ import { useContext } from "react";
 import { CartContext } from "./cartContext";
 import { ExitToAppSharp } from "@mui/icons-material";
 import Button from "@mui/material/Button";
+import { Device, DeviceContext } from "../style/deviceProvider";
+import { textAlign } from "@mui/system";
 
 
 
@@ -17,6 +19,21 @@ export const SingleProduct: FC<ItemProps> = () => {
   const { productSlug } = useParams()
 
   const {productArr} = useContext(CartContext)
+
+  const { devices } = useContext(DeviceContext)
+
+  let currentDevice: string = devices.isDesktop ? "Desktop" : devices.isTablet ? "Tablet" : "Mobile"  
+    
+  if(devices.isDesktop) {
+      currentDevice = "Desktop"
+  } else if(devices.isTablet) {
+      currentDevice = "Tablet"
+  } else {
+      currentDevice = "Mobile"
+  }
+
+
+  
 
 
   const foundProduct = productArr.find((product) => (productSlug) == product.slug)
@@ -55,41 +72,42 @@ export const SingleProduct: FC<ItemProps> = () => {
   return (
 
     
-    <div style={{height:'100vh'}}>
-      <div style={{height:'100%', ...marginLR, ...flexRow,justifyContent:'space-between',display:'flex', alignItems:'center'}} id="singleProductContainer">
-        <div className="imgCon" style={{alignItems:'flex-start', marginRight:'80px' , justifyContent:'center' ,...flexColumn, ...imgConStyle}}>
-          <img className="mainPic" style={{...flexDeadCenter, ...imgStyle}} src={foundProduct.productImg.img1} alt="" />
-          <div className="miniImgCon" style={{...miniImgConStyles ,...flexRow, justifySelf:'flex-start'}}>
+    <div style={{minHeight:'100vh', ...flexDeadCenter}}>
+      <div style={{height:'100%', ...flexRow, display:'flex', alignItems:'center', ...columnMobile(devices) }} id="singleProductContainer">
+        <div className="imgCon" style={{alignItems:'flex-start', marginRight:'80px', justifyContent:'center' ,...flexColumn, ...imgConStyle, ...imageMedia(devices)}}>
+          <img className="mainPic" style={{...flexDeadCenter,  width: devices.isMobile? '70%' : '50%', }} src={foundProduct.productImg.img1} alt="" />
+          <div className="miniImgCon" style={{...miniImgConStyles ,...flexRow, justifyContent:'center'}}>
             <img className="miniPic1" style={{...miniImgStyles}} src={foundProduct.productImg.img1}alt="" onClick={() => clickOne('img1')} />
             <img className="miniPic2" style={{...miniImgStyles}} src={foundProduct.productImg.img2} alt="" onClick={() => clickOne('img2')} />
           </div>
         </div>
-        <div className="sideInfo" style={{height:'100%',width:'50%', ...flexColumn}}>
-          <div className="sideInfoCon" style={{...HW100, ...flexColumn}}>
-            <div style={{height:'100%', ...flexColumn, gap:'30px',...flexDeadCenter}} className="infoCon">
-                <div style={{margin:'20px 0px 20px 0px', padding:'10px'}}>
+        <div className="sideInfo" style={sideInfoMedia(devices)}>
+          <div className="sideInfoCon" style={{...HW100, ...flexColumn, marginRight: devices.isDesktop ? '150px' : devices.isTablet ? '50px' : '20px',}}>
+            <div style={{height:'100%', ...flexColumn, gap:'30px',display:'flex', justifyContent:'center', alignItems:'center'}} className="infoCon">
+                <div style={{margin:'20px 0px 20px 0px', padding:'10px', ...flexDeadCenter, ...flexColumn}}>
                   <h1 style={{display:'flex', textAlign:'start'}} className="prodTitle">{foundProduct.productTitle}</h1>
-                  <h2 style={{display:'flex', textAlign:'start', margin:'20px'}} className="prodPrice">{foundProduct.productPrice + ':-' }</h2>
+                  <h2 style={{display:'flex', textAlign:'start', margin:'5px'}} className="prodPrice">{foundProduct.productPrice + ':-' }</h2>
                 </div>
-                <div style={{...flexRow,...flexDeadCenter,width:'100%', padding:'10px'}}>
-                  <div style={{margin:'0px 5% 0px 5%'}}>
+                <div style={{...flexDeadCenter,width:'100%', ...flexColumnRowMedia(devices)}}>
+                  <div >
                   <button style={amountStyle} onClick={() => setItemsNumber(prevState => prevState <= 1 ? prevState : prevState - 1)}>-</button>
                     <span style={{border:'1px solid black', padding:'5px 10px 5px 10px'}}>{itemsNumber}</span>
                     <button style={amountStyle} onClick={() => setItemsNumber(prevState => prevState + 1)}>+</button>
                   </div>
                 
-                  <Button onClick={() => addToCart(foundProduct)} style={{display:'flex',justifySelf:'flex-start', ...button}} className="addToCart">Add to Cart</Button>
+                  <Button onClick={() => addToCart(foundProduct)} style={{display:'flex',justifySelf:'flex-start', ...buttonMedia(devices) }} className="addToCart">Add to Cart</Button>
                 </div>
 
                 
 
-                <div style={{margin:'20px 0px 20px 0px' , ...flexDeadCenter , padding:'10px', textAlign:'start', ...flexColumn,alignItems:'flex-start' }}>
-                  <h2 >Produktinformation</h2>
+                <div style={{margin:'20px 0px 20px 0px' , ...flexDeadCenter , padding:'10px', ...flexColumn, width:'50%'}}>
+                  <h3 >Produktinformation</h3>
                   <p style={{fontWeight:'bold'}}className="productInfo">Glasögonform: {foundProduct.productDescription.form}</p>
                   <p style={{fontWeight:'bold'}}className="productInfo">Material: {foundProduct.productDescription.material}</p>
                   <p style={{fontWeight:'bold'}}className="productInfo">Toningsgrad: {foundProduct.productDescription.toneGrade}</p>
                   <p style={{fontWeight:'bold'}}className="productInfo">UV-skydd: {foundProduct.productDescription.uvPro}</p>
                 </div>
+
             </div>
           </div>
         </div>  
@@ -101,9 +119,56 @@ export const SingleProduct: FC<ItemProps> = () => {
 export default SingleProduct;
 
 
+/* styles with media queries */
 
 
+const imageMedia: (devices: Device) => CSSProperties = (devices) => {
+  return {
+    width: devices.isMobile? '70%' : '50%',  
+    marginLeft: devices.isDesktop ? '150px' : devices.isTablet ? '50px' : '20px',
+    alignItems: devices.isMobile ? 'center' : 'flex-start',
+  }
+};
 
+const flexColumnRowMedia: (devices: Device) => CSSProperties = (devices) => {
+  return {
+    flexDirection: devices.isMobile ? 'row' : 'column'  
+  }
+};
+
+const sideInfoMedia: (devices: Device) => CSSProperties = (devices) => {
+  return {
+   display:'flex',
+   flexDirection:'column',
+   justifyContent:'center',
+   alignItems:'center',
+   width:'50%'
+
+    }
+};
+
+const columnMobile: (devices: Device) => CSSProperties = (devices) => {
+  return {
+   flexDirection: devices.isMobile ? 'column' : 'row',
+   paddingTop: devices.isMobile ? '120px' : '138px'
+   
+  }
+    }
+
+const buttonMedia: (devices: Device) => CSSProperties = (devices) => {
+  return {
+    backgroundColor:'#9393f9',
+    border:'none',
+    color:'white',
+    fontWeight:'bold',
+    cursor:'pointer',
+    padding:'7px 5px',
+    alignItems:'center',
+    justifyContent:'center',
+    fontSize: devices.isMobile ? '12px' : '15px'
+
+    }
+};
 //normal style here
 
 const imgConStyle: CSSProperties ={
@@ -114,7 +179,7 @@ const imgConStyle: CSSProperties ={
 
 }
 const imgStyle: CSSProperties ={
-  width:'100%',
+  width:'80%',
 
 }
 
@@ -123,13 +188,13 @@ const miniImgConStyles: CSSProperties ={
   height:'20%',
   width:'35%',
   gap:'20px',
-  margin:'20px 0px 20px 0px'
+  margin:'20px'
 
 }
 const miniImgStyles: CSSProperties = {
   cursor:'pointer',
-  height:'100%',
-  width:'100%'
+  height:'50%',
+  width:'50%'
 }
 
 const amountStyle: CSSProperties = {

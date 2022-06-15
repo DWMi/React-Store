@@ -88,6 +88,7 @@ const productList: Product[] =[
         productTitle:'Tom Ford',
         productDescription:{
             form:'Pilot (droppformad)', 
+            material:' - ',
             toneGrade:'Medium (kategori 2)',
             uvPro:'Ja',
             case:'hårt',

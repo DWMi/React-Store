@@ -140,7 +140,8 @@ export const CartPageStyle: CSSProperties = {
   background: "rgb(211, 212, 212)",
   paddingTop: "138px",
   paddingBottom: "182px",
-};
+
+}
 
 export const ProductContainer: CSSProperties = {
   display: "flex",
