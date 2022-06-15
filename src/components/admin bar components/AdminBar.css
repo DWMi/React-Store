@@ -9,7 +9,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     
 }
 
@@ -23,16 +22,11 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    align-content: center;
-    width: 100%;
-    overflow-x: hidden;
 }
 
 .productCardAdmin{
-    border: solid 0.5px rgba(0, 0, 0, 0.533);
-    margin: 10px 10px;
-    border-radius: 5px!important;
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.494)!important;
+    border: solid 1px black;
+    margin: 10px 10px
 }
 
 .adminProductImg{
@@ -45,5 +39,4 @@
     justify-content: center;
     margin: 10px 10px;
     gap: 10px;
-    z-index: 0;
 }

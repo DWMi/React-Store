@@ -55,7 +55,7 @@ const SummaryCheckoutComponent:FC<Props> = ({radioValue,shipValue,setNextStep, f
   },[])
 
   const clear =()=>{
-    localStorage.clear()
+    localStorage.removeItem('cart')
     setCartItems([])
     setCartQty(0)
     setShowModal(true)
