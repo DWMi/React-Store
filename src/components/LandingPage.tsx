@@ -34,7 +34,7 @@ export const LandingPage: FC = () => {
   ];
 
   return (
-    <div style={landing(devices)} id="landingPage">
+    <div  id="landingPage">
       <BannerLanding />
 
       <div
@@ -51,8 +51,11 @@ export const LandingPage: FC = () => {
         <div className="textContainer" style={{margin:'20px 20px'}}>
         <h2>Our best selling products</h2>
       </div>
+
         <Carousel enableTilt={true} className={'slider'} enableMouseSwipe={true} enableSwipe={true} breakPoints={breakPoints}>
           {productArr.map((product) => (
+        <Carousel  enableTilt={true} className={'slider'} enableMouseSwipe={true} enableSwipe={true} breakPoints={breakPoints}>
+          {productList.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </Carousel>
@@ -64,7 +67,7 @@ export const LandingPage: FC = () => {
 
 const landing: (devices: Device) => CSSProperties = (devices) => {
   return {
-    /* background: devices.isDesktop ? 'blue' : 'red' */
+    height:''
     
   }
 };
