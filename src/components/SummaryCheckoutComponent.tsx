@@ -70,7 +70,7 @@ const totalSummary = cartItem.reduce((total:number, currentValue: Item)=>{
     return(
       <>
         <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 700 }} aria-label="spanning table">
+          <Table sx={{ minWidth: 100 }} aria-label="spanning table">
             <TableHead>
               <TableRow>
                 <TableCell style={{fontWeight: 'bold'}} align="left" colSpan={1}>
@@ -88,31 +88,31 @@ const totalSummary = cartItem.reduce((total:number, currentValue: Item)=>{
             </TableHead>
             <TableBody>
                   {cartItem.map((item:Item) => (
-                    <TableRow  key={item.id}>
-                      <TableCell align="left" colSpan={1}><img style={{width: '100px'}} src={item.productImg.img1}/> </TableCell>
+                    <TableRow key={item.id}>
+                      <TableCell align="left" colSpan={1}><img style={{width: '65px'}} src={item.productImg.img1}/> </TableCell>
                       <TableCell align="left" colSpan={1}>{item.productTitle}</TableCell>
                       <TableCell align="center" colSpan={4}>{item.qty+ 'x'}</TableCell>
                       <TableCell align="center"colSpan={3}>{(item.productPrice + ' kr')}</TableCell>
                     </TableRow>
                   ))}
                     <TableRow>
-                      <TableCell style={{fontWeight:'bold'}} align="center" colSpan={3}>
+                      <TableCell style={{fontWeight:'bold'}} align="left" colSpan={3}>
                         SubTotal (excl. tax)
                       </TableCell>
-                      <TableCell align="center" colSpan={4}>
+                      <TableCell align="left" colSpan={4}>
                         {totalSummary - (totalSummary * 0.25) + ' kr'} 
                       </TableCell>
                     </TableRow>
                     <TableRow>
-                      <TableCell style={{fontWeight:'bold'}} align="center" colSpan={3}>
+                      <TableCell style={{fontWeight:'bold'}} align="left" colSpan={3}>
                         Tax (25%)
                       </TableCell>
-                      <TableCell align="center" colSpan={4}>
+                      <TableCell align="left" colSpan={4}>
                         {totalSummary * 0.25 + ' kr'} 
                       </TableCell>
                     </TableRow>
                     <TableRow>
-                      <TableCell style={{fontWeight:'bold'}}  align="center" colSpan={3}>
+                      <TableCell style={{fontWeight:'bold'}}  align="left" colSpan={3}>
                         Shipping
                       </TableCell>  
                       <TableCell  align="center" colSpan={4}>
@@ -121,7 +121,7 @@ const totalSummary = cartItem.reduce((total:number, currentValue: Item)=>{
                     </TableRow>  
                     
                     <TableRow>
-                      <TableCell style={{fontWeight:'bold'}}  align="center" colSpan={3}>
+                      <TableCell style={{fontWeight:'bold'}}  align="left" colSpan={3}>
                         Total
                       </TableCell>
                       <TableCell align="center" colSpan={4}>

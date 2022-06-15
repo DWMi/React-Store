@@ -130,7 +130,7 @@ const FormComponent: FC = () => {
         <div id="shippingInfo" style={shippingInfoStyle}>
             
                 <h3>Shipping</h3>
-            <Card style={{ ...flexDeadCenter, ...flexColumn, padding:'30px'}}>  
+            <Card style={{ ...flexDeadCenter, ...flexColumn}}>  
                 <FormControl>
                     <FormLabel id="demo-radio-buttons-group-label"></FormLabel>
                         <RadioGroup
@@ -198,7 +198,7 @@ export default FormComponent;
 const customerFormStyles: CSSProperties = {
 
     margin:'10%',
-    padding:'20px',
+    padding:'35px',
 }
     const formStyle: CSSProperties = {
         display:'flex',
@@ -212,8 +212,6 @@ const customerFormStyles: CSSProperties = {
         alignItems:'center',
         backgroundColor: 'white',
         gap: '20px',
-        width: '50%',
-        padding: '50px',
         borderRadius: '5px',
         flexWrap: 'wrap'
     }
@@ -229,8 +227,8 @@ const customerFormStyles: CSSProperties = {
         borderBottom: '1px solid gray'
     }
     const cardStyle: CSSProperties ={
-        marginRight:'20%',
-        marginLeft:'20%',
+        marginRight:'10%',
+        marginLeft:'10%',
         marginBottom:'10%',
 
     }

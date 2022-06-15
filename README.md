@@ -1,6 +1,24 @@
+OPTICAL exclusive sunglass store
 # React-Store
 A group react + ts project 
 
+GITHUB:
+https://github.com/DWMi/React-Store
+
+
+How to run the APP:
+1. Open the project in your code editor
+2. open the terminal
+3. type in-  npm install
+4. type in- npm run dev -to start the application
+
+PACKAGES:
+1. React icon
+2. MUI
+3. Toastify
+4. React-Elastic-Carousel
+5. Styled-Components
+6. React-Router-Dom
 
 Projektarbete - Checkout-React
 I den här laborationen ska ni i grupp om tre skapa en hemsida i React och Typescript genererat med Vite.
@@ -51,17 +69,17 @@ När alla delarna i utcheckningsflödet har fyllts i ska det finns en ”Slutfö
     Använd en URL för bilder så det enkelt kan sparas i localstorage
 
     Krav för godkänt:
-    1.Git & GitHub har använts
-    2.Projektmappen innehåller en README.md fil - (läs ovan för mer info)
-    3.Uppgiften lämnas in innan deadline!
-    4.Ett designsystem används
-    5.React Router skall användas som navigation. Exempelvis så skall produkten som visas på produktsidan ska baseras på en parameter i url’en.
-    6.React context skall användas för hantering av kundvagnen.
-    7.Samtliga fält ska ha valideringsregler (tips, se Material UI:s dokumentation)
-    8.Sidan ska vara fullt responsiv
-    9.Mockade produkter ska ligga i en egen fil och vara typade med ett TS interface
+    1.Git & GitHub har använts ✅
+    2.Projektmappen innehåller en README.md fil ✅
+    3.Uppgiften lämnas in innan deadline! ✅
+    4.Ett designsystem används ✅
+    5.React Router skall användas som navigation. Exempelvis så skall produkten som visas på produktsidan ska baseras på en parameter i url’en. ✅
+    6.React context skall användas för hantering av kundvagnen. ✅
+    7.Samtliga fält ska ha valideringsregler (tips, se Material UI:s dokumentation) ✅
+    8.Sidan ska vara fullt responsiv ✅
+    9.Mockade produkter ska ligga i en egen fil och vara typade med ett TS interface ✅
     
-    Krav för väl godkänt:
-    1.Alla punkter för godkänt är uppfyllda
-    2.Det finns en admin-sida där man kan ändra, lägga till eller ta bort produkter på sidan
-    3.Samtliga produkter skall vara sparade i localstorage (om localstorage är tom då sidan läses in behöver samtliga fördefinierade produkter sparas där)
+    Krav för välgodkänt: 
+    1.Alla punkter för godkänt är uppfyllda ✅
+    2.Det finns en admin-sida där man kan ändra, lägga till eller ta bort produkter på sidan ✅
+    3.Samtliga produkter skall vara sparade i localstorage (om localstorage är tom då sidan läses in behöver samtliga fördefinierade produkter sparas där) ✅
