@@ -129,7 +129,8 @@ export const CartPageStyle: CSSProperties = {
   alignItems: "center",
   paddingTop: "138px",
   paddingBottom: "182px",
-};
+
+}
 
 export const ProductContainer: CSSProperties = {
   width: '95%',

@@ -53,7 +53,7 @@ const AdminEditModal: FC<Props> = (props) => {
             productPrice: priceProduct
         }
 
-        setProductArr(productArr => [...productArr, productToAdd]);
+        setProductArr((productArr: any) => [...productArr, productToAdd]);
         toast.success(`${productToAdd.productTitle} has been added to products`, { position: 'bottom-left', autoClose: 1500, hideProgressBar: true })
         props.setOpenModal(false)
        

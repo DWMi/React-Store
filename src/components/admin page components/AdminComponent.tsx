@@ -66,6 +66,7 @@ const AdminComponent: FC<Props> = () => {
     </div>
   )
 
-}
+        }
+      
 
 export default AdminComponent
