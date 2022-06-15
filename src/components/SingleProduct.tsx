@@ -7,12 +7,13 @@ import { ItemProps } from '../data/CartAmountProps'
 import { useContext } from "react";
 import { CartContext } from "./cartContext";
 import { ExitToAppSharp } from "@mui/icons-material";
+import Button from "@mui/material/Button";
 
 
 
 
 export const SingleProduct: FC<ItemProps> = () => {
-  
+
   const { productSlug } = useParams()
 
   const foundProduct = productList.find((product) => (productSlug) == product.slug)
@@ -73,8 +74,8 @@ export const SingleProduct: FC<ItemProps> = () => {
                     <span style={{border:'1px solid black', padding:'5px 10px 5px 10px'}}>{itemsNumber}</span>
                     <button style={amountStyle} onClick={() => setItemsNumber(prevState => prevState + 1)}>+</button>
                   </div>
-
-                  <button onClick={() => addToCart(foundProduct)} style={{display:'flex',justifySelf:'flex-start', ...button}} className="addToCart">Add to Cart</button>
+                
+                  <Button onClick={() => addToCart(foundProduct)} style={{display:'flex',justifySelf:'flex-start', ...button}} className="addToCart">Add to Cart</Button>
                 </div>
 
                 
@@ -116,7 +117,8 @@ const imgStyle: CSSProperties ={
 
 const miniImgConStyles: CSSProperties ={
 
-  height:'100px',
+  height:'20%',
+  width:'35%',
   gap:'20px',
   margin:'20px 0px 20px 0px'
 
