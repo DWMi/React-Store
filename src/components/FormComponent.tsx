@@ -197,7 +197,7 @@ export default FormComponent;
 
 const customerFormStyles: CSSProperties = {
 
-    margin:'100px',
+    margin:'10%',
     padding:'20px',
 }
     const formStyle: CSSProperties = {
@@ -229,8 +229,8 @@ const customerFormStyles: CSSProperties = {
         borderBottom: '1px solid gray'
     }
     const cardStyle: CSSProperties ={
-        marginRight:'30%',
-        marginLeft:'30%',
+        marginRight:'20%',
+        marginLeft:'20%',
         marginBottom:'10%',
 
     }
