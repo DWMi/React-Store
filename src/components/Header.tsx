@@ -117,7 +117,7 @@ const Header: FC<ItemProps> = ({ setItemsNumber, itemsNumber }) => {
           <div  style={{position:'relative',display:'flex', width:'33%', justifyContent:'flex-end' }} className="cartIcon">
             <div >
               
-              <span style={{...iconSpan(devices),}}>{cartQty}</span>
+              <span style={{...iconSpan(devices)}}>{cartQty}</span>
               
             </div>
             <h1>
