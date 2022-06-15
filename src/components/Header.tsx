@@ -8,6 +8,7 @@ import { ItemProps } from "../data/CartAmountProps"
 import { flexDeadCenter } from "../style/common";
 import { height } from "@mui/system";
 import { CartContext } from "./cartContext";
+import { Device, DeviceContext } from "../style/deviceProvider";
 
 const Header: FC<ItemProps> = ({ setItemsNumber, itemsNumber }) => {
   const [cartNumber, setCartNumber] = useState<number>()
@@ -15,6 +16,20 @@ const Header: FC<ItemProps> = ({ setItemsNumber, itemsNumber }) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
   const {cartQty} = useContext(CartContext)
+
+  /* Device provider */
+
+  const { devices } = useContext(DeviceContext)
+
+  let currentDevice: string = devices.isDesktop ? "Desktop" : devices.isTablet ? "Tablet" : "Mobile"  
+    
+  if(devices.isDesktop) {
+      currentDevice = "Desktop"
+  } else if(devices.isTablet) {
+      currentDevice = "Tablet"
+  } else {
+      currentDevice = "Mobile"
+  }
 
 
   useEffect(() => {
@@ -35,9 +50,9 @@ const Header: FC<ItemProps> = ({ setItemsNumber, itemsNumber }) => {
   };
 
   return (
-    <Box sx={{ flexGrow: 1}}>
+    <Box  sx={{ flexGrow: 1}}>
       <div className="MainContainer" style={{...MainContainer, position:'fixed', width:'100%'}}>
-      <div className="AdminSwitch">
+      <div  className="AdminSwitch">
         <FormGroup style={LogSwitch}>
           <FormControlLabel
             control={
@@ -85,7 +100,7 @@ const Header: FC<ItemProps> = ({ setItemsNumber, itemsNumber }) => {
       </div>
       )}
     </div>
-        <div style={display} id="headerContainer">
+        <div style={header(devices)} id="headerContainer">
 
           <div style={{width:'33%',display:'flex', justifyContent:'flex-start'}} className="logo">
             <h1>
@@ -102,7 +117,7 @@ const Header: FC<ItemProps> = ({ setItemsNumber, itemsNumber }) => {
           <div  style={{position:'relative',display:'flex', width:'33%', justifyContent:'flex-end' }} className="cartIcon">
             <div >
               
-              <span style={{...counter}}>{cartQty}</span>
+              <span style={{...iconSpan(devices),}}>{cartQty}</span>
               
             </div>
             <h1>
@@ -120,7 +135,37 @@ const Header: FC<ItemProps> = ({ setItemsNumber, itemsNumber }) => {
 export default Header;
 
 
+/* style including MEDIA QUERIES */
 
+const header: (devices: Device) => CSSProperties = (devices) => {
+  return {
+
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    background: 'black',
+    padding: '20px',
+    fontSize: devices.isTablet ? '15px' : devices.isMobile ? '10px' : '20px' ,
+    position:'fixed',
+    width:'100%',
+    top:'50px',
+    zIndex:3,
+  }
+};
+
+const iconSpan: (devices: Device) => CSSProperties = (devices) => {
+  return {
+    position:'absolute',
+    top: '-5px',
+    right:'-8px',
+    color:'white',
+    padding: devices.isDesktop ? '2px 8px' : devices.isTablet ? '1px 6px' : '2px 6px' ,
+    backgroundColor:'#E51616',
+    borderRadius:'50%',
+    fontSize: devices.isDesktop ? '12px' : devices.isTablet ? '10px' : '8px',
+    fontWeight:'bold',
+  }
+};
 
 
 //normal style here

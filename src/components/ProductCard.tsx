@@ -27,7 +27,7 @@ export const ProductCard: FC<Props> = (props) => {
   return (
 
 <div>
-    <Card  className="productCard" sx={{ width: '20em', boxShadow:'none', borderRadius:'1px' }}>
+    <Card  className="productCard" sx={{ maxWidth:'20em', boxShadow:'none', borderRadius:'1px' }}>
       <Link style={{textDecoration:'none'}} to={`/${props.product.slug}`}>
       <CardMedia 
         component="img"
@@ -37,7 +37,7 @@ export const ProductCard: FC<Props> = (props) => {
         
         />
       <CardContent style={{...marginText, color:'black'}} >
-        <Typography  gutterBottom variant="h5" component="div">
+        <Typography style={{wordWrap:'break-word'}} gutterBottom variant="h5" component="div">
           {props.product.productTitle}
         </Typography>
      
@@ -74,7 +74,8 @@ const imgDivStyle: CSSProperties = {
 }
 
 const marginText: CSSProperties = {
-  marginTop: '10px'
+  marginTop: '10px', 
+  wordBreak: 'break-word'
   
 }
 
