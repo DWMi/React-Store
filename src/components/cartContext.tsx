@@ -1,12 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import { FC, PropsWithChildren } from "react";
-import { Product } from "../data/productList";
+import productList, { Product } from "../data/productList";
 import { toast } from 'react-toastify';
 
 
 
 
 interface ValuesProvider {
+  productArr: []
   cartItems: []
   cartQty: number,
   setCartQty: React.Dispatch<any>,
@@ -17,6 +18,8 @@ interface ValuesProvider {
   decreaseFromCart: (foundProduct: Product) => void
   increaseToCart: (foundProduct: Product) => void
   setCartItems: React.Dispatch<any>
+  setProductArr: React.Dispatch<any>
+  
 }
 
 interface Props { }
@@ -24,15 +27,27 @@ interface Props { }
 export const CartContext = React.createContext<ValuesProvider>({} as ValuesProvider)
 
 const CartProvider: FC<PropsWithChildren<Props>> = (props) => {
-
+  const productArrLocalStorage = JSON.parse(localStorage.getItem('PRODUCTS') || '[]')
   const getProductsLocalStorage = JSON.parse(localStorage.getItem('cart') || '[]')
   const getQtyLocalStorage = JSON.parse(localStorage.getItem('qty') || '0')
 
+  const [productArr, setProductArr] = useState(productArrLocalStorage)
   const [itemsNumber, setItemsNumber] = useState(1)
   const [cartItems, setCartItems] = useState(getProductsLocalStorage)
   const [cartQty, setCartQty] = useState(getQtyLocalStorage)
 
 
+
+  useEffect(() => {
+
+    if (productArr.length === 0) {
+      localStorage.setItem('PRODUCTS', JSON.stringify(productList))
+    } else {
+      localStorage.setItem('PRODUCTS', JSON.stringify(productArr))
+    }
+
+
+  }, [productArr])
 
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cartItems))
@@ -108,7 +123,7 @@ const CartProvider: FC<PropsWithChildren<Props>> = (props) => {
 
 
   return (
-    <CartContext.Provider value={{ itemsNumber, cartItems, setCartItems, cartQty, setCartQty, setItemsNumber, addToCart, removeFromCart, decreaseFromCart, increaseToCart }}>
+    <CartContext.Provider value={{productArr, itemsNumber, cartItems, cartQty,setCartQty, setCartItems , setItemsNumber, addToCart, removeFromCart, decreaseFromCart, increaseToCart, setProductArr }}>
       {props.children}
     </CartContext.Provider>
   )
