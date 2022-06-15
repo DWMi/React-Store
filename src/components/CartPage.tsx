@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 import { CartContext } from "./cartContext";
 import { CartProductCard } from "./CartProductCard";
 import { CartTableRow } from "./CartTableRow";
-import { flexDeadCenter } from "../style/common";
+import { flexDeadCenter, flexRow } from "../style/common";
 
 export const CartPage: FC = () => {
   const { cartItems } = useContext(CartContext);
@@ -22,13 +22,13 @@ export const CartPage: FC = () => {
   });
 
   return (
-    <Box style={CartPageStyle}>
+    <Box style={{...CartPageStyle}}>
       {(() => {
         if (cartItems.length >= 1) {
           return (
-            <Box style={CartPageStyle}>
+            <Box style={{...CartPageStyle, paddingBottom: '0'}}>
               <TableContainer component={Paper} style={ProductContainer}>
-                <Table sx={{ minWidth: 200 }} aria-label="spanning table">
+                <Table style={{ minWidth: '150px' }} aria-label="spanning table">
                   <CartTableRow />
 
                   {cartItems.map((product: Product) => (
@@ -36,15 +36,10 @@ export const CartPage: FC = () => {
                   ))}
                   <TableRow>
                     <TableCell rowSpan={3} />
-                    <TableCell
-                      align="right"
-                      colSpan={3}
-                      style={{ fontWeight: "bold" }}
+                    <TableCell align='right' colSpan={4}
+                      style={{ fontWeight: "bold", minWidth: '190px' }}
                     >
-                      Total price:
-                    </TableCell>
-                    <TableCell style={{ fontWeight: "bold" }}>
-                      {totalPrice},00 kr
+                      Total price: {totalPrice},00 kr
                     </TableCell>
                   </TableRow>
                 </Table>
@@ -54,8 +49,8 @@ export const CartPage: FC = () => {
                 <Link style={{ textDecoration: "none" }} to={"/CheckoutPage"}>
                   <Button
                     style={{
-                      padding: "20px 100px",
-                      fontSize: "25px",
+                      
+                      fontSize: "100%",
                       borderRadius: "0",
                     }}
                     variant="contained"
@@ -107,18 +102,13 @@ export const CartPage: FC = () => {
                 </TableRow>
 
                 <TableRow>
-                  <TableCell rowSpan={3}></TableCell>
-                  <TableCell
-                    align="right"
-                    colSpan={3}
-                    style={{ fontWeight: "bold" }}
-                  >
-                    Total price:
-                  </TableCell>
-                  <TableCell style={{ fontWeight: "bold" }}>
-                    {totalPrice},00 kr
-                  </TableCell>
-                </TableRow>
+                    <TableCell rowSpan={3} />
+                    <TableCell align='right' colSpan={4}
+                      style={{ fontWeight: "bold", minWidth: '190px' }}
+                    >
+                      Total price: {totalPrice},00 kr
+                    </TableCell>
+                  </TableRow>
               </Table>
             </TableContainer>
           );
@@ -137,14 +127,13 @@ export const CartPageStyle: CSSProperties = {
   height: "100%",
   flexDirection: "column",
   alignItems: "center",
-  background: "rgb(211, 212, 212)",
   paddingTop: "138px",
   paddingBottom: "182px",
 };
 
 export const ProductContainer: CSSProperties = {
+  width: '95%',
   display: "flex",
-  width: "70vw",
   background: "white",
 };
 
