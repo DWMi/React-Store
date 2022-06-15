@@ -27,7 +27,7 @@ export const CartPage: FC = () => {
         if (cartItems.length >= 1) {
           return (
             <Box style={{...CartPageStyle, paddingBottom: '0'}}>
-              <TableContainer component={Paper} style={ProductContainer}>
+              <TableContainer component={Paper} style={{...ProductContainer, ...flexDeadCenter}}>
                 <Table style={{ minWidth: '150px' }} aria-label="spanning table">
                   <CartTableRow />
 
@@ -64,7 +64,7 @@ export const CartPage: FC = () => {
           );
         } else {
           return (
-            <TableContainer component={Paper} style={ProductContainer}>
+            <TableContainer component={Paper} style={{...ProductContainer, ...flexDeadCenter}}>
               <Table sx={{ minWidth: 200 }} aria-label="spanning table">
                 <CartTableRow />
 
@@ -77,7 +77,6 @@ export const CartPage: FC = () => {
                       style={{
                         ...flexDeadCenter,
                         margin: "20px",
-                        padding: "20px 200px",
                       }}
                     >
                       <Link
@@ -86,9 +85,8 @@ export const CartPage: FC = () => {
                       >
                         <Button
                           style={{
-                            fontWeight: "bold",
-                            padding: "20px 70px",
-                            fontSize: "20px",
+                            width: '100%',
+                            fontSize: "100%",
                             borderRadius: "0",
                           }}
                           variant="contained"
@@ -125,6 +123,8 @@ export default CartPage;
 export const CartPageStyle: CSSProperties = {
   display: "flex",
   height: "100%",
+  minHeight: '100vh',
+  justifyContent: 'center',
   flexDirection: "column",
   alignItems: "center",
   paddingTop: "138px",
