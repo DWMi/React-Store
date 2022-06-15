@@ -7,22 +7,24 @@ import { toast } from 'react-toastify';
 
 
 interface ValuesProvider {
-  cartItems: []
   productArr: []
-  cartQty: number
+  cartItems: []
+  cartQty: number,
+  setCartQty: React.Dispatch<any>,
   itemsNumber: number,
   addToCart: (foundProduct: Product) => void
   removeFromCart: (foundProduct: Product) => void
   setItemsNumber: React.Dispatch<React.SetStateAction<number>>
   decreaseFromCart: (foundProduct: Product) => void
   increaseToCart: (foundProduct: Product) => void
-  setProductArr: (foundProduct: Product) => void
+  setCartItems: React.Dispatch<any>
+  setProductArr: React.Dispatch<any>
+  
 }
 
 interface Props { }
 
 export const CartContext = React.createContext<ValuesProvider>({} as ValuesProvider)
-
 
 const CartProvider: FC<PropsWithChildren<Props>> = (props) => {
   const productArrLocalStorage = JSON.parse(localStorage.getItem('PRODUCTS') || '[]')
@@ -121,7 +123,7 @@ const CartProvider: FC<PropsWithChildren<Props>> = (props) => {
 
 
   return (
-    <CartContext.Provider value={{ productArr, itemsNumber, cartItems, cartQty, setItemsNumber, addToCart, removeFromCart, decreaseFromCart, increaseToCart, setProductArr }}>
+    <CartContext.Provider value={{productArr, itemsNumber, cartItems, cartQty,setCartQty, setCartItems , setItemsNumber, addToCart, removeFromCart, decreaseFromCart, increaseToCart, setProductArr }}>
       {props.children}
     </CartContext.Provider>
   )

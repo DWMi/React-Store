@@ -1,5 +1,5 @@
 
-import React, {FC,useEffect, useState} from "react";
+import React, {FC,useEffect, useState, useContext} from "react";
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -10,6 +10,7 @@ import Paper from '@mui/material/Paper';
 import { Box, Button } from '@mui/material'
 import Modal from './Modal'
 import OrderConfirmationComponent from "./orderConfirmationComponent";
+import { CartContext } from "./cartContext";
 
 
 interface Item {
@@ -36,26 +37,36 @@ interface Props  {
   payment: string,
   country: string,
 }
-
+  
 
 const SummaryCheckoutComponent:FC<Props> = ({radioValue,shipValue,setNextStep, firstName, lastName, email, country, zipCode, payment, city, street}) =>{
-  const [cartItems, setCartItems ] = useState([])
+  const [cartItem, setCartItem ] = useState([])
   const [showModal, setShowModal] = useState(false)
+
+    const {setCartQty} = useContext(CartContext)
+    const { setCartItems } = useContext(CartContext);
 
   useEffect(()=>{
     
     const cart = JSON.parse(localStorage.getItem('cart')|| '') 
     if(cart){
-      setCartItems(cart)
+      setCartItem(cart)
     }
   },[])
 
+  const clear =()=>{
+    localStorage.clear()
+    setCartItems([])
+    setCartQty(0)
+    setShowModal(true)
+}
 
-const totalSummary = cartItems.reduce((total:number, currentValue: Item)=>{
+
+const totalSummary = cartItem.reduce((total:number, currentValue: Item)=>{
   return total + currentValue.productPrice * currentValue.qty
 },0)
 
-console.log(totalSummary)
+
     return(
       <>
         <TableContainer component={Paper}>
@@ -76,7 +87,7 @@ console.log(totalSummary)
               </TableRow>
             </TableHead>
             <TableBody>
-                  {cartItems.map((item:Item) => (
+                  {cartItem.map((item:Item) => (
                     <TableRow  key={item.id}>
                       <TableCell align="left" colSpan={1}><img style={{width: '100px'}} src={item.productImg.img1}/> </TableCell>
                       <TableCell align="left" colSpan={1}>{item.productTitle}</TableCell>
@@ -121,14 +132,13 @@ console.log(totalSummary)
             </TableBody>
           </Table>
           <Box style={{margin:'40px', textAlign:'center'}}>
-              <Button onClick={()=> setShowModal(true) } fullWidth type="submit" variant="contained">Place order</Button>
+              <Button onClick={()=> clear()} fullWidth type="submit" variant="contained">Place Order</Button>
           </Box>
         </TableContainer>
         {
         showModal ?
           <Modal>
-            <OrderConfirmationComponent
-                    totalSummary={totalSummary} 
+            <OrderConfirmationComponent 
                     firstName={firstName}
                     lastName={lastName}
                     email={email}
