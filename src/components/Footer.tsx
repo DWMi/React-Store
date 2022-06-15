@@ -11,20 +11,20 @@ export const Footer: FC = () => {
   return (
     <div style={{background:'black'}}  id="footerContainer">
       <div style={{...flexDeadCenter,...flexRow, ...FooterStyle}}  className="footerItems">
-        <div className="contacts">
-          <div className="contactsCon">
+        <div style={{width:'33%'}} className="contacts">
+          <div  className="contactsCon">
             <ul style={listStyle}>
               <li><FiMail/> info@optical.com</li>
               <li><GiRotaryPhone/> +46 627 46 58 44</li>
-              <li><MdLocationCity/> Secondstreet 69 Gotham City</li>
+              <li><MdLocationCity/> Secondstreet 69</li>
             </ul>
           </div>
         </div>
-        <div style={{...flexColumn,justifyContent:"flex-end"}} className="copyright">
+        <div style={{...flexColumn,justifyContent:"flex-end", width:'33%'}} className="copyright">
           <p style={{ fontSize:'30px', margin:'20px'}}className="FooterLogo">Optical</p>
           <p style={{fontWeight:'lighter', fontSize:'10px'}}>© Copyrighted by Optical</p>
         </div>
-        <div className="socials">
+        <div style={{width:'33%',display:'flex', justifyContent:'flex-end'}} className="socials">
           <ul style={listStyle}>
             <li><TiSocialInstagram/> OpticalOfficial</li>
             <li><TiSocialFacebook/> OpticalOfficial</li>
@@ -50,7 +50,7 @@ const FooterStyle:CSSProperties = {
   color:'white',
   justifyContent:'space-between', 
   fontWeight:'bold',
-  padding:'40px'
+  padding:'20px'
 }
 const listStyle:CSSProperties ={
   display:'flex',

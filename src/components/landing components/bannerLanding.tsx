@@ -1,51 +1,30 @@
 
 import React, {CSSProperties} from 'react'
 import { flexRow } from '../../style/common'
-import modelTwo from '/src/assets/model2.webp'
-import modelThree from '/src/assets/model3.webp'
-import modelFour from '/src/assets/model4.webp'
+
+import opticalBanner from '../../assets/Optical.jpg'
+import './banner.css'
 
  const BannerLanding = () => {
   return (
-    <div style={{ zIndex:'-1', width:'100%',}}>
 
-    <div style={{...flexRow,  height:'60vh'}}>
 
-            <img style={bannerStyleImg} src={modelTwo}alt="" />
-            <img style={bannerStyleImg} src={modelThree} alt="" />
-            <img style={bannerStyleImg} src={modelFour} alt="" />
+    <div className='imageContainer' style={{width:'100%', paddingTop:'138px'}}>
 
-      <div style={textStyleBanner}>
-      <h1 style={{textShadow: '10px 10px 20px black'}}>Optical</h1>
-          </div>
+            <img style={bannerStyleImg} src={opticalBanner}alt="" />
+
       
     </div>
-    </div>
+   
   )
 }
 
 const bannerStyleImg: CSSProperties = {
   display: 'flex',
-  width: '100%',
-  height: '100%',
-  objectFit: 'cover',
-  position: 'relative',
-  top: 0
+ width:'100%',
+  objectFit:'fill',
 }
 
-const textStyleBanner: CSSProperties = {
-  display: 'flex',
-  justifyContent: 'center',
-  zIndex: '10',
-  alignItems: 'flex-end',
-  position: 'absolute',
-  fontSize: '100px',
-  textAlign: 'center',
-  width: '100%',
-  height:'60vh',
-  color: 'white',
-
-}
 
 
 

@@ -84,6 +84,13 @@ button {
   color: white!important;
 }
 
+.productCard{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .productCard img{
   display:flex;
   flex-direction: column;
@@ -128,14 +135,14 @@ button {
   text-decoration: none;
 }
 
-.slider{
+/* .slider{
   height: 900px;
   margin-top: 20px;
   margin-top: 80px;
-}
+} */
 
 .rec-swipable{
-  height: 750px;
+  height: 100%;
 }
 
 .rec-slider-container{
@@ -162,4 +169,8 @@ button {
 .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root.Mui-focused,.css-1sumxir-MuiFormLabel-root-MuiInputLabel-root.Mui-error, .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root.Mui-focused{
   z-index: 1;
 } */
+
+
+
+
 

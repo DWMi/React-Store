@@ -27,13 +27,13 @@ export const ProductCard: FC<Props> = (props) => {
   return (
 
 <div>
-    <Card  className="productCard" sx={{ width: 390, boxShadow:'none', borderRadius:'1px' }}>
+    <Card  className="productCard" sx={{ width: '20em', boxShadow:'none', borderRadius:'1px' }}>
       <Link style={{textDecoration:'none'}} to={`/${props.product.slug}`}>
       <CardMedia 
         component="img"
-        height="600"
         image={props.product.productImg.img1}
         alt={props.product.productTitle}
+        style={imgStyle}
         
         />
       <CardContent style={{...marginText, color:'black'}} >
