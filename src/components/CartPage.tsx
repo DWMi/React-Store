@@ -17,8 +17,8 @@ export const CartPage: FC = () => {
 
   let totalPrice = 0;
 
-  cartItems.forEach((product) => {
-    totalPrice += product.productPrice * product.qty;
+  cartItems.forEach((product: Product) => {
+    totalPrice += product.productPrice * product.qty!;
   });
 
   return (

@@ -1,10 +1,13 @@
-import React, { CSSProperties, FC } from "react";
-import productList from "../data/productList";
+import React, { CSSProperties, FC, useContext } from "react";
+import productList, { Product } from "../data/productList";
+import { CartContext } from "./cartContext";
 import ProductCard from "./ProductCard";
 
 
 
 export const ProductPage: FC = () => {
+
+const {productArr} = useContext(CartContext)
 
 
   return (
@@ -14,7 +17,7 @@ export const ProductPage: FC = () => {
 
 
           {
-            productList.map((product) => (
+            productArr.map((product: Product) => (
               
               <ProductCard key={product.id}  product = {product} />
             ))

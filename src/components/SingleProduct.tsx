@@ -15,7 +15,10 @@ export const SingleProduct: FC<ItemProps> = () => {
   
   const { productSlug } = useParams()
 
-  const foundProduct = productList.find((product) => (productSlug) == product.slug)
+  const {productArr} = useContext(CartContext)
+
+
+  const foundProduct = productArr.find((product) => (productSlug) == product.slug)
   
   if(!foundProduct) {
     return <Navigate to="/" />
@@ -65,7 +68,7 @@ export const SingleProduct: FC<ItemProps> = () => {
             <div style={{height:'100%', ...flexColumn, gap:'30px',...flexDeadCenter}} className="infoCon">
                 <div style={{margin:'20px 0px 20px 0px', padding:'10px'}}>
                   <h1 style={{display:'flex', textAlign:'start'}} className="prodTitle">{foundProduct.productTitle}</h1>
-                  <h2 style={{display:'flex', textAlign:'start', margin:'20px'}} className="prodPrice">{foundProduct.productPrice + ';-' }</h2>
+                  <h2 style={{display:'flex', textAlign:'start', margin:'20px'}} className="prodPrice">{foundProduct.productPrice + ':-' }</h2>
                 </div>
                 <div style={{...flexRow,...flexDeadCenter,width:'100%', padding:'10px'}}>
                   <div style={{margin:'0px 5% 0px 5%'}}>
@@ -81,10 +84,10 @@ export const SingleProduct: FC<ItemProps> = () => {
 
                 <div style={{margin:'20px 0px 20px 0px' , ...flexDeadCenter , padding:'10px', textAlign:'start', ...flexColumn,alignItems:'flex-start' }}>
                   <h2 >Produktinformation</h2>
-                  <p style={{fontWeight:'bold'}}className="productInfo">{foundProduct.productDescription.form}</p>
-                  <p style={{fontWeight:'bold'}}className="productInfo">{foundProduct.productDescription.material}</p>
-                  <p style={{fontWeight:'bold'}}className="productInfo">{foundProduct.productDescription.toneGrade}</p>
-                  <p style={{fontWeight:'bold'}}className="productInfo">{foundProduct.productDescription.uvPro}</p>
+                  <p style={{fontWeight:'bold'}}className="productInfo">Glasögonform: {foundProduct.productDescription.form}</p>
+                  <p style={{fontWeight:'bold'}}className="productInfo">Material: {foundProduct.productDescription.material}</p>
+                  <p style={{fontWeight:'bold'}}className="productInfo">Toningsgrad: {foundProduct.productDescription.toneGrade}</p>
+                  <p style={{fontWeight:'bold'}}className="productInfo">UV-skydd: {foundProduct.productDescription.uvPro}</p>
                 </div>
             </div>
           </div>

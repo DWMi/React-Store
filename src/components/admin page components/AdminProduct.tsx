@@ -40,11 +40,12 @@ export const AdminProduct: FC<Props> = (props) => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          
         }}
       >
         <Card
           className="productCardAdmin"
-          sx={{ width: 390, boxShadow: "none", borderRadius: "1px", zIndex: 1 }}
+          sx={{ width: 350, boxShadow: "none", borderRadius: "1px", zIndex: 1 }}
         >
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">

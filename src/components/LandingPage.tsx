@@ -1,12 +1,16 @@
-import React, { CSSProperties, FC } from "react";
-import productList, { Product } from "../data/productList";
+import React, { CSSProperties, FC, useContext } from "react";
+import  { Product } from "../data/productList";
 import Carousel from "react-elastic-carousel";
 import BannerLanding from "./landing components/bannerLanding";
 import ProductCard from "./ProductCard";
+import { CartContext } from "./cartContext";
 
 
 
 export const LandingPage: FC = () => {
+
+  const {productArr} = useContext(CartContext)
+
   const breakPoints = [
     { width: 1, itemsToShow: 1 },
     { width: 500, itemsToShow: 2 },
@@ -31,7 +35,7 @@ export const LandingPage: FC = () => {
         <h2>Our best selling products</h2>
       </div>
         <Carousel enableTilt={true} className={'slider'} enableMouseSwipe={true} enableSwipe={true} breakPoints={breakPoints}>
-          {productList.map((product) => (
+          {productArr.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </Carousel>

@@ -54,10 +54,10 @@ const productList: Product[] =[
         slug:'salvatore-sunglasses-1',
         productTitle:'Salvatore Ferragamo',
         productDescription:{
-            form:' Glasögonform: Rektangulär', 
-            material:'Material: Metall' ,
-            toneGrade:'Toningsgrad: Mörka (kategori 3)',
-            uvPro:'UV-skydd: Ja',
+            form:'Rektangulär', 
+            material:'Metall' ,
+            toneGrade:'Mörka (kategori 3)',
+            uvPro:'Ja',
         },
         productImg: {
             img1:salvatoreOne,
@@ -70,11 +70,11 @@ const productList: Product[] =[
         slug:'dunhill-sunglasses-2',
         productTitle:'Dunhill',
         productDescription:{
-            form:' Glasögonform: Retro fyrkant', 
-            material:'Material: Metall' ,
-            toneGrade:'Toningsgrad:Medium (kategori 2)',
-            uvPro:'UV-skydd: Ja',
-            case:' Glasögonfodral: Påse med dragsko, hårt',
+            form:'Retro fyrkant', 
+            material:'Metall' ,
+            toneGrade:'Medium (kategori 2)',
+            uvPro:'Ja',
+            case:'Påse med dragsko, hårt',
         },
         productImg: {
             img1:dunHillOne,
@@ -87,10 +87,10 @@ const productList: Product[] =[
         slug:'tomford-sunglasses-3',
         productTitle:'Tom Ford',
         productDescription:{
-            form:'Glasögonform: Pilot (droppformad)', 
-            toneGrade:'Toningsgrad:Medium (kategori 2)',
-            uvPro:'UV-skydd: Ja',
-            case:'Glasögonfodral: hårt',
+            form:'Pilot (droppformad)', 
+            toneGrade:'Medium (kategori 2)',
+            uvPro:'Ja',
+            case:'hårt',
         },
         productImg: {
             img1:tomFordOne,
@@ -103,11 +103,11 @@ const productList: Product[] =[
         slug:'alexander-sunglasses-4',
         productTitle:'Alexander McQueen',
         productDescription:{
-            form:'Glasögonform: Monoglas', 
-            material:'Material: Acetat',
-            toneGrade:'Toningsgrad: Mörka (kategori 3)',
-            uvPro:'UV-skydd: Ja',
-            case:'Glasögonfodral: Hårt',
+            form:'Monoglas', 
+            material:'Acetat',
+            toneGrade:'Mörka (kategori 3)',
+            uvPro:'Ja',
+            case:'Hårt',
         },
         productImg: {
             img1:AMCQOne,
@@ -120,11 +120,11 @@ const productList: Product[] =[
         slug:'montblanc-sunglasses-5',
         productTitle:'Mont Blanc',
         productDescription:{
-            form:'Glasögonform: Pilot (droppformad)', 
-            material:'Material: Delvis metall',
-            toneGrade:'Toningsgrad: Mörka (kategori 3)',
-            uvPro:'UV-skydd: Ja',
-            case:'Glasögonfodral: Hårt',
+            form:'Pilot (droppformad)', 
+            material:'Delvis metall',
+            toneGrade:'Mörka (kategori 3)',
+            uvPro:'Ja',
+            case:'Hårt',
         },
 
         productImg: {
@@ -138,10 +138,10 @@ const productList: Product[] =[
         slug:'gucci-sunglasses-6',
         productTitle:'Gucci',
         productDescription:{
-            form:'Glasögonform: Rektangulär', 
-            toneGrade:'Toningsgrad: Mörka (kategori 3)',
-            uvPro:'UV-skydd: Ja',
-            case:'Glasögonfodral: Påse med dragsko, hårt',
+            form:'Rektangulär', 
+            toneGrade:'Mörka (kategori 3)',
+            uvPro:'Ja',
+            case:'Påse med dragsko, hårt',
         },
         productImg: {
             img1:gucciOne,
@@ -154,10 +154,10 @@ const productList: Product[] =[
         slug:'prada-sunglasses-7',
         productTitle:'Prada',
         productDescription:{
-            form:'Glasögonform: Rektangulär', 
-            toneGrade:'Toningsgrad: Medium (kategori 2)',
-            uvPro:'UV-skydd: Ja',
-            case:'Glasögonfodral: Hårt',
+            form:'Rektangulär', 
+            toneGrade:'Medium (kategori 2)',
+            uvPro:'Ja',
+            case:'Hårt',
         },
         productImg: {
             img1:pradaOne,
@@ -170,11 +170,11 @@ const productList: Product[] =[
         slug:'dolcegabbana-sunglasses-8',
         productTitle:'Dolce&Gabbana',
         productDescription:{
-            form:'Glasögonform: Pilot (droppformad)', 
-            material:'Material: Acetat',
-            toneGrade:'Toningsgrad: Mörka (kategori 3)',
-            uvPro:'UV-skydd: Ja',
-            case:'Glasögonfodral: Hårt',
+            form:'Pilot (droppformad)', 
+            material:'Acetat',
+            toneGrade:'Mörka (kategori 3)',
+            uvPro:'Ja',
+            case:'Hårt',
         },        
         productImg: {
             img1:DbOne,
@@ -187,10 +187,10 @@ const productList: Product[] =[
         slug:'tods-sunglasses-9',
         productTitle:"Tods's",
         productDescription:{
-            form:'Glasögonform: Pilot (droppformad)', 
-            material:'Material: Delvis metall',
-            toneGrade:'Toningsgrad: Medium (kategori 2)',
-            uvPro:'UV-skydd: Ja',
+            form:'Pilot (droppformad)', 
+            material:'Delvis metall',
+            toneGrade:'Medium (kategori 2)',
+            uvPro:'Ja',
         },        
         productImg: {
             img1:todsOne,
@@ -203,10 +203,10 @@ const productList: Product[] =[
         slug:'versace-sunglasses-10',
         productTitle:'Versace',
         productDescription:{
-            form:'Glasögonform: Pilot (droppformad)', 
-            toneGrade:'Toningsgrad: Mörka (kategori 3)',
-            uvPro:'UV-skydd: Ja',
-            case:'Glasögonfodral: Hårt',
+            form:'Pilot (droppformad)', 
+            toneGrade:'Mörka (kategori 3)',
+            uvPro:'Ja',
+            case:'Hårt',
         },        
         productImg: {
             img1:versaceOne,
@@ -219,34 +219,32 @@ const productList: Product[] =[
         slug:'carrera-sunglasses-10',
         productTitle:'Carrera',
         productDescription:{
-            form:'Glasögonform: Pilot (droppformad)', 
-            toneGrade:'Toningsgrad: Mörka (kategori 3)',
-            uvPro:'UV-skydd: Ja',
-            case:'Glasögonfodral: Hårt',
+            form:'Pilot (droppformad)', 
+            toneGrade:'Mörka (kategori 3)',
+            uvPro:'Ja',
+            case:'Hårt',
         },        
         productImg: {
             img1:carreraOne,
             img2:carreraTwo,
         },
         productPrice:2865,
-        amount:0
     },
     {
         id:12,
         slug:'ck-sunglasses-10',
         productTitle:'CalvinKlein',
         productDescription:{
-            form:'Glasögonform: Pilot (droppformad)', 
-            toneGrade:'Toningsgrad: Mörka (kategori 3)',
-            uvPro:'UV-skydd: Ja',
-            case:'Glasögonfodral: Hårt',
+            form:'Pilot (droppformad)', 
+            toneGrade:'Mörka (kategori 3)',
+            uvPro:'Ja',
+            case:'Hårt',
         },        
         productImg: {
             img1:calvinKleinOne,
             img2:calvinKleinTwo,
         },
         productPrice:2865,
-        amount:0
     },
 ]
 

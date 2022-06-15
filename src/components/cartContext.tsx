@@ -7,8 +7,8 @@ import { toast } from 'react-toastify';
 
 
 interface ValuesProvider {
-  productArr: []
-  cartItems: []
+  productArr: Product []
+  cartItems: Product []
   cartQty: number,
   setCartQty: React.Dispatch<any>,
   itemsNumber: number,
