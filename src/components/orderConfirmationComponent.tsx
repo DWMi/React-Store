@@ -28,46 +28,46 @@ const OrderConfirmationComponent:FC<Props> = ({shipValue, firstName, lastName, e
     const card = (
         <React.Fragment>
                     <CardContent style={{...flexColumn, ...flexDeadCenter, height:'80vh', gap:'40px'}}>
-                    <Typography style={{...flexDeadCenter , ...flexColumn}} sx={{ fontSize: 50 }} color="text.secondary" gutterBottom>
-                        <img style={{width:'150px',margin:'20px'}} src="../src/assets/checkmark.png"/>
+                    <Typography style={{...flexDeadCenter , ...flexColumn, fontSize: '20px'}} color="text.secondary" gutterBottom>
+                        <img style={{...ImageStyle, margin:'20px'}} src="../src/assets/checkmark.png"/>
                         Thank you for the Order
                     </Typography>
                     <Typography variant="h6" component="div">
 
-                            <h4 style={{textAlign:'center'}}>Shippinginfo</h4>
+                            <h5 style={{textAlign:'center'}}>Shipping info</h5>
 
                         <ul style={{listStyle:'none', gap:'20px'}}>
                             <div style={{...flexRow, justifyContent:'flex-start'}}>
                                 <h6 style={{alignSelf:'center'}}>Mail:</h6>
-                                <li style={{marginLeft:'20px',textAlign:'start'}}>{email}</li>
+                                <li style={{marginLeft:'20px',textAlign:'start', fontSize: '15px'}}>{email}</li>
                             </div>
                             <div style={{...flexRow, justifyContent:'flex-start'}}>
                                 <h6 style={{alignSelf:'center'}}>Name:</h6>
-                                <li style={{marginLeft:'20px',textAlign:'start'}}>{firstName +' ' +lastName}</li>
+                                <li style={{marginLeft:'20px',textAlign:'start', fontSize: '15px'}}>{firstName +' ' +lastName}</li>
                             </div>
                             <div style={{...flexRow, justifyContent:'flex-start'}}>
                                 <h6 style={{alignSelf:'center'}}>Country:</h6>
-                                <li style={{marginLeft:'20px',textAlign:'start'}}>{country}</li>
+                                <li style={{marginLeft:'20px',textAlign:'start', fontSize: '15px'}}>{country}</li>
                             </div>
                             <div style={{...flexRow, justifyContent:'flex-start'}}>
                                 <h6 style={{alignSelf:'center'}}>Zip Code:</h6>
-                            <li style={{marginLeft:'20px',textAlign:'start'}}>{zipCode}</li>
+                            <li style={{marginLeft:'20px',textAlign:'start', fontSize: '15px'}}>{zipCode}</li>
                             </div>
                             <div style={{...flexRow, justifyContent:'flex-start'}}>
                                 <h6 style={{alignSelf:'center'}}>City:</h6>
-                            <li style={{marginLeft:'20px',textAlign:'start'}}>{city}</li>
+                            <li style={{marginLeft:'20px',textAlign:'start', fontSize: '15px'}}>{city}</li>
                             </div>
                             <div style={{...flexRow, justifyContent:'flex-start'}}>
                                 <h6 style={{alignSelf:'center'}}>Street</h6>
-                            <li style={{marginLeft:'20px',textAlign:'start'}}>{street}</li>
+                            <li style={{marginLeft:'20px',textAlign:'start', fontSize: '15px'}}>{street}</li>
                             </div>
                             <div style={{...flexRow, justifyContent:'flex-start'}}>
                                 <h6 style={{alignSelf:'center'}}>Shipping Method</h6>
-                            <li style={{marginLeft:'20px',textAlign:'start'}}>{shipValue}</li>
+                            <li style={{marginLeft:'20px',textAlign:'start', fontSize: '15px'}}>{shipValue}</li>
                             </div>
                             <div style={{...flexRow, justifyContent:'flex-start'}}>
                                 <h6 style={{alignSelf:'center'}}>Payment Method</h6>
-                            <li style={{marginLeft:'20px',textAlign:'start'}} >{payment}</li>
+                            <li style={{marginLeft:'20px',textAlign:'start', fontSize: '15px'}} >{payment}</li>
                             </div>
                         </ul>
                     </Typography>
@@ -105,6 +105,11 @@ const OCStyle: CSSProperties = {
     backgroundColor: '#FFF',
     padding: '20px',
     zIndex: 10,
-    width:'80%'
+    maxWidth:'80vh',
+    width: '80%'
+}
 
+const ImageStyle: CSSProperties = {
+    minWidth: '30px',
+    maxWidth: '130px'
 }
