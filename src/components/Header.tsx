@@ -95,7 +95,7 @@ const Header: FC<ItemProps> = ({ setItemsNumber, itemsNumber }) => {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose}><Link to={"/AdminPage"}>My account</Link></MenuItem>
+                <MenuItem onClick={handleClose}><Link to={"/AdminPage"}>ADMIN PAGE</Link></MenuItem>
               </Menu>
       </div>
       )}
