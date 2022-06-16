@@ -7,11 +7,11 @@ import TableContainer from "@mui/material/TableContainer";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { Link } from "react-router-dom";
-import { CartContext } from "./cartContext";
-import { CartProductCard } from "./CartProductCard";
-import { CartTableRow } from "./CartTableRow";
+import { CartContext } from "../components/cartContext";
+import { CartProductCard } from "../components/cards/CartProductCard";
+import { CartTableRow } from "../components/CartTableRow";
 import { flexDeadCenter, flexRow } from "../style/common";
-import { Device, DeviceContext } from "../style/deviceProvider";
+import { Device, DeviceContext } from "../provider/deviceProvider";
 
 export const CartPage: FC = () => {
   const { cartItems } = useContext(CartContext);

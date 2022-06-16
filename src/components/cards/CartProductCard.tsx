@@ -1,9 +1,9 @@
 import { FormControl, InputLabel, MenuItem, Select, TableBody, TableCell, TableRow } from "@mui/material";
 import React, { CSSProperties, FC, useContext } from "react";
-import { Product } from "../data/productList";
+import { Product } from "../../data/productList";
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
-import { CartContext } from "./cartContext";
-import { flexColumn, flexDeadCenter } from "../style/common";
+import { CartContext } from "../cartContext";
+import { flexColumn, flexDeadCenter } from "../../style/common";
 
 
 

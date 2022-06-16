@@ -1,7 +1,7 @@
 import React, { CSSProperties, FC, useContext } from "react";
 import productList, { Product } from "../data/productList";
-import { CartContext } from "./cartContext";
-import ProductCard from "./ProductCard";
+import { CartContext } from "../components/cartContext";
+import ProductCard from "../components/cards/ProductCard";
 
 
 
@@ -22,7 +22,7 @@ const {productArr} = useContext(CartContext)
               <ProductCard key={product.id}  product = {product} />
             ))
           }
-         
+        
 
       </div>
     </div>

@@ -1,5 +1,4 @@
 import React, { CSSProperties, FC, useState } from "react";
-import {Product} from '../data/productList'
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -8,7 +7,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Link } from "react-router-dom";
 import { color } from "@mui/system";
-import { HW100 } from "../style/common";
+import { Product } from "../../data/productList";
 
 
 
@@ -40,7 +39,7 @@ export const ProductCard: FC<Props> = (props) => {
         <Typography style={{wordWrap:'break-word'}} gutterBottom variant="h5" component="div">
           {props.product.productTitle}
         </Typography>
-     
+    
         <Typography variant="h6" color="text.primary">
           {props.product.productPrice},00 kr
         </Typography>

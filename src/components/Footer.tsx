@@ -4,7 +4,7 @@ import { FiMail} from 'react-icons/Fi';
 import { GiRotaryPhone} from 'react-icons/Gi';
 import { MdLocationCity} from 'react-icons/Md';
 import { flexColumn, flexRow , flexDeadCenter} from '../style/common'
-import { Device, DeviceContext } from "../style/deviceProvider";
+import { Device, DeviceContext } from "../provider/deviceProvider";
 
 export const Footer: FC = () => {
 

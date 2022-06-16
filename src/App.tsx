@@ -4,7 +4,7 @@ import './App.css'
 import Footer from './components/Footer'
 import { BrowserRouter } from 'react-router-dom'
 import Layout from './components/Layout'
-import LandingPage from './components/LandingPage'
+import LandingPage from './pages/LandingPage'
 
 const App: FC = () => {
   

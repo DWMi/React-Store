@@ -5,10 +5,10 @@ import productList, {Product} from "../data/productList";
 import { flexDeadCenter, flexColumn, flexRow, marginLR, button, HW100 } from "../style/common";
 import { ItemProps } from '../data/CartAmountProps'
 import { useContext } from "react";
-import { CartContext } from "./cartContext";
+import { CartContext } from "../components/cartContext";
 import { ExitToAppSharp } from "@mui/icons-material";
 import Button from "@mui/material/Button";
-import { Device, DeviceContext } from "../style/deviceProvider";
+import { Device, DeviceContext } from "../provider/deviceProvider";
 import { textAlign } from "@mui/system";
 
 

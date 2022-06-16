@@ -83,3 +83,14 @@ När alla delarna i utcheckningsflödet har fyllts i ska det finns en ”Slutfö
     1.Alla punkter för godkänt är uppfyllda ✅
     2.Det finns en admin-sida där man kan ändra, lägga till eller ta bort produkter på sidan ✅
     3.Samtliga produkter skall vara sparade i localstorage (om localstorage är tom då sidan läses in behöver samtliga fördefinierade produkter sparas där) ✅
+
+    <!-- PLEASE NOTE: the Carousel component interface needs to be change a little;
+    you will need to add the following property:
+
+    children?: any
+
+    and make the property isRTL not requires (isRTL?)
+
+    So there won't be errors
+
+    Ciao -->

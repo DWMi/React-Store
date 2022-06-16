@@ -8,9 +8,9 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Box, Button } from '@mui/material'
-import Modal from './Modal'
-import OrderConfirmationComponent from "./orderConfirmationComponent";
-import { CartContext } from "./cartContext";
+import OrderConfirmationComponent from "../orderConfirmationComponent";
+import { CartContext } from '../cartContext';
+import Modal from "../../modal/Modal";
 
 
 interface Item {

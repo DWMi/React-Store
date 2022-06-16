@@ -1,7 +1,7 @@
 import React, { CSSProperties, FC , useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import { Box, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup, TextField, Button, Card, CardContent, Grid} from "@mui/material";
-import { flexDeadCenter,flexColumn, flexRow } from "../style/common";
+import { flexDeadCenter,flexColumn, flexRow } from "../../style/common";
 import SummaryCheckoutComponent from "./SummaryCheckoutComponent";
 import PaymentComponent from "./PaymentComponent";
 

@@ -1,6 +1,6 @@
 import React, {FC,useEffect,useState} from 'react'
 import  { Card,FormControl, FormControlLabel, FormLabel,Radio, RadioGroup, Box, Button, CardContent, Grid, TextField} from "@mui/material";
-import { flexDeadCenter,flexColumn, flexRow, } from "../style/common";
+import { flexDeadCenter,flexColumn, flexRow, } from "../../style/common";
 import { radioDivStyle } from './FormComponent';
 
 

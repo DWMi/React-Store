@@ -1,5 +1,5 @@
 import React, { CSSProperties, FC } from "react";
-import AdminComponent from "./admin bar components/AdminBar";
+import AdminComponent from "../components/admin bar components/AdminBar";
 
 
 const AdminPage: FC = () => {

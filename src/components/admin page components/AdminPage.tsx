@@ -19,10 +19,11 @@ const AdminPage: FC<Props> = (props) => {
     <div style={AdminPageStyle} id="AdminPage">
 
 
-      <AdminComponent/>
+      <AdminComponent product={props.product} />
 
 
-      {openModal && <AdminEditModal product={props.product} />}
+      {openModal && <AdminEditModal product={props.product} setOpenModal={function (value: boolean): void {
+      } } showBtn={false} />}
 
 
     </div>

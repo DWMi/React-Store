@@ -1,17 +1,18 @@
 import React, { FC, useContext, useState } from 'react'
 import productList, { Product } from '../../data/productList'
 import AdminProduct from './AdminProduct'
-import ProductCard from '../ProductCard'
-import './AdminBar.css'
+
+import '../../style/adminBar.css'
 import { CartContext } from '../cartContext'
 import { Button } from '@mui/material'
 import AdminEditModal from "./modal/AdminEditModal";
 
 interface Props {
+  product: Product
 
 }
 
-const AdminComponent: FC<Props> = () => {
+const AdminComponent: FC<Props> = (props) => {
 
   const [openModal, setOpenModal] = useState(false)
   const [showBtn, setShowBtn] = useState(false)
@@ -46,7 +47,7 @@ const AdminComponent: FC<Props> = () => {
 
         <h1 className='product'>Edit/Delete</h1>
 
-        {openModal && <AdminEditModal setOpenModal={setOpenModal} showBtn={showBtn} />}
+        {openModal && <AdminEditModal setOpenModal={setOpenModal} showBtn={showBtn} product={props.product} />}
 
         <div className='productContainer'>
 

@@ -6,7 +6,7 @@ import { ItemProps } from "../data/CartAmountProps"
 import CartProvider  from "./cartContext";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import DeviceProvider from "../style/deviceProvider";
+import DeviceProvider from "../provider/deviceProvider";
 
 const Layout: FC<ItemProps> = () => {
     const [itemsNumber, setItemsNumber] = useState(0)

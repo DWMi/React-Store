@@ -1,11 +1,11 @@
 import { FC } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import AdminPage from './admin page components/AdminPage'
-import CartPage from './CartPage'
-import CheckOutPage from './CheckoutPage'
-import LandingPage from './LandingPage'
-import ProductPage from './ProductPage'
-import SingleProduct from './SingleProduct'
+import CartPage from '../pages/CartPage'
+import CheckOutPage from '../pages/CheckoutPage'
+import LandingPage from '../pages/LandingPage'
+import ProductPage from '../pages/ProductPage'
+import SingleProduct from '../pages/SingleProduct'
 import { ItemProps } from '../data/CartAmountProps'
 
 

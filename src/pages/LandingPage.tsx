@@ -1,11 +1,11 @@
 import React, { CSSProperties, FC, useContext } from "react";
 import Carousel from "react-elastic-carousel";
-import BannerLanding from "./landing components/bannerLanding";
-import ProductCard from "./ProductCard";
-import { CartContext } from "./cartContext";
+import BannerLanding from "../components/landing components/bannerLanding";  
 import productList, { Product } from "../data/productList";
 import '../App.css'
-import { Device, DeviceContext, DeviceContextData } from "../style/deviceProvider";
+import { Device, DeviceContext, DeviceContextData } from "../provider/deviceProvider";
+import ProductCard from "../components/cards/ProductCard";
+import { CartContext } from "../components/cartContext";
 
 
 
@@ -51,7 +51,7 @@ export const LandingPage: FC = () => {
         <div className="textContainer" style={{margin:'20px 20px'}}>
         <h2>Our best selling products</h2>
       </div>
-       
+      
         <Carousel  enableTilt={true} className={'slider'} enableMouseSwipe={true} enableSwipe={true} breakPoints={breakPoints}>
           {productArr.map((product) => (
             <ProductCard key={product.id} product={product} />

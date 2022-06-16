@@ -1,5 +1,5 @@
 import React, { CSSProperties, FC } from "react";
-import FormComponent from './FormComponent'
+import FormComponent from '../components/forms/FormComponent'
 
 
 const CheckOutPage: FC = () => {

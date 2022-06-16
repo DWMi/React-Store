@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect, CSSProperties, FC } from 'react
 import { toast } from 'react-toastify'
 import { Product } from '../../../data/productList'
 import { CartContext } from '../../cartContext'
-import './AdminEditModal.css'
+import '../../../style/AdminEditModal.css'
 
 interface Props {
     product: Product

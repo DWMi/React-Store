@@ -8,7 +8,7 @@ import { ItemProps } from "../data/CartAmountProps"
 import { flexDeadCenter } from "../style/common";
 import { height } from "@mui/system";
 import { CartContext } from "./cartContext";
-import { Device, DeviceContext } from "../style/deviceProvider";
+import { Device, DeviceContext } from "../provider/deviceProvider";
 
 const Header: FC<ItemProps> = ({ setItemsNumber, itemsNumber }) => {
   const [cartNumber, setCartNumber] = useState<number>()
