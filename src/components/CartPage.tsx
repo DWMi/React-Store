@@ -11,9 +11,23 @@ import { CartContext } from "./cartContext";
 import { CartProductCard } from "./CartProductCard";
 import { CartTableRow } from "./CartTableRow";
 import { flexDeadCenter, flexRow } from "../style/common";
+import { Device, DeviceContext } from "../style/deviceProvider";
 
 export const CartPage: FC = () => {
   const { cartItems } = useContext(CartContext);
+  
+  
+  const { devices } = useContext(DeviceContext)
+
+  let currentDevice: string = devices.isDesktop ? "Desktop" : devices.isTablet ? "Tablet" : "Mobile"  
+    
+  if(devices.isDesktop) {
+      currentDevice = "Desktop"
+  } else if(devices.isTablet) {
+      currentDevice = "Tablet"
+  } else {
+      currentDevice = "Mobile"
+  }
 
   let totalPrice = 0;
 
@@ -22,13 +36,13 @@ export const CartPage: FC = () => {
   });
 
   return (
-    <Box style={{...CartPageStyle}}>
+    <Box style={{...CartPageStyle, ...cartPage(devices)}}>
       {(() => {
         if (cartItems.length >= 1) {
           return (
-            <Box style={{...CartPageStyle, paddingBottom: '0'}}>
-              <TableContainer component={Paper} style={{...ProductContainer, ...flexDeadCenter}}>
-                <Table style={{ minWidth: '150px' }} aria-label="spanning table">
+            <Box style={{...CartPageStyle, ...cartPage(devices)}}>
+              <TableContainer component={Paper} style={{...ProductContainer, ...productContainer(devices), ...flexDeadCenter}}>
+                <Table style={container(devices)} aria-label="spanning table">
                   <CartTableRow />
 
                   {cartItems.map((product: Product) => (
@@ -37,7 +51,7 @@ export const CartPage: FC = () => {
                   <TableRow>
                     <TableCell rowSpan={3} />
                     <TableCell align='right' colSpan={4}
-                      style={{ fontWeight: "bold", minWidth: '190px' }}
+                      style={{ fontWeight: "bold", minWidth: '290px' }}
                     >
                       Total price: {totalPrice},00 kr
                     </TableCell>
@@ -118,6 +132,26 @@ export const CartPage: FC = () => {
 
 export default CartPage;
 
+
+const container: (devices: Device) => CSSProperties = (devices) => {
+  return {
+  width: devices.isMobile? '150px' : devices.isTablet? '600px' : ' 1200px'
+  
+  }
+};
+const productContainer: (devices: Device) => CSSProperties = (devices) => {
+  return {
+    width: devices.isMobile? '100%': '100%' 
+  }
+};
+const cartPage: (devices: Device) => CSSProperties = (devices) => {
+  return {
+    paddingTop: devices.isMobile? '0px': '138px' ,
+    paddingBottom: devices.isMobile? '0': '182px'
+  }
+};
+
+
 //normal style here
 
 export const CartPageStyle: CSSProperties = {
@@ -128,7 +162,7 @@ export const CartPageStyle: CSSProperties = {
   flexDirection: "column",
   alignItems: "center",
   paddingTop: "138px",
-  paddingBottom: "182px",
+  // paddingBottom: "182px",
 
 }
 
