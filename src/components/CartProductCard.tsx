@@ -23,7 +23,9 @@ export const CartProductCard: FC<Props> = (props) => {
 
         <TableBody>
                     <TableRow>
-                    <div style={{...infoContent, ...flexDeadCenter, ...flexColumn, paddingTop: '10px'}}>{props.product.productTitle}</div>
+                        <TableCell colSpan={4}>
+                            <div style={{...infoContent, ...flexDeadCenter, ...flexColumn, paddingTop: '10px', alignItems:'flex-start'}}>{props.product.productTitle}</div>
+                        </TableCell>
                     </TableRow>
             <TableRow key={props.product.id}>
                 <TableCell rowSpan={1} style={{ maxWidth: '150px' }}>
